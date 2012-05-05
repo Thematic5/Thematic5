@@ -9,22 +9,22 @@
 if ( function_exists( 'childtheme_override_body' ) )  {
 	/**
 	 * @ignore
-	 */function thematic_body() {
+	 */function thematic5_body() {
 		childtheme_override_body();
 	}
 } else {
 	/**
 	 * @ignore
-	 */function thematic_body() {
-		thematic_bodyopen();
+	 */function thematic5_body() {
+		thematic5_bodyopen();
 	}
 }
 
 /**
- * thematic_bodyopen function
+ * thematic5_bodyopen function
  */
-function thematic_bodyopen() {
-    if ( apply_filters( 'thematic_show_bodyclass',TRUE ) ) { 
+function thematic5_bodyopen() {
+    if ( apply_filters( 'thematic5_show_bodyclass',TRUE ) ) { 
         // Creating the body class
     	if ( ! ( THEMATIC_COMPATIBLE_BODY_CLASS ) ) { 
     		echo '<body ';
@@ -32,7 +32,7 @@ function thematic_bodyopen() {
     		echo '>' . "\n\n";
     	} else { 
     		echo '<body class="';
-    		thematic_body_class();
+    		thematic5_body_class();
     		echo '">' . "\n\n";
     	}
     } else {
@@ -43,7 +43,7 @@ function thematic_bodyopen() {
 if ( function_exists( 'childtheme_override_body_class' ) )  {
 	/**
 	 * @ignore
-	 */function thematic_body_class() {
+	 */function thematic5_body_class() {
 		childtheme_override_body_class();
 	}
 } else {
@@ -52,27 +52,27 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	 *
 	 * @param bool $print (default: true)
 	 */
-	function thematic_body_class( $print = true ) {
+	function thematic5_body_class( $print = true ) {
 		global $wp_query, $current_user, $blog_id, $post, $taxonomy;
 	    
 	    $c = array();
 	
-		if ( apply_filters('thematic_show_bc_wordpress', TRUE ) ) {
+		if ( apply_filters('thematic5_show_bc_wordpress', TRUE ) ) {
 	        // It's surely a WordPress blog, right?
 	        $c[] = 'wordpress';
 	    }
 	    
-	    if ( apply_filters( 'thematic_show_bc_blogid', TRUE) ) {
+	    if ( apply_filters( 'thematic5_show_bc_blogid', TRUE) ) {
 	    	// Applies the blog id to BODY element .. blog-id1 for WordPress < 3.0
 	    	$c[] = 'blogid-' . $blog_id;
 	    }
 	
-		if ( apply_filters( 'thematic_show_bc_datetime', TRUE) ) {
+		if ( apply_filters( 'thematic5_show_bc_datetime', TRUE) ) {
 	        // Applies the time- and date-based classes (below) to BODY element
-	        thematic_date_classes( time(), $c );
+	        thematic5_date_classes( time(), $c );
 	    }
 	
-	    if ( apply_filters( 'thematic_show_bc_contenttype', TRUE ) ) {
+	    if ( apply_filters( 'thematic5_show_bc_contenttype', TRUE ) ) {
 	        // Generic semantic classes for what type of content is displayed
 	        is_front_page()  ? $c[] = 'home'       : null; // For the front page, if set
 	        is_home()        ? $c[] = 'blog'       : null; // For the blog posts page, if set
@@ -84,7 +84,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	        is_404()         ? $c[] = 'four04'     : null; // CSS does not allow a digit as first character
 	    }
 	
-	    if ( apply_filters( 'thematic_show_bc_singular', TRUE) ) {
+	    if ( apply_filters( 'thematic5_show_bc_singular', TRUE) ) {
 	        // Special classes for BODY element when a singular post
 	        if ( is_singular() ) {
 	            $c[] = 'singular';
@@ -94,7 +94,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	    }
 	
 		// Special classes for BODY element when a single post
-		if ( is_single() && apply_filters( 'thematic_show_bc_singlepost', TRUE ) ) {
+		if ( is_single() && apply_filters( 'thematic5_show_bc_singlepost', TRUE ) ) {
 			$postID = $wp_query->post->ID;
 			the_post();
 	
@@ -106,7 +106,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 	
 			// Adds classes for the month, day, and hour when the post was published
 			if ( isset( $wp_query->post->post_date ) )
-				thematic_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
+				thematic5_date_classes( mysql2date( 'U', $wp_query->post->post_date ), $c, 's-' );
 	
 			// Adds category classes for each category on single posts
 			if ( $cats = get_the_category() )
@@ -176,21 +176,21 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 		}
 	
 		// Author name classes for BODY on author archives
-		elseif ( is_author() && apply_filters( 'thematic_show_bc_authorarchives', TRUE ) ) {
+		elseif ( is_author() && apply_filters( 'thematic5_show_bc_authorarchives', TRUE ) ) {
 			$author = $wp_query->get_queried_object();
 			$c[] = 'author';
 			$c[] = 'author-' . $author->user_nicename;
 		}
 	
 		// Category name classes for BODY on category archvies
-		elseif ( is_category() && apply_filters( 'thematic_show_bc_categoryarchives', TRUE ) ) {
+		elseif ( is_category() && apply_filters( 'thematic5_show_bc_categoryarchives', TRUE ) ) {
 			$cat = $wp_query->get_queried_object();
 			$c[] = 'category';
 			$c[] = 'category-' . $cat->slug;
 		}
 	
 		// Tag name classes for BODY on tag archives
-		elseif ( is_tag() && apply_filters('thematic_show_bc_tagarchives', TRUE ) ) {
+		elseif ( is_tag() && apply_filters('thematic5_show_bc_tagarchives', TRUE ) ) {
 			$tags = $wp_query->get_queried_object();
 			$c[] = 'tag';
 			$c[] = 'tag-' . $tags->slug;
@@ -198,14 +198,14 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 		
 		// Taxonomy name classes for BODY on tag archives
 		
-		elseif ( is_tax() && apply_filters( 'thematic_show_bc_taxonomyarchives', TRUE) ) {
+		elseif ( is_tax() && apply_filters( 'thematic5_show_bc_taxonomyarchives', TRUE) ) {
 			$c[] = 'taxonomy';
 			$c[] = 'tax-' . $taxonomy;
-			$c[] = $taxonomy . '-' . strtolower(thematic_get_term_name());
+			$c[] = $taxonomy . '-' . strtolower(thematic5_get_term_name());
 		}
 	
 		// Page author for BODY on 'pages'
-		elseif ( is_page() && apply_filters( 'thematic_show_bc_pages', TRUE ) ) {
+		elseif ( is_page() && apply_filters( 'thematic5_show_bc_pages', TRUE ) ) {
 			$pageID = $wp_query->post->ID;
 			$page_children = wp_list_pages( "child_of=$pageID&echo=0" );
 			the_post();
@@ -252,7 +252,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 		}
 	
 		// Search classes for results or no results
-		elseif ( is_search() && apply_filters( 'thematic_show_bc_search', TRUE ) ) {
+		elseif ( is_search() && apply_filters( 'thematic5_show_bc_search', TRUE ) ) {
 			the_post();
 			if ( $wp_query->found_posts > 0 ) {
 				$c[] = 'search-results';
@@ -262,19 +262,19 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 			rewind_posts();
 		}
 	
-		if ( apply_filters( 'thematic_show_bc_loggedin', TRUE ) ) {
+		if ( apply_filters( 'thematic5_show_bc_loggedin', TRUE ) ) {
 	        // For when a visitor is logged in while browsing
 	        if ( $current_user->ID )
 	            $c[] = 'loggedin';
 	    }
 	
 	 // Paged classes; for page x > 1 classes of index and all post types etc.
-		if ( isset( $post ) && apply_filters( 'thematic_show_bc_pagex', TRUE ) ) {
+		if ( isset( $post ) && apply_filters( 'thematic5_show_bc_pagex', TRUE ) ) {
 			if ( ( ( ( $page = $wp_query->get( 'paged' ) ) || ( $page = $wp_query->get('page') ) ) && $page > 1 ) ) {
 				// Thanks to Prentiss Riddle, twitter.com/pzriddle, for the security fix below. 
 				$page = intval( $page ); // Ensures that an integer (not some dangerous script) is passed for the variable
  					$c[] = 'paged-' . $page;
- 				if ( thematic_is_custom_post_type() ) {
+ 				if ( thematic5_is_custom_post_type() ) {
  							$c[] = str_replace( '_','-',$post->post_type ) . '-paged-' . $page;
  					} elseif ( is_single() && $post->post_type=="post"  ) {
 				        $c[] = 'single-paged-' . $page;
@@ -295,7 +295,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
  				} 
  			// Paged classes; for page x = 1	For all post types
  			} elseif ( strpos( $post->post_content, '<!--nextpage-->') )  { 
- 				if ( thematic_is_custom_post_type() ) {
+ 				if ( thematic5_is_custom_post_type() ) {
 				    	$c[] = str_replace( '_','-',$post->post_type ) . '-paged-1';
  				    } elseif (is_page()) {
 				    	$c[] = 'page-paged-1';
@@ -307,7 +307,7 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 		
 	
 		// Separates classes with a single space, collates classes for BODY
-		$c = join( ' ', apply_filters( 'thematic_body_class',  $c ) ); // Available filter: thematic_body_class
+		$c = join( ' ', apply_filters( 'thematic5_body_class',  $c ) ); // Available filter: thematic5_body_class
 	
 		// And tada!
 		return $print ? print($c) : $c;
@@ -317,20 +317,20 @@ if ( function_exists( 'childtheme_override_body_class' ) )  {
 // Add browser CSS class to the end (queuing through priority) of the body classes 
 
 if ( ! ( THEMATIC_COMPATIBLE_BODY_CLASS ) ) {
-	add_filter( 'body_class', 'thematic_browser_class_names', 20 );
+	add_filter( 'body_class', 'thematic5_browser_class_names', 20 );
 	}
 	
-if ( apply_filters( 'thematic_show_bc_browser', TRUE ) ) {
-	add_filter( 'thematic_body_class', 'thematic_browser_class_names', 20 ); 
+if ( apply_filters( 'thematic5_show_bc_browser', TRUE ) ) {
+	add_filter( 'thematic5_body_class', 'thematic5_browser_class_names', 20 ); 
 	}
 
 
 
 
 /**
- * thematic_browser_class_names function.
+ * thematic5_browser_class_names function.
  */
-function thematic_browser_class_names($classes) {
+function thematic5_browser_class_names($classes) {
 	// add 'class-name' to the $classes array
 	// $classes[] = 'class-name';
 	$browser = $_SERVER[ 'HTTP_USER_AGENT' ];
@@ -423,18 +423,18 @@ function thematic_browser_class_names($classes) {
 if (function_exists('childtheme_override_post_class'))  {
 	/**
 	 * @ignore
-	 */function thematic_post_class() {
+	 */function thematic5_post_class() {
 		childtheme_override_post_class();
 	}
 } else {
 	/**
 	 * Generates semantic classes for each post DIV element
 	 */
-	function thematic_post_class( $print = true ) {
-		global $post, $thematic_post_alt, $thematic_content_length, $taxonomy;
+	function thematic5_post_class( $print = true ) {
+		global $post, $thematic5_post_alt, $thematic5_content_length, $taxonomy;
 	
 		// hentry for hAtom compliace, gets 'alt' for every other post DIV, describes the post type and p[n]
-		$c = array( 'hentry', "p$thematic_post_alt", str_replace( '_', '-', $post->post_type) , $post->post_status );
+		$c = array( 'hentry', "p$thematic5_post_alt", str_replace( '_', '-', $post->post_type) , $post->post_status );
 	
 		// Author for the post queried
 		$c[] = 'author-' . sanitize_title_with_dashes( strtolower( get_the_author_meta( 'user_login' ) ) );
@@ -469,11 +469,11 @@ if (function_exists('childtheme_override_post_class'))  {
 		}
 
 		// For posts displayed as full content
-		if ($thematic_content_length == 'full')
+		if ($thematic5_content_length == 'full')
 			$c[] = 'is-full';
 
 		// For posts displayed as excerpts
-		if ($thematic_content_length == 'excerpt') {
+		if ($thematic5_content_length == 'excerpt') {
 			$c[] = 'is-excerpt';
 			if ( has_excerpt() && !preg_match( '/<!--more(.*?)?-->/', $post->post_content ) ) {
 				// For wp-admin Write Page generated excerpts
@@ -520,10 +520,10 @@ if (function_exists('childtheme_override_post_class'))  {
 		   $c[] = 'sticky';
 	
 		// Applies the time- and date-based classes (below) to post DIV
-		thematic_date_classes( mysql2date( 'U', $post->post_date ), $c );
+		thematic5_date_classes( mysql2date( 'U', $post->post_date ), $c );
 	
 		// If it's the other to the every, then add 'alt' class
-		if ( ++$thematic_post_alt % 2 )
+		if ( ++$thematic5_post_alt % 2 )
 			$c[] = 'alt';
 	
 	    // Adds post slug class, prefixed by 'slug-'
@@ -542,7 +542,7 @@ if (function_exists('childtheme_override_post_class'))  {
  * 
  * @var int  (default value: 1)
  */
-$thematic_post_alt = 1;
+$thematic5_post_alt = 1;
 
 
 
@@ -551,17 +551,17 @@ $thematic_post_alt = 1;
  *
  * @since 0.9.8
  */
-function thematic_add_comment_class($classes) {
+function thematic5_add_comment_class($classes) {
     global $comment, $post;
 
     // Add time and date based classes
-    thematic_date_classes( mysql2date( 'U', $comment->comment_date ), $classes, 'thm-c-' );
+    thematic5_date_classes( mysql2date( 'U', $comment->comment_date ), $classes, 'thm-c-' );
 
     // Do not duplicate values
     return array_unique( $classes );
 }
 
-add_filter( 'comment_class', 'thematic_add_comment_class', 20 );
+add_filter( 'comment_class', 'thematic5_add_comment_class', 20 );
 
 
 
@@ -569,14 +569,14 @@ if ( function_exists( 'childtheme_override_date_classes' ) )  {
 	/**
 	 * @ignore
 	 */
-	function thematic_date_classes() {
+	function thematic5_date_classes() {
 		childtheme_override_date_classes();
 	}
 } else {
 	/**
 	 * Generates time and date based classes relative to GMT (UTC)
 	 */
-	function thematic_date_classes( $t, &$c, $p = '' ) {
+	function thematic5_date_classes( $t, &$c, $p = '' ) {
 		$t = $t + ( get_option('gmt_offset') * 3600 );
 		$c[] = $p . 'y' . gmdate( 'Y', $t ); // Year
 		$c[] = $p . 'm' . gmdate( 'm', $t ); // Month

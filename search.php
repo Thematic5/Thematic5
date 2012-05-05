@@ -12,7 +12,7 @@
     get_header();
 
     // action hook for placing content above #container
-    thematic_abovecontainer();
+    thematic5_abovecontainer();
 
 ?>
 
@@ -20,35 +20,35 @@
 		
 			<?php 
 	            // action hook for inserting contentabove #content
-				thematic_abovecontent();
+				thematic5_abovecontent();
 		
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 							
 				if (have_posts()) {
 	
 	                // displays the page title
-	                thematic_page_title();
+	                thematic5_page_title();
 	
 	                // create the navigation above the content
-	                thematic_navigation_above();
+	                thematic5_navigation_above();
 				
 	                // action hook for placing content above the search loop
-	                thematic_above_searchloop();			
+	                thematic5_above_searchloop();			
 	
 	                // action hook creating the search loop
-	                thematic_searchloop();
+	                thematic5_searchloop();
 	
 	                // action hook for placing content below the search loop
-	                thematic_below_searchloop();			
+	                thematic5_below_searchloop();			
 	
 	                // create the navigation below the content
-	                thematic_navigation_below();
+	                thematic5_navigation_below();
 	
 	            } else {
 	            
 	            	// action hook for inserting content above #post
-	           		thematic_abovepost();
+	           		thematic5_abovepost();
 	           ?>
 
 				<div id="post-0" class="post noresults">
@@ -77,7 +77,7 @@
 	
 	            <?php
 	            	// action hook for inserting content below #post
-	            	thematic_belowpost();
+	            	thematic5_belowpost();
 	            }
 	            ?>
 	            
@@ -85,16 +85,16 @@
 			
 			<?php 
 				// action hook for inserting content below #content
-				thematic_belowcontent(); 
+				thematic5_belowcontent(); 
 			?> 
 		</div><!-- #container -->
 
 <?php 
     // action hook for placing content below #container
-    thematic_belowcontainer();
+    thematic5_belowcontainer();
 
     // calling the standard sidebar 
-    thematic_sidebar();
+    thematic5_sidebar();
     
     // calling footer.php
     get_footer();

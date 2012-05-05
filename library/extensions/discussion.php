@@ -15,7 +15,7 @@
  * @param array $args 
  * @param int $depth 
  */
-function thematic_comments($comment, $args, $depth) {
+function thematic5_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 	$GLOBALS['comment_depth'] = $depth;
 ?>
@@ -24,12 +24,12 @@ function thematic_comments($comment, $args, $depth) {
     	
     		<?php 
     			// action hook for inserting content above #comment
-    			thematic_abovecomment();
+    			thematic5_abovecomment();
     		?>
     		
-    		<div class="comment-author vcard"><?php thematic_commenter_link() ?></div>
+    		<div class="comment-author vcard"><?php thematic5_commenter_link() ?></div>
     		
-    			<?php thematic_commentmeta(TRUE); ?>
+    			<?php thematic5_commentmeta(TRUE); ?>
     		
     			<?php  
     				if ( $comment->comment_approved == '0' ) {
@@ -60,7 +60,7 @@ function thematic_comments($comment, $args, $depth) {
 			
 			<?php
 				// action hook for inserting content above #comment
-				thematic_belowcomment() 
+				thematic5_belowcomment() 
 			?>
 
 <?php }
@@ -72,7 +72,7 @@ function thematic_comments($comment, $args, $depth) {
  * @param array $args 
  * @param int $depth 
  */
-function thematic_pings($comment, $args, $depth) {
+function thematic5_pings($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 	?>
 

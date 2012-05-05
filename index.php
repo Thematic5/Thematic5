@@ -17,54 +17,54 @@
 	get_header();
 	
 	// action hook for placing content above #container
-	thematic_abovecontainer();
+	thematic5_abovecontainer();
 ?>
 
 		<div id="container">
 
 			<?php
 		    	// action hook for placing content above #content
-				thematic_abovecontent();
+				thematic5_abovecontent();
 				
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 				
 				// create the navigation above the content
-            	thematic_navigation_above();
+            	thematic5_navigation_above();
 				
             	// calling the widget area 'index-top'
             	get_sidebar('index-top');
 				
             	// action hook for placing content above the index loop
-            	thematic_above_indexloop();
+            	thematic5_above_indexloop();
 				
             	// action hook creating the index loop
-            	thematic_indexloop();
+            	thematic5_indexloop();
 				
             	// action hook for placing content below the index loop
-            	thematic_below_indexloop();
+            	thematic5_below_indexloop();
 				
             	// calling the widget area 'index-bottom'
             	get_sidebar('index-bottom');
 				
             	// create the navigation below the content
-            	thematic_navigation_below();
+            	thematic5_navigation_below();
             ?>
 
 			</div><!-- #content -->
 
 			<?php
 				// action hook for placing content below #content
-				thematic_belowcontent();
+				thematic5_belowcontent();
 			?>
 		</div><!-- #container -->
 		
 <?php
 	// action hook for placing content below #container
-	thematic_belowcontainer();
+	thematic5_belowcontainer();
 	
 	// calling the standard sidebar 
-	thematic_sidebar();
+	thematic5_sidebar();
 	
 	// calling footer.php
 	get_footer();

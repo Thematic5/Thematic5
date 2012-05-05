@@ -9,5 +9,5 @@
  */
     
     // calls the search form
-	thematic_search_form();
+	thematic5_search_form();
 ?>

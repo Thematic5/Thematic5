@@ -14,51 +14,51 @@
 	get_header();
 
 	// action hook for placing content above #container
-	thematic_abovecontainer();
+	thematic5_abovecontainer();
 ?>
 
 		<div id="container">
 
 			<?php 
 				// action hook for placing content above #content
-				thematic_abovecontent();
+				thematic5_abovecontent();
 
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 
 				// action hook for placing content above #post
-				thematic_abovepost(); 
+				thematic5_abovepost(); 
 			?>
 
 				<div id="post-0" class="post error404">
 
 				<?php
 		    		// action hook for placing the 404 content
-    	        	thematic_404()
+    	        	thematic5_404()
     	        ?>
 
 				</div><!-- .post -->
 
 				<?php 
 					// action hook for placing content below #post
-					thematic_belowpost(); 
+					thematic5_belowpost(); 
 				?>
 
 			</div><!-- #content -->
 
 			<?php 
 				// action hook for placing content below #content
-				thematic_belowcontent(); 
+				thematic5_belowcontent(); 
 			?> 
 
 		</div><!-- #container -->
     
 <?php
 	// action hook for placing content below #container
-	thematic_belowcontainer();
+	thematic5_belowcontainer();
 
 	// calling the standard sidebar 
-	thematic_sidebar();
+	thematic5_sidebar();
 
 	// calling footer.php
 	get_footer();

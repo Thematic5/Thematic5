@@ -24,17 +24,17 @@ $shortname = "thm";
 
 
 /**
- * Registers action hook: thematic_init 
+ * Registers action hook: thematic5_init 
  * 
  * @since Thematic 0.9.8
  */
-function thematic_init() {
-	do_action('thematic_init');
+function thematic5_init() {
+	do_action('thematic5_init');
 }
 
 
 /**
- * thematic_theme_setup & childtheme_override_theme_setup
+ * thematic5_theme_setup & childtheme_override_theme_setup
  *
  * Override: childtheme_override_theme_setup
  *
@@ -44,14 +44,14 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 	/**
 	 * @ignore
 	 */
-	function thematic_theme_setup() {
+	function thematic5_theme_setup() {
 		childtheme_override_theme_setup();
 	}
 } else {
 	/**
 	 * 
 	 */
-	function thematic_theme_setup() {
+	function thematic5_theme_setup() {
 		global $content_width;
 
 		/**
@@ -101,7 +101,7 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		define( 'TEMPLATEVERSION', $templateversion );
 
 		// set feed links handling
-		// If you set this to TRUE, thematic_show_rss() and thematic_show_commentsrss() are used instead of add_theme_support( 'automatic-feed-links' )
+		// If you set this to TRUE, thematic5_show_rss() and thematic5_show_commentsrss() are used instead of add_theme_support( 'automatic-feed-links' )
 		if ( !defined('THEMATIC_COMPATIBLE_FEEDLINKS') ) {
 			if ( function_exists('comment_form') ) {
 				define('THEMATIC_COMPATIBLE_FEEDLINKS', false); // WordPress 3.0
@@ -116,12 +116,12 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 			define('THEMATIC_COMPATIBLE_COMMENT_HANDLING', false);
 
 		// set body class handling to WP body_class()
-		// If you set this to TRUE, Thematic will use thematic_body_class instead
+		// If you set this to TRUE, Thematic will use thematic5_body_class instead
 		if ( !defined('THEMATIC_COMPATIBLE_BODY_CLASS') )
 			define('THEMATIC_COMPATIBLE_BODY_CLASS', false);
 
 		// set post class handling to WP post_class()
-		// If you set this to TRUE, Thematic will use thematic_post_class instead
+		// If you set this to TRUE, Thematic will use thematic5_post_class instead
 		if ( !defined('THEMATIC_COMPATIBLE_POST_CLASS') )
 			define('THEMATIC_COMPATIBLE_POST_CLASS', false);
 
@@ -141,10 +141,10 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		if ( !(THEMATIC_COMPATIBLE_FEEDLINKS) )
  			add_theme_support('automatic-feed-links');
  
-		if ( apply_filters('thematic_post_thumbs', true) )
+		if ( apply_filters('thematic5_post_thumbs', true) )
 			add_theme_support('post-thumbnails');
  
-		add_theme_support('thematic_superfish');
+		add_theme_support('thematic5_superfish');
 
 		// Path constants
 		define( 'THEMELIB', TEMPLATEPATH . '/library' );
@@ -198,11 +198,11 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		add_filter('archive_meta', 'wpautop');
 
 		// Remove the WordPress Generator - via http://blog.ftwr.co.uk/archives/2007/10/06/improving-the-wordpress-generator/
-		function thematic_remove_generators() {
+		function thematic5_remove_generators() {
  			return '';
  		}
- 		if ( apply_filters('thematic_hide_generators', true) )
- 			add_filter('the_generator', 'thematic_remove_generators');
+ 		if ( apply_filters('thematic5_hide_generators', true) )
+ 			add_filter('the_generator', 'thematic5_remove_generators');
  
 		// Translate, if applicable
 		load_theme_textdomain('thematic', THEMELIB . '/languages');
@@ -214,26 +214,26 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 	}
 }
 
-add_action('after_setup_theme', 'thematic_theme_setup', 10);
+add_action('after_setup_theme', 'thematic5_theme_setup', 10);
 
 
 /**
- * Registers action hook: thematic_child_init
+ * Registers action hook: thematic5_child_init
  * 
  * @since Thematic 0.9.8
  */
-function thematic_child_init() {
-	do_action('thematic_child_init');
+function thematic5_child_init() {
+	do_action('thematic5_child_init');
 }
 
-add_action('after_setup_theme', 'thematic_child_init', 20);
+add_action('after_setup_theme', 'thematic5_child_init', 20);
 
 
 if ( function_exists('childtheme_override_init_navmenu') )  {
 	/**
 	 * @ignore
 	 */
-	 function thematic_init_navmenu() {
+	 function thematic5_init_navmenu() {
     	childtheme_override_init_navmenu();
     }
 } else {
@@ -241,11 +241,11 @@ if ( function_exists('childtheme_override_init_navmenu') )  {
 	 * Register primary nav menu
 	 * 
 	 * Override: childtheme_override_init_navmenu
-	 * Filter: thematic_primary_menu_id
-	 * Filter: thematic_primary_menu_name
+	 * Filter: thematic5_primary_menu_id
+	 * Filter: thematic5_primary_menu_name
 	 */
-    function thematic_init_navmenu() {
-		register_nav_menu( apply_filters('thematic_primary_menu_id', 'primary-menu'), apply_filters('thematic_primary_menu_name', __( 'Primary Menu', 'thematic' ) ) );
+    function thematic5_init_navmenu() {
+		register_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu'), apply_filters('thematic5_primary_menu_name', __( 'Primary Menu', 'thematic' ) ) );
 	}
 }
-add_action('init', 'thematic_init_navmenu');
+add_action('init', 'thematic5_init_navmenu');

@@ -13,7 +13,7 @@
 ?>
 				<?php
 					// action hook for inserting content above #comments
-					thematic_abovecomments() 
+					thematic5_abovecomments() 
 				?>
 				
 				<div id="comments">
@@ -44,40 +44,40 @@
 	
 					<?php
 						// Collect the comments and pings
-						$thematic_comments = $wp_query->comments_by_type['comment'];
-						$thematic_pings = $wp_query->comments_by_type['pings'];
+						$thematic5_comments = $wp_query->comments_by_type['comment'];
+						$thematic5_pings = $wp_query->comments_by_type['pings'];
 						
 						// Calculate the total number of each
-						$thematic_comment_count = count( $thematic_comments );
-						$thematic_ping_count = count( $thematic_pings );
+						$thematic5_comment_count = count( $thematic5_comments );
+						$thematic5_ping_count = count( $thematic5_pings );
 						
 						// Get the page count for each
-						$thematic_comment_pages = get_comment_pages_count( $thematic_comments );
-						$thematic_ping_pages = get_comment_pages_count( $thematic_pings );
+						$thematic5_comment_pages = get_comment_pages_count( $thematic5_comments );
+						$thematic5_ping_pages = get_comment_pages_count( $thematic5_pings );
 						
 						// Determine which is the greater pagination number between the two (comment,ping) paginations
-						$thematic_max_response_pages = ( $thematic_ping_pages > $thematic_comment_pages ) ? $thematic_ping_pages : $thematic_comment_pages;
+						$thematic5_max_response_pages = ( $thematic5_ping_pages > $thematic5_comment_pages ) ? $thematic5_ping_pages : $thematic5_comment_pages;
 						
 						// Reset the query var to use our calculation for the maximum page (newest/oldest)
 						if ( $overridden_cpage )
-							set_query_var( 'cpage', 'newest' == get_option('default_comments_page') ? $thematic_comment_pages : 1 );
+							set_query_var( 'cpage', 'newest' == get_option('default_comments_page') ? $thematic5_comment_pages : 1 );
 					?>
 					
 					<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
 							
 					<?php
 						// action hook for inserting content above #comments-list
-						thematic_abovecommentslist() ;
+						thematic5_abovecommentslist() ;
 					?>
 
-						<?php if ( get_query_var('cpage') <= $thematic_comment_pages )  : ?>
+						<?php if ( get_query_var('cpage') <= $thematic5_comment_pages )  : ?>
 					
 					<div id="comments-list-wrapper" class="comments">
 
-						<h3><?php printf( $thematic_comment_count > 1 ? __( thematic_multiplecomments_text(), 'thematic' ) : __( thematic_singlecomment_text(), 'thematic' ), $thematic_comment_count ) ?></h3>
+						<h3><?php printf( $thematic5_comment_count > 1 ? __( thematic5_multiplecomments_text(), 'thematic' ) : __( thematic5_singlecomment_text(), 'thematic' ), $thematic5_comment_count ) ?></h3>
 	
 						<ol id="comments-list" >
-							<?php wp_list_comments( thematic_list_comments_arg() ); ?>
+							<?php wp_list_comments( thematic5_list_comments_arg() ); ?>
 						</ol>
 										
 					</div><!-- #comments-list-wrapper .comments -->
@@ -86,14 +86,14 @@
 						
 					<?php 
 						// action hook for inserting content below #comments-list
-						thematic_belowcommentslist() 
+						thematic5_belowcommentslist() 
 					?>
 					
 					<?php endif; ?>
 					
 					<div id="comments-nav-below" class="comment-navigation">
 	        		
-	        			<div class="paginated-comments-links"><?php paginate_comments_links( 'total=' . $thematic_max_response_pages ); ?></div>
+	        			<div class="paginated-comments-links"><?php paginate_comments_links( 'total=' . $thematic5_max_response_pages ); ?></div>
 	                
 	                </div>	
 	                	                  
@@ -101,17 +101,17 @@
 	
 					<?php 
 						// action hook for inserting content above #trackbacks-list-wrapper
-						thematic_abovetrackbackslist();
+						thematic5_abovetrackbackslist();
 					?>
 						
-						<?php if ( get_query_var('cpage') <= $thematic_ping_pages ) : ?>
+						<?php if ( get_query_var('cpage') <= $thematic5_ping_pages ) : ?>
 						
 					<div id="pings-list-wrapper" class="pings">
 						
-						<h3><?php printf( $thematic_ping_count > 1 ? '<span>%d</span> ' . __( 'Trackbacks', 'thematic' ) : __( '<span>One</span> Trackback', 'thematic' ), $thematic_ping_count ) ?></h3>
+						<h3><?php printf( $thematic5_ping_count > 1 ? '<span>%d</span> ' . __( 'Trackbacks', 'thematic' ) : __( '<span>One</span> Trackback', 'thematic' ), $thematic5_ping_count ) ?></h3>
 	
 						<ul id="trackbacks-list">
-							<?php wp_list_comments( 'type=pings&callback=thematic_pings' ); ?>
+							<?php wp_list_comments( 'type=pings&callback=thematic5_pings' ); ?>
 						</ul>				
 	
 					</div><!-- #pings-list-wrapper .pings -->			
@@ -120,7 +120,7 @@
 						
 					<?php
 						// action hook for inserting content below #trackbacks-list
-						thematic_belowtrackbackslist();
+						thematic5_belowtrackbackslist();
 					?>
 									
 					<?php endif; ?>
@@ -134,7 +134,7 @@
 			
 					<div id="respond">
 					
-	    				<h3><?php comment_form_title( __( thematic_postcomment_text(), 'thematic' ), __( thematic_postreply_text(), 'thematic' ) ); ?></h3>
+	    				<h3><?php comment_form_title( __( thematic5_postcomment_text(), 'thematic' ), __( thematic5_postreply_text(), 'thematic' ) ); ?></h3>
 	
 	    				<div id="cancel-comment-reply"><?php cancel_comment_reply_link() ?></div>
 	
@@ -146,7 +146,7 @@
 	
 							<?php
 								// action hook for inserting content above #commentform
-								thematic_abovecommentsform() 
+								thematic5_abovecommentsform() 
 							?>					
 	
 							<form id="commentform" action="<?php echo site_url( '/wp-comments-post.php' ) ?>" method="post">
@@ -181,7 +181,7 @@
 							<?php endif /* if ( $user_ID ) */ ?>
 	
 	                            <div id="form-section-comment" class="form-section">
-	    							<div class="form-label"><label for="comment"><?php _e( thematic_commentbox_text(), 'thematic' ) ?></label></div>
+	    							<div class="form-label"><label for="comment"><?php _e( thematic5_commentbox_text(), 'thematic' ) ?></label></div>
 	    							<div class="form-textarea"><textarea id="comment" name="comment" cols="45" rows="8" tabindex="6"></textarea></div>
 	                            </div><!-- #form-section-comment .form-section -->
 	                            
@@ -191,7 +191,7 @@
 								
 	                  			<?php do_action( 'comment_form', $post->ID ); ?>
 	                  
-								<div class="form-submit"><input id="submit" name="submit" type="submit" value="<?php echo thematic_commentbutton_text(); ?>" tabindex="7" /><input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" /></div>
+								<div class="form-submit"><input id="submit" name="submit" type="submit" value="<?php echo thematic5_commentbutton_text(); ?>" tabindex="7" /><input type="hidden" name="comment_post_ID" value="<?php echo $id; ?>" /></div>
 	
 	                            <?php comment_id_fields(); ?>    
 	
@@ -199,7 +199,7 @@
 	
 							<?php
 								// action hook for inserting content below #commentform
-								thematic_belowcommentsform()
+								thematic5_belowcommentsform()
 							?>
 	
 						</div><!-- .formcontainer -->
@@ -210,7 +210,7 @@
 						<?php
 								} else {
 								
-									comment_form( thematic_comment_form_args() );
+									comment_form( thematic5_comment_form_args() );
 									
 								}
 							endif /* if ( 'open' == $post->comment_status ) */ 
@@ -220,5 +220,5 @@
 				
 				<?php
 					// action hook for inserting content below #comments
-					thematic_belowcomments()
+					thematic5_belowcomments()
 				?>

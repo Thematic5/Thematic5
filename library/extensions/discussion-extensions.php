@@ -10,7 +10,7 @@ if (function_exists('childtheme_override_commentmeta'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic_commentmeta() {
+	function thematic5_commentmeta() {
 		childtheme_override_commentmeta();
 	}
 } else {
@@ -20,9 +20,9 @@ if (function_exists('childtheme_override_commentmeta'))  {
 	 * Located in discussion.php
 	 * 
 	 * Override: childtheme_override_commentmeta <br>
-	 * Filter: thematic_commentmeta
+	 * Filter: thematic5_commentmeta
 	 */
-	function thematic_commentmeta($print = TRUE) {
+	function thematic5_commentmeta($print = TRUE) {
 		$content = '<div class="comment-meta">' . 
 					sprintf( __('Posted %1$s at %2$s <span class="meta-sep">|</span> <a href="%3$s" title="Permalink to this comment">Permalink</a>', 'thematic' ),
 					get_comment_date(),
@@ -38,29 +38,29 @@ if (function_exists('childtheme_override_commentmeta'))  {
 		
 		$content .= '</div>' . "\n";
 			
-		return $print ? print(apply_filters('thematic_commentmeta', $content)) : apply_filters('thematic_commentmeta', $content);
+		return $print ? print(apply_filters('thematic5_commentmeta', $content)) : apply_filters('thematic5_commentmeta', $content);
 
-	} // end thematic_commentmeta
+	} // end thematic5_commentmeta
 }
 
 /**
- * Register action hook: thematic_abovecomment
+ * Register action hook: thematic5_abovecomment
  * 
  * Located in discussion.php, at the beginning of the li#comment-[id] element.
  * Note that this is *per comment*
  */
-function thematic_abovecomment() {
-	do_action('thematic_abovecomment');
+function thematic5_abovecomment() {
+	do_action('thematic5_abovecomment');
 }
 
 /**
- * Register action hook: thematic_belowcomment
+ * Register action hook: thematic5_belowcomment
  * 
  * Located discussion.php, just after the comment reply link.
  * Note that this is *per comment*:
  */
-function thematic_belowcomment() {
-	do_action('thematic_belowcomment');
+function thematic5_belowcomment() {
+	do_action('thematic5_belowcomment');
 }
 
 ?>

@@ -9,17 +9,17 @@
  */
 
     // action hook for placing content above the main asides
-    thematic_abovemainasides();
+    thematic5_abovemainasides();
 
     // action hook creating the primary aside
-    thematic_widget_area_primary_aside();	
+    thematic5_widget_area_primary_aside();	
 	
     // action hook for placing content between primary and secondary aside
-    thematic_betweenmainasides();
+    thematic5_betweenmainasides();
 
     // action hook creating the secondary aside
-    thematic_widget_area_secondary_aside();		
+    thematic5_widget_area_secondary_aside();		
 	
     // action hook for placing content below the main asides
-    thematic_belowmainasides(); 
+    thematic5_belowmainasides(); 
 ?>

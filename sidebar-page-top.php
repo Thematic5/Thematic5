@@ -9,11 +9,11 @@
  */
 
     // action hook for placing content above the 'page-top' widget area
-    thematic_abovepagetop();
+    thematic5_abovepagetop();
 
     // action hook for creating the 'page-top' widget area
-    thematic_widget_area_page_top();
+    thematic5_widget_area_page_top();
 
     // action hook for placing content below the 'page-top' widget area
-    thematic_belowpagetop();
+    thematic5_belowpagetop();
 ?>

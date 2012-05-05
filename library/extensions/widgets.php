@@ -10,18 +10,18 @@
 /**
  * Markup before the widget
  */
-function thematic_before_widget() {
+function thematic5_before_widget() {
 	$content = '<li id="%1$s" class="widgetcontainer %2$s">';
-	return apply_filters('thematic_before_widget', $content);
+	return apply_filters('thematic5_before_widget', $content);
 }
 
 
 /**
  * Markup after the widget
  */
-function thematic_after_widget() {
+function thematic5_after_widget() {
 	$content = '</li>';
-	return apply_filters('thematic_after_widget', $content);
+	return apply_filters('thematic5_after_widget', $content);
 }
 
 
@@ -29,18 +29,18 @@ function thematic_after_widget() {
 /**
  * Markup before the widget title
  */
-function thematic_before_title() {
+function thematic5_before_title() {
 	$content = "<h3 class=\"widgettitle\">";
-	return apply_filters('thematic_before_title', $content);
+	return apply_filters('thematic5_before_title', $content);
 }
 
 
 /**
  * Markup after the widget title
  */
-function thematic_after_title() {
+function thematic5_after_title() {
 	$content = "</h3>\n";
-	return apply_filters('thematic_after_title', $content);
+	return apply_filters('thematic5_after_title', $content);
 }
 
 

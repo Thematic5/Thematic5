@@ -10,37 +10,37 @@
  */
  
 	// Create doctype
-	thematic_create_doctype();
+	thematic5_create_doctype();
 	echo " ";
 	language_attributes();
 	echo ">\n";
 	
 	// Opens the head tag 
-	thematic_head_profile();
+	thematic5_head_profile();
 	
 	// Create the meta content type
-	thematic_create_contenttype();
+	thematic5_create_contenttype();
 	
 	// Create the title tag 
-	thematic_doctitle();
+	thematic5_doctitle();
 	
 	// Create the meta description
-	thematic_show_description();
+	thematic5_show_description();
 	
 	// Create the tag <meta name="robots"  
-	thematic_show_robots();
+	thematic5_show_robots();
 	
 	// Constant defined true by default 
 	if (THEMATIC_COMPATIBLE_FEEDLINKS) {    
 		// Creating the internal RSS links
-		thematic_show_rss();
+		thematic5_show_rss();
 	
 		// Create comments RSS links
-		thematic_show_commentsrss();
+		thematic5_show_commentsrss();
 	}
 	
 	// Create pingback adress
-	thematic_show_pingback();
+	thematic5_show_pingback();
 	
 	/* The function wp_head() loads Thematic's stylesheet and scripts.
 	 * Calling wp_head() is required to provide plugins and child themes
@@ -52,31 +52,31 @@
 
 <?php 
 	// Create the body element and dynamic body classes
-	thematic_body();
+	thematic5_body();
 
 	// Action hook to place content before opening #wrapper
-	thematic_before(); 
+	thematic5_before(); 
 
 	// Filter provided for altering output of wrapping element follows the body tag
-	if (apply_filters('thematic_open_wrapper', true)) {
+	if (apply_filters('thematic5_open_wrapper', true)) {
   	  echo ('<div id="wrapper" class="hfeed">' . "\n");
 	}
 
 	// Action hook for placing content above the theme header
-	thematic_aboveheader(); 
+	thematic5_aboveheader(); 
 ?>
    
 	<div id="header">
         
         <?php 
 			// Action hook creating the theme header
-			thematic_header();
+			thematic5_header();
         ?>
         
 	</div><!-- #header-->
     
     <?php
 		// Action hook for placing content below the theme header
-		thematic_belowheader();
+		thematic5_belowheader();
     ?>
 	<div id="main">
