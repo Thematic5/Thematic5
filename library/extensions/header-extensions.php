@@ -13,10 +13,26 @@
  * Filter: thematic5_create_doctype
  */
 function thematic5_create_doctype() {
-    $content = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">' . "\n";
-    $content .= '<html xmlns="http://www.w3.org/1999/xhtml"';
+    $content = '<!doctype html>' . "\n";
     echo apply_filters( 'thematic5_create_doctype', $content );
 }
+
+/**
+ * Display the HTML Tag with Language Attributes
+ * Users conditional comments to target old versions of Internet Explorer
+ * http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ 
+ *
+ * Filter: thematic5_create_html
+ */
+function thematic5_create_html() {
+    $content = '<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" '. language_attributes() .'> <![endif]-->';
+	$content .= '<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" '. language_attributes() .'> <![endif]-->';
+	$content .= '<!--[if IE 8]>    <html class="no-js lt-ie9" '. language_attributes() .'> <![endif]-->';
+	$content .= '<!--[if gt IE 8]><!--> <html class="no-js" '. language_attributes() .'> <!--<![endif]-->';
+
+    echo apply_filters( 'thematic5_create_html', $content );
+}
+
 
 
 /**
