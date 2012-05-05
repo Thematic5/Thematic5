@@ -1,0 +1,546 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Thematic\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-27 15:18+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Chris Goßmann <chris@thematictheme.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: c:\\users\\Chris\\Desktop\\thematic\n"
+
+#: c:\users\Chris\Desktop\thematic/archives.php:52
+#: c:\users\Chris\Desktop\thematic/links.php:64
+#: c:\users\Chris\Desktop\thematic/page.php:50
+msgid "Edit"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/attachment.php:49
+msgid "Pages:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/author.php:61
+msgid "Email "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:10
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:52
+#, php-format
+msgid "<span>%d</span> Trackbacks"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:52
+msgid "<span>One</span> Trackback"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:74
+#, php-format
+msgid "You must be <a href=\"%s\" title=\"Log in\">logged in</a> to post a comment."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:85
+#, php-format
+msgid "<span class=\"loggedin\">Logged in as <a href=\"%1$s\" title=\"Logged in as %2$s\">%2$s</a>.</span> <span class=\"logout\"><a href=\"%3$s\" title=\"Log out of this account\">Log out?</a></span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:92
+msgid "Your email is <em>never</em> published nor shared."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:92
+msgid "Required fields are marked <span class=\"required\">*</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:95
+msgid "Name"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:95
+#: c:\users\Chris\Desktop\thematic/comments.php:100
+msgid "<span class=\"required\">*</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:100
+msgid "Email"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:105
+msgid "Website"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/comments.php:117
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/page.php:48
+msgid "Pages: "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/search.php:44
+msgid "Nothing Found"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/search.php:46
+msgid "Sorry, but nothing matched your search criteria. Please try again with some different keywords."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/search.php:51
+msgid "Find"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:76
+msgid "<span>One</span> Comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:83
+#, php-format
+msgid "<span>%d</span> Comments"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:96
+msgid "Post a Comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:103
+#, php-format
+msgid "Post a Reply to %s"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:110
+msgid "Comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:118
+msgid "Cancel reply"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/comments-extensions.php:125
+msgid "Post Comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:212
+msgid "Author Archives: "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:218
+msgid "Category Archives:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:227
+msgid "Search Results for:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:233
+msgid "Tag Archives:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:242
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:250
+msgid "Archives:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:256
+#, php-format
+msgid "Daily Archives: <span>%s</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:260
+#, php-format
+msgid "Monthly Archives: <span>%s</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:264
+#, php-format
+msgid "Yearly Archives: <span>%s</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:268
+msgid "Blog Archives"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:298
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1243
+msgid "<span class=\"meta-nav\">&laquo;</span> Older posts"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:299
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1244
+msgid "Newer posts <span class=\"meta-nav\">&raquo;</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:672
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1041
+msgid "Edit post"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:692
+msgid "Not Found"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:697
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1001
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1006
+msgid "Permalink to "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:742
+msgid "By "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:745
+msgid "View all posts by "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:763
+msgid "Published: "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:888
+msgid "Archives by Category"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:907
+msgid "Archives by Month"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:950
+msgid "Apologies, but we were unable to find what you were looking for. Perhaps  searching will help."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:967
+msgid "Read More <span class=\"meta-nav\">&raquo;</span>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1001
+msgid "Browse the "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1001
+msgid " Archive"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1002
+msgid " archive"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1006
+msgid "Bookmark the "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1007
+msgid "permalink"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1123
+msgid "This entry was posted in "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1131
+msgid "Also posted in "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1134
+msgid "Posted in "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1152
+msgid " This entry is tagged"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1155
+msgid " and tagged"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1158
+msgid " Also tagged "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1160
+msgid "Tagged"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1179
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1182
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1185
+msgid "Comment on "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1180
+msgid " Comments"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1183
+msgid " Comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1186
+msgid "Leave a comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1189
+msgid "Comments closed"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1205
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1213
+msgid "Post a comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1206
+msgid " or leave a trackback: "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1207
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1210
+msgid "Trackback URL for your post"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1207
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1210
+msgid "Trackback URL"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1209
+msgid " Comments are closed, but you can leave a trackback: "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1212
+msgid " Trackbacks are closed, but you can "
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1213
+msgid "post a comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/content-extensions.php:1215
+msgid " Both comments and trackbacks are currently closed."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion-extensions.php:13
+#, php-format
+msgid "Posted %1$s at %2$s <span class=\"meta-sep\">|</span> <a href=\"%3$s\" title=\"Permalink to this comment\">Permalink</a>"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion-extensions.php:21
+msgid "Edit comment"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion.php:12
+msgid "\t\t\t\t\t<span class='unapproved'>Your comment is awaiting moderation.</span>\n"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion.php:19
+msgid "Reply"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion.php:20
+msgid "Log in to reply."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion.php:35
+#, php-format
+msgid "By %1$s on %2$s at %3$s"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/discussion.php:40
+msgid "\\t\\t\\t\\t\\t<span class=\"unapproved\">Your trackback is awaiting moderation.</span>\\n"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/header-extensions.php:262
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:138
+msgid "Posts RSS feed"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/header-extensions.php:280
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:139
+msgid "Comments RSS feed"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/header-extensions.php:357
+msgid "Primary Menu"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/header-extensions.php:467
+msgid "Skip navigation to the content"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/header-extensions.php:467
+msgid "Skip to content"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/helpers.php:31
+#: c:\users\Chris\Desktop\thematic/library/extensions/helpers.php:44
+msgid "There is no excerpt because this is a protected post."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/shortcodes.php:16
+msgid "Login"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/shortcodes.php:18
+msgid "Logout"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:13
+msgid "Index Insert Position"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:14
+msgid "The widgetized Index Insert will follow after this post number."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:19
+msgid "Info on Author Page"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:20
+msgid "Display a <a href=\"http://microformats.org/wiki/hcard\" target=\"_blank\">microformatted vCard</a> - with the author's avatar, bio and email - on the author page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:25
+msgid "Text in Footer"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:26
+msgid "You can use the following shortcodes in your footer text: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:28
+msgid "Powered by [wp-link]. Built on the [theme-link]."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:115
+msgid "settings saved."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:116
+msgid "settings reset."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:117
+msgid "widgets reset."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:286
+msgid "Save changes"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:293
+msgid "Reset"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:300
+msgid "Reset Widgets"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/theme-options.php:305
+msgid "For more information about this theme, <a href=\"http://themeshaper.com\">visit ThemeShaper</a>. Please visit the <a href=\"http://themeshaper.com/forums/\">ThemeShaper Forums</a> if you have any questions about Thematic."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:13
+msgid "To search, type and hit enter"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:19
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:37
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:42
+msgid "Search"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:42
+msgid "The primary widget area, most often used as a sidebar."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:57
+msgid "The secondary widget area, most often used as a sidebar."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:72
+msgid "The 1st widget area in the footer."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:87
+msgid "The 2nd widget area in the footer."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:102
+msgid "The 3rd widget area in the footer."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:117
+msgid "The top widget area displayed on the index page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:132
+msgid "The widget area inserted after x posts on the index page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:147
+msgid "The bottom widget area displayed on the index page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:162
+msgid "The top widget area displayed on a single post."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:177
+msgid "The widget area inserted between the post and the comments on a single post."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:192
+msgid "The bottom widget area displayed on a single post."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:207
+msgid "The top widget area displayed on a page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets-extensions.php:222
+msgid "The bottom widget area displayed on a page."
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:36
+msgid "A search form for your blog"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:58
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:113
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:156
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:174
+msgid "Title:"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:81
+msgid "Log in/out and admin"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:82
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:87
+msgid "Meta"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:126
+msgid "Links to your posts and comments feed"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:127
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:132
+msgid "RSS Links"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:138
+msgid "All posts"
+msgstr ""
+
+#: c:\users\Chris\Desktop\thematic/library/extensions/widgets.php:139
+msgid "All comments"
+msgstr ""
+
