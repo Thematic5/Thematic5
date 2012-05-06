@@ -15,7 +15,7 @@
  * @param array $args 
  * @param int $depth 
  */
-function thematic_comments($comment, $args, $depth) {
+function thematic5_comments($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 	$GLOBALS['comment_depth'] = $depth;
 ?>
@@ -24,17 +24,17 @@ function thematic_comments($comment, $args, $depth) {
     	
     		<?php 
     			// action hook for inserting content above #comment
-    			thematic_abovecomment();
+    			thematic5_abovecomment();
     		?>
     		
-    		<div class="comment-author vcard"><?php thematic_commenter_link() ?></div>
+    		<div class="comment-author vcard"><?php thematic5_commenter_link() ?></div>
     		
-    			<?php thematic_commentmeta(TRUE); ?>
+    			<?php thematic5_commentmeta(TRUE); ?>
     		
     			<?php  
     				if ( $comment->comment_approved == '0' ) {
     					echo "\t\t\t\t\t" . '<span class="unapproved">';
-    					_e( 'Your comment is awaiting moderation', 'thematic' );
+    					_e( 'Your comment is awaiting moderation', 'thematic5' );
     					echo ".</span>\n";
     				}
     			?>
@@ -49,8 +49,8 @@ function thematic_comments($comment, $args, $depth) {
 				
 				if( $args['type'] == 'all' || get_comment_type() == 'comment' ) :
 					comment_reply_link( array_merge( $args, array(
-						'reply_text' => __( 'Reply','thematic' ), 
-						'login_text' => __( 'Log in to reply.','thematic' ),
+						'reply_text' => __( 'Reply','thematic5' ), 
+						'login_text' => __( 'Log in to reply.','thematic5' ),
 						'depth'      => $depth,
 						'before'     => '<div class="comment-reply-link">', 
 						'after'      => '</div>'
@@ -60,7 +60,7 @@ function thematic_comments($comment, $args, $depth) {
 			
 			<?php
 				// action hook for inserting content above #comment
-				thematic_belowcomment() 
+				thematic5_belowcomment() 
 			?>
 
 <?php }
@@ -72,22 +72,22 @@ function thematic_comments($comment, $args, $depth) {
  * @param array $args 
  * @param int $depth 
  */
-function thematic_pings($comment, $args, $depth) {
+function thematic5_pings($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 	?>
 
     		<li id="comment-<?php comment_ID() ?>" <?php comment_class() ?>>
-    			<div class="comment-author"><?php printf(__('By %1$s on %2$s at %3$s', 'thematic'),
+    			<div class="comment-author"><?php printf(__('By %1$s on %2$s at %3$s', 'thematic5'),
     					get_comment_author_link(),
     					get_comment_date(),
     					get_comment_time() );
-    					edit_comment_link(__('Edit', 'thematic'), ' <span class="meta-sep">|</span>' . "\n\n\t\t\t\t\t\t" . '<span class="edit-link">', '</span>'); ?>
+    					edit_comment_link(__('Edit', 'thematic5'), ' <span class="meta-sep">|</span>' . "\n\n\t\t\t\t\t\t" . '<span class="edit-link">', '</span>'); ?>
     			</div>
     			
     			<?php 
     				if ($comment->comment_approved == '0') {
     				echo "\t\t\t\t\t" . '<span class="unapproved">';
-    					_e( 'Your trackback is awaiting moderation', 'thematic' );
+    					_e( 'Your trackback is awaiting moderation', 'thematic5' );
     					
     				echo ".</span>\n";
     				}

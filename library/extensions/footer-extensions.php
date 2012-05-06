@@ -7,71 +7,71 @@
  */
  
 /**
- * Register action hook: thematic_abovemainclose
+ * Register action hook: thematic5_abovemainclose
  * 
  * Located in footer.php, just before the closing of the main div
  */
-function thematic_abovemainclose() {
-    do_action('thematic_abovemainclose');
-} // end thematic_belowmainsidebar
+function thematic5_abovemainclose() {
+    do_action('thematic5_abovemainclose');
+} // end thematic5_belowmainsidebar
 
 
 /**
- * Register action hook: thematic_abovefooter
+ * Register action hook: thematic5_abovefooter
  * 
  * Located in footer.php, just before the footer div
  */
-function thematic_abovefooter() {
-    do_action('thematic_abovefooter');
-} // end thematic_abovefooter
+function thematic5_abovefooter() {
+    do_action('thematic5_abovefooter');
+} // end thematic5_abovefooter
 
 
 /**
- * Register action hook: thematic_footer
+ * Register action hook: thematic5_footer
  * 
  * Located in footer.php, inside the footer div
  */
-function thematic_footer() {
-    do_action('thematic_footer');
-} // end thematic_footer
+function thematic5_footer() {
+    do_action('thematic5_footer');
+} // end thematic5_footer
 
 
 /**
- * Filter: thematic_footertext
+ * Filter: thematic5_footertext
  * 
  * The footertext is now set in theme options. This function is obsolete. 
  */
-function thematic_footertext($thm_footertext) {
-    $thm_footertext = apply_filters('thematic_footertext', $thm_footertext);
+function thematic5_footertext($thm_footertext) {
+    $thm_footertext = apply_filters('thematic5_footertext', $thm_footertext);
     return $thm_footertext;
-} // end thematic_footertext
+} // end thematic5_footertext
 
 
 /**
- * Register action hook: thematic_belowfooter
+ * Register action hook: thematic5_belowfooter
  * 
  * Located in footer.php, just after the footer div
  */
-function thematic_belowfooter() {
-    do_action('thematic_belowfooter');
-} // end thematic_belowfooter
+function thematic5_belowfooter() {
+    do_action('thematic5_belowfooter');
+} // end thematic5_belowfooter
 
 
 /**
- * Register action hook: thematic_after
+ * Register action hook: thematic5_after
  * 
  * Located in footer.php, just before the closing body tag, after everything else.
  */
-function thematic_after() {
-    do_action('thematic_after');
-} // end thematic_after
+function thematic5_after() {
+    do_action('thematic5_after');
+} // end thematic5_after
 
 
 if (function_exists('childtheme_override_subsidiaries'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic_subsidiaries() {
+	function thematic5_subsidiaries() {
 		childtheme_override_subsidiaries();
 	}
 } else {
@@ -80,27 +80,27 @@ if (function_exists('childtheme_override_subsidiaries'))  {
 	 * 
 	 * Override: childtheme_override_subsidiaries
 	 */
-	function thematic_subsidiaries() {
+	function thematic5_subsidiaries() {
 	      	
 		// action hook for placing content above the subsidiary widget areas
-		thematic_abovesubasides();
+		thematic5_abovesubasides();
 		
 		// action hook for creating the subsidiary widget areas
-		thematic_widget_area_subsidiaries();
+		thematic5_widget_area_subsidiaries();
 		
 		// action hook for placing content below subsidiary widget areas
-		thematic_belowsubasides();
+		thematic5_belowsubasides();
    	}
 }
 
-add_action('thematic_footer', 'thematic_subsidiaries', 10);
+add_action('thematic5_footer', 'thematic5_subsidiaries', 10);
 
 
 if (function_exists('childtheme_override_siteinfoopen'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic_siteinfoopen() {
+	function thematic5_siteinfoopen() {
 		childtheme_override_siteinfoopen();
 	}
 } else {
@@ -109,7 +109,7 @@ if (function_exists('childtheme_override_siteinfoopen'))  {
 	 * 
 	 * Override: childtheme_override_siteinfoopen
 	 */
-	function thematic_siteinfoopen() {
+	function thematic5_siteinfoopen() {
     ?>
     
 	<div id="siteinfo">        
@@ -118,14 +118,14 @@ if (function_exists('childtheme_override_siteinfoopen'))  {
    	}
 }
 
-add_action('thematic_footer', 'thematic_siteinfoopen', 20);
+add_action('thematic5_footer', 'thematic5_siteinfoopen', 20);
   
  
 if (function_exists('childtheme_override_siteinfo'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic_siteinfo() {
+	function thematic5_siteinfo() {
 		childtheme_override_siteinfo();
 	}
 } else {
@@ -134,20 +134,20 @@ if (function_exists('childtheme_override_siteinfo'))  {
 	 * 
 	 * Override: childtheme_override_siteinfo
 	 */
-	function thematic_siteinfo() {
+	function thematic5_siteinfo() {
 		// footer text set in theme options
-		echo "\t\t" . do_shortcode( thematic_get_theme_opt( 'footer_txt' ) ) . "\n";
+		echo "\t\t" . do_shortcode( thematic5_get_theme_opt( 'footer_txt' ) ) . "\n";
 	}
 }
 
-add_action('thematic_footer', 'thematic_siteinfo', 30);
+add_action('thematic5_footer', 'thematic5_siteinfo', 30);
 
    
 if (function_exists('childtheme_override_siteinfoclose'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic_siteinfoclose() {
+	function thematic5_siteinfoclose() {
 		childtheme_override_siteinfoclose();
 	}
 } else {
@@ -156,7 +156,7 @@ if (function_exists('childtheme_override_siteinfoclose'))  {
 	 * 
 	 * Override: childtheme_override_siteinfoclose
 	 */
-	function thematic_siteinfoclose() {
+	function thematic5_siteinfoclose() {
     ?>
 
 	</div><!-- #siteinfo -->
@@ -165,4 +165,4 @@ if (function_exists('childtheme_override_siteinfoclose'))  {
    	}
 }
 
-add_action('thematic_footer', 'thematic_siteinfoclose', 40);
+add_action('thematic5_footer', 'thematic5_siteinfoclose', 40);
