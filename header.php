@@ -41,9 +41,9 @@
 ?>
 </head>
 
+<body <?php body_class(); ?>>
+
 <?php 
-	// Create the body element and dynamic body classes
-	thematic5_body();
 
 	// Action hook to place content before opening #wrapper
 	thematic5_before(); 
