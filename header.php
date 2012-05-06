@@ -18,23 +18,8 @@
 	// Opens the head tag 
 	thematic5_head_profile();
 	
-	// Create the meta content type
-	thematic5_create_contenttype();
-	
-	// Create the title tag 
-	thematic5_doctitle();
-	
-	// Create the meta description
-	thematic5_show_description();
-	
-	// Optimize Mobile Viewport
-	thematic5_mobile_viewport();
-	
-	// Create the tag <meta name="robots"  
-	thematic5_show_robots();
-	
-	// Create pingback adress
-	thematic5_show_pingback();
+	// Action hook for header meta 
+	thematic5_head();
 	
 	/* The function wp_head() loads Thematic's stylesheet and scripts.
 	 * Calling wp_head() is required to provide plugins and child themes
