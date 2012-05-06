@@ -100,15 +100,6 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		define( 'TEMPLATEURI', $ct['URI'] );
 		define( 'TEMPLATEVERSION', $templateversion );
 
-		// set feed links handling
-		// If you set this to TRUE, thematic5_show_rss() and thematic5_show_commentsrss() are used instead of add_theme_support( 'automatic-feed-links' )
-		if ( !defined('THEMATIC_COMPATIBLE_FEEDLINKS') ) {
-			if ( function_exists('comment_form') ) {
-				define('THEMATIC_COMPATIBLE_FEEDLINKS', false); // WordPress 3.0
-			} else {
-				define('THEMATIC_COMPATIBLE_FEEDLINKS', true); // below WordPress 3.0
-			}
-		}
 
 		// set comments handling for pages, archives and links
 		// If you set this to TRUE, comments only show up on pages with a key/value of "comments"
@@ -138,8 +129,7 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		define( 'THEMATIC_MB', function_exists('get_blog_option') );
 
 		// Create the feedlinks
-		if ( !(THEMATIC_COMPATIBLE_FEEDLINKS) )
- 			add_theme_support('automatic-feed-links');
+		add_theme_support('automatic-feed-links');
  
 		if ( apply_filters('thematic5_post_thumbs', true) )
 			add_theme_support('post-thumbnails');

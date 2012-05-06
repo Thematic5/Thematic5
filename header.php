@@ -30,15 +30,6 @@
 	// Create the tag <meta name="robots"  
 	thematic5_show_robots();
 	
-	// Constant defined true by default 
-	if (THEMATIC_COMPATIBLE_FEEDLINKS) {    
-		// Creating the internal RSS links
-		thematic5_show_rss();
-	
-		// Create comments RSS links
-		thematic5_show_commentsrss();
-	}
-	
 	// Create pingback adress
 	thematic5_show_pingback();
 	

@@ -308,54 +308,6 @@ function thematic5_show_robots() {
 } // end thematic5_show_robots
 
 /**
- * Display links to RSS feed
- * 
- * This can be switched on or off using thematic5_show_rss. Default: ON
- * 
- * Filter: thematic5_show_rss
- * Filter: thematic5_rss
- */
-function thematic5_show_rss() {
-    $display = TRUE;
-    $display = apply_filters('thematic5_show_rss', $display);
-    if ($display) {
-        $content = '<link rel="alternate" type="application/rss+xml" href="';
-        $content .= get_feed_link('rss2_url');
-        $content .= '" title="';
-        $content .= esc_attr( get_bloginfo('name', 'display') );
-        $content .= ' ' . __('Posts RSS feed', 'thematic');
-        $content .= '" />';
-        $content .= "\n";
-        echo apply_filters('thematic5_rss', $content);
-    }
-}
-
-
-/**
- * Display links to RSS feed for comments
- * 
- * This can be switched on or off using thematic5_show_commentsrss. Default: ON
- * 
- * Filter: thematic5_show_commentsrss
- * Filter: thematic5_commentsrss
- */
-function thematic5_show_commentsrss() {
-    $display = TRUE;
-    $display = apply_filters('thematic5_show_commentsrss', $display);
-    if ($display) {
-        $content = '<link rel="alternate" type="application/rss+xml" href="';
-        $content .= get_feed_link( 'comments_rss2_url' );
-        $content .= '" title="';
-        $content .= esc_attr( get_bloginfo('name') );
-        $content .= ' ' . __('Comments RSS feed', 'thematic');
-        $content .= '" />';
-        $content .= "\n";
-        echo apply_filters('thematic5_commentsrss', $content);
-    }
-}
-
-
-/**
  * Display pingback link
  * 
  * This can be switched on or off using thematic5_show_pingback. Default: ON
