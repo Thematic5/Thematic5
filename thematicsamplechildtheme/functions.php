@@ -17,18 +17,8 @@
  */
 
 
-// Unleash the power of Thematic's dynamic classes
-// 
-// define('THEMATIC_COMPATIBLE_BODY_CLASS', true);
-// define('THEMATIC_COMPATIBLE_POST_CLASS', true);
 
-// Unleash the power of Thematic's comment form
-//
-// define('THEMATIC_COMPATIBLE_COMMENT_FORM', true);
 
-// Unleash the power of Thematic's feed link functions
-//
-// define('THEMATIC_COMPATIBLE_FEEDLINKS', true);
 
 
 // Adds a home link to your menu

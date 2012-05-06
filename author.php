@@ -15,27 +15,27 @@
 	get_header();
 
 	// action hook for placing content above #container
-	thematic_abovecontainer();
+	thematic5_abovecontainer();
 ?>
 
 		<div id="container">
 
 			<?php
 				// action hook for placing content above #content
-				thematic_abovecontent();
+				thematic5_abovecontent();
 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 			?>
 
     	    	<?php
     	    		// displays the page title
-    	    		thematic_page_title();		
+    	    		thematic5_page_title();		
 
     	    		// create the navigation above the content
-    	    		thematic_navigation_above();
+    	    		thematic5_navigation_above();
 
     	    		// display microformatted vCard if selected in Theme Options and display only on the first page of the archive's pagination  
-    	    		if ( thematic_get_theme_opt( 'author_info' ) == 1 & !is_paged() ) :
+    	    		if ( thematic5_get_theme_opt( 'author_info' ) == 1 & !is_paged() ) :
 
 						// setup the first post to acess the Author's metadata
 						the_post();
@@ -47,7 +47,7 @@
 
     	                <?php
     	               		// display the author's avatar
-    	               		thematic_author_info_avatar();
+    	               		thematic5_author_info_avatar();
     	                ?>
 
     	                <div class="author-bio note">
@@ -64,7 +64,7 @@
     				<div id="author-email">
     				
     	                <a class="email" title="<?php echo antispambot( get_the_author_meta( 'user_email' ) ); ?>" href="mailto:<?php echo antispambot( get_the_author_meta( 'user_email' ) ); ?>">
-    	                	<?php _e( 'Email ', 'thematic' ) ?>
+    	                	<?php _e( 'Email ', 'thematic5' ) ?>
     	                	<span class="fn n">
     	                		<span class="given-name"><?php the_author_meta( 'first_name' ); ?></span> 
     	                		<span class="family-name"><?php the_author_meta( 'last_name' ); ?></span>
@@ -86,26 +86,26 @@
 
 				<?php
     	        	// action hook creating the author loop
-    	        	thematic_authorloop();
+    	        	thematic5_authorloop();
 
     	        	// create the navigation below the content
-					thematic_navigation_below();
+					thematic5_navigation_below();
 				?>
 
 			</div><!-- #content -->
 
 			<?php
 				// action hook for placing content below #content
-				thematic_belowcontent();
+				thematic5_belowcontent();
 			?> 
 		</div><!-- #container -->
 
 <?php
 	// action hook for placing content below #container
-	thematic_belowcontainer();
+	thematic5_belowcontainer();
 
 	// calling the standard sidebar 
-	thematic_sidebar();
+	thematic5_sidebar();
 
 	// calling footer.php
 	get_footer();

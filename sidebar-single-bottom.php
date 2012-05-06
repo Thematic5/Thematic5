@@ -9,11 +9,11 @@
  */
 
     // action hook for placing content above the 'single-bottom' widget area
-    thematic_abovesinglebottom();
+    thematic5_abovesinglebottom();
 
     // action hook for creating the 'single-bottom' widget area
-    thematic_widget_area_single_bottom();
+    thematic5_widget_area_single_bottom();
 
     // action hook for placing content below the 'single-bottom' widget area
-    thematic_belowsinglebottom();
+    thematic5_belowsinglebottom();
 ?>

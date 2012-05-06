@@ -14,7 +14,7 @@
  * @param mixed $text
  * @return $text
  */
-function thematic_trim_excerpt($text) {
+function thematic5_trim_excerpt($text) {
 	if ( '' == $text ) {
 		$text = get_the_content('');
 
@@ -36,18 +36,18 @@ function thematic_trim_excerpt($text) {
 
 
 /**
- * thematic_the_excerpt function.
+ * thematic5_the_excerpt function.
  * 
  * @param string $deprecated (default: '')
  * @return $output
  */
-function thematic_the_excerpt( $deprecated = '' ) {
+function thematic5_the_excerpt( $deprecated = '' ) {
 	global $post;
 	$output = '';
 	$output = strip_tags( $post->post_excerpt );
 	$output = str_replace( '"', '\'', $output );
 	if ( post_password_required($post) ) {
-		$output = __( 'There is no excerpt because this is a protected post.', 'thematic');
+		$output = __( 'There is no excerpt because this is a protected post.', 'thematic5');
 		return $output;
 	}
 
@@ -57,30 +57,30 @@ function thematic_the_excerpt( $deprecated = '' ) {
 
 
 /**
- * thematic_excerpt_rss function.
+ * thematic5_excerpt_rss function.
  *
  * @return $output
  */
-function thematic_excerpt_rss() {
+function thematic5_excerpt_rss() {
 	global $post;
 	$output = '';
 	$output = strip_tags( $post->post_excerpt );
 	if ( post_password_required( $post ) ) {
-		$output = __( 'There is no excerpt because this is a protected post.', 'thematic' );
+		$output = __( 'There is no excerpt because this is a protected post.', 'thematic5' );
 		return $output;
 }
 
-	return apply_filters( 'thematic_excerpt_rss', $output );
+	return apply_filters( 'thematic5_excerpt_rss', $output );
 
 }
 
-add_filter( 'thematic_excerpt_rss', 'thematic_trim_excerpt' );
+add_filter( 'thematic5_excerpt_rss', 'thematic5_trim_excerpt' );
 
 
 /**
  * Create nice multi_tag_title
  */
-function thematic_tag_query() {
+function thematic5_tag_query() {
 	$nice_tag_query = get_query_var( 'tag' ); // tags in current query
 	$nice_tag_query = str_replace(' ', '+', $nice_tag_query); // get_query_var returns ' ' for AND, replace by +
 	$tag_slugs = preg_split('%[,+]%', $nice_tag_query, -1, PREG_SPLIT_NO_EMPTY); // create array of tag slugs
@@ -113,10 +113,10 @@ function thematic_tag_query() {
 /**
  * Gets the term name of the current post
  *
- * @todo deprcate when thematic_body_class becomes a filter of body_class
+ * @todo deprcate when thematic5_body_class becomes a filter of body_class
  * @return $term->name
  */
-function thematic_get_term_name() {
+function thematic5_get_term_name() {
 	$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 	return $term->name;
 }
@@ -127,7 +127,7 @@ function thematic_get_term_name() {
  * 
  * @return bool
  */
-function thematic_is_custom_post_type() {
+function thematic5_is_custom_post_type() {
 	global $post; 
 
 	if ( !in_array(  $post->post_type , get_post_types( array( '_builtin' => true ) ) ) ) {

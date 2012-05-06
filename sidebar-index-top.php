@@ -9,11 +9,11 @@
  */
 
     // action hook for placing content above the 'index-top' widget area
-    thematic_aboveindextop();
+    thematic5_aboveindextop();
 
     // action hook for creating the 'index-top' widget area
-    thematic_widget_area_index_top();
+    thematic5_widget_area_index_top();
 
     // action hook for placing content below the 'index-top' widget area
-    thematic_belowindextop();
+    thematic5_belowindextop();
 ?>  

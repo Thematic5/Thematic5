@@ -21,45 +21,45 @@
  * @since Thematic 0.9.8
  */
 if (function_exists('childtheme_override_opt_init')) {
-	function thematic_opt_init() {
+	function thematic5_opt_init() {
 		childtheme_override_opt_init();
 	}
 } else {
-	function thematic_opt_init() {
+	function thematic5_opt_init() {
 		
 		// Retrieve current options from database	
-		$current_options = thematic_get_wp_opt('thematic_theme_opt');
-		$legacy_options = thematic_convert_legacy_opt();
+		$current_options = thematic5_get_wp_opt('thematic5_theme_opt');
+		$legacy_options = thematic5_convert_legacy_opt();
 		
 		// If no current settings exist
 		if ( false === $current_options )  {
 			// Check for legacy options
 			if ( false !== ( $legacy_options ) )  {
 				// Theme upgrade: Convert legacy to current format and add to database 
-				add_option( 'thematic_theme_opt', $legacy_options );
+				add_option( 'thematic5_theme_opt', $legacy_options );
 			} else {
 				// Fresh theme installation: Add default settings to database
-				add_option( 'thematic_theme_opt', thematic_default_opt() );
+				add_option( 'thematic5_theme_opt', thematic5_default_opt() );
 			}
 		}
 		
-		register_setting ('thematic_opt_group', 'thematic_theme_opt', 'thematic_validate_opt');
+		register_setting ('thematic5_opt_group', 'thematic5_theme_opt', 'thematic5_validate_opt');
 		
-		add_settings_section ('thematic_opt_section_main', '', 'thematic_do_opt_section_main', 'thematic_theme_opt');
+		add_settings_section ('thematic5_opt_section_main', '', 'thematic5_do_opt_section_main', 'thematic5_theme_opt');
 	
-		add_settings_field ('thematic_insert_opt', __('Index Insert Position', 'thematic')	, 'thematic_do_insert_opt'	, 'thematic_theme_opt', 'thematic_opt_section_main');
-		add_settings_field ('thematic_auth_opt',   __('Info on Author Page'	, 'thematic')	, 'thematic_do_auth_opt'	, 'thematic_theme_opt', 'thematic_opt_section_main');
-		add_settings_field ('thematic_footer_opt', __('Text in Footer'	, 'thematic')		, 'thematic_do_footer_opt'	, 'thematic_theme_opt', 'thematic_opt_section_main');
+		add_settings_field ('thematic5_insert_opt', __('Index Insert Position', 'thematic5')	, 'thematic5_do_insert_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+		add_settings_field ('thematic5_auth_opt',   __('Info on Author Page'	, 'thematic5')	, 'thematic5_do_auth_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+		add_settings_field ('thematic5_footer_opt', __('Text in Footer'	, 'thematic5')		, 'thematic5_do_footer_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		
 		// Show checkbox option for removing old options from database
 		if ( isset( $legacy_options ) && false !== $legacy_options ) {
-			add_settings_field ('thematic_legacy_opt', __('Remove Legacy Options'	, 'thematic'), 'thematic_do_legacy_opt'	, 'thematic_theme_opt', 'thematic_opt_section_main');
+			add_settings_field ('thematic5_legacy_opt', __('Remove Legacy Options'	, 'thematic5'), 'thematic5_do_legacy_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		} 
 	
 	}
 }
 
-add_action ('admin_init', 'thematic_opt_init');
+add_action ('admin_init', 'thematic5_opt_init');
 
 	
 /**
@@ -70,7 +70,7 @@ add_action ('admin_init', 'thematic_opt_init');
  *
  * @since Thematic 0.9.8
  */
-function thematic_get_wp_opt( $option_name, $default = false ) {
+function thematic5_get_wp_opt( $option_name, $default = false ) {
 	global $blog_id;
 	
 	if (THEMATIC_MB) {
@@ -87,12 +87,12 @@ function thematic_get_wp_opt( $option_name, $default = false ) {
  * Returns or echoes a theme option value by its key
  * or returns false if no value is found
  *
- * @uses thematic_get_wp_opt()
+ * @uses thematic5_get_wp_opt()
  * @since Thematic 0.9.8
  */
-function thematic_get_theme_opt( $opt_key, $echo = false ) {
+function thematic5_get_theme_opt( $opt_key, $echo = false ) {
 	
-	$theme_opt = thematic_get_wp_opt( 'thematic_theme_opt' );
+	$theme_opt = thematic5_get_wp_opt( 'thematic5_theme_opt' );
 	
 	if ( isset( $theme_opt[$opt_key] ) ) {
 		if ( false === $echo ) {
@@ -110,14 +110,14 @@ function thematic_get_theme_opt( $opt_key, $echo = false ) {
  * Retrieves legacy Thematic options from database
  * Returns theme as a sanitized array or false
  *
- * @uses thematic_theme_convert_legacy_opt
+ * @uses thematic5_theme_convert_legacy_opt
  * 
  * @since Thematic 0.9.8
  */
-function thematic_convert_legacy_opt() {
-    $thm_insert_position = thematic_get_wp_opt( 'thm_insert_position' );
-    $thm_authorinfo = thematic_get_wp_opt( 'thm_authorinfo' );
-    $thm_footertext = thematic_get_wp_opt( 'thm_footertext' );
+function thematic5_convert_legacy_opt() {
+    $thm_insert_position = thematic5_get_wp_opt( 'thm_insert_position' );
+    $thm_authorinfo = thematic5_get_wp_opt( 'thm_authorinfo' );
+    $thm_footertext = thematic5_get_wp_opt( 'thm_footertext' );
     
     // Return false if no options found
     if ( false === $thm_insert_position && false === $thm_authorinfo && false === $thm_footertext )
@@ -131,26 +131,26 @@ function thematic_convert_legacy_opt() {
     		'del_legacy_opt'=> 0
     	);
 
-    return apply_filters( 'thematic_theme_convert_legacy_opt', $legacy_sanitized_opt );
+    return apply_filters( 'thematic5_theme_convert_legacy_opt', $legacy_sanitized_opt );
 }
 
 /**
  * Returns default theme options.
  *
- * Filter: thematic_theme_default_opt
+ * Filter: thematic5_theme_default_opt
  * 
  * @since Thematic 0.9.8
  *
  */
-function thematic_default_opt() {
-	$thematic_default_opt = array(
+function thematic5_default_opt() {
+	$thematic5_default_opt = array(
 		'index_insert' 	=> 2,
 		'author_info'  	=> 0, // 0 = not checked 1 = checked
 		'footer_txt' 	=> 'Powered by [wp-link]. Built on the [theme-link].',
 		'del_legacy_opt'=> 0  // 0 = not checked 1 = check
 	);
 
-	return apply_filters( 'thematic_theme_default_opt', $thematic_default_opt );
+	return apply_filters( 'thematic5_theme_default_opt', $thematic5_default_opt );
 }	
 
 	
@@ -158,33 +158,33 @@ function thematic_default_opt() {
  * Adds the theme option page as an admin menu item, 
  * and queues the contextual help on theme options page load
  *
- * Filter: thematic_theme_add_opt_page
+ * Filter: thematic5_theme_add_opt_page
  * The filter provides the ability for child themes to customize or remove and add 
  * their own options page and queue contextual help in one function
  * 
  * @since Thematic 0.9.8
  */
  
-function thematic_opt_add_page() {
+function thematic5_opt_add_page() {
 
-	$thematic_opt_page = add_theme_page ('Theme Options', 'Theme Options', 'edit_theme_options', 'thematic_opt', 'thematic_do_opt_page');
-	$thematic_opt_page = apply_filters ('thematic_theme_add_opt_page', $thematic_opt_page );
+	$thematic5_opt_page = add_theme_page ('Theme Options', 'Theme Options', 'edit_theme_options', 'thematic5_opt', 'thematic5_do_opt_page');
+	$thematic5_opt_page = apply_filters ('thematic5_theme_add_opt_page', $thematic5_opt_page );
 	
-	if ( ! $thematic_opt_page ) {
+	if ( ! $thematic5_opt_page ) {
 		return;
 	}
 	
-	add_action( "load-$thematic_opt_page", 'thematic_opt_page_help' );
+	add_action( "load-$thematic5_opt_page", 'thematic5_opt_page_help' );
 }
 
-add_action( 'admin_menu', 'thematic_opt_add_page' );
+add_action( 'admin_menu', 'thematic5_opt_add_page' );
 
 
 /**
  * Generates the help texts and help sidebar items for the options screen
  *
- * Filter: thematic_theme_opt_help_txt <br>
- * Filter: thematic_theme_opt_help_sidebar <br>
+ * Filter: thematic5_theme_opt_help_txt <br>
+ * Filter: thematic5_theme_opt_help_sidebar <br>
  * Override: childtheme_override_opt_page_help <br>
  * Conditional WP compatibilty 3.3 & 3.2 <br>
  * 
@@ -193,30 +193,30 @@ add_action( 'admin_menu', 'thematic_opt_add_page' );
  * @todo removeconditional compatibilty  WP version > 3.3 or > 3.2
  */
 if (function_exists('childtheme_override_opt_page_help')) {
-	function thematic_opt_page_help() {
+	function thematic5_opt_page_help() {
 		childtheme_override_opt_page_help();
 	}
 } else {
-	function thematic_opt_page_help() {	
+	function thematic5_opt_page_help() {	
 		
 		$screen = get_current_screen();
 		
-		$sidebar  = '<p><strong>' . __( 'For more information:', 'thematic') . '</strong></p>';
+		$sidebar  = '<p><strong>' . __( 'For more information:', 'thematic5') . '</strong></p>';
 		$sidebar .= '<a href="http://thematictheme.com">ThematicTheme.com</a></p>';
-		$sidebar .= '<p><strong>' . __('For support:', 'thematic') . '</strong></p>';
+		$sidebar .= '<p><strong>' . __('For support:', 'thematic5') . '</strong></p>';
 		$sidebar .= '<a href="http://thematictheme.com/forums/"> Thematic ';
-		$sidebar .= __('forums', 'thematic' ) . '</a></p>';
+		$sidebar .= __('forums', 'thematic5' ) . '</a></p>';
 		
-		$sidebar = apply_filters ( 'thematic_theme_opt_help_sidebar', $sidebar );
+		$sidebar = apply_filters ( 'thematic5_theme_opt_help_sidebar', $sidebar );
 		
-		$help =  '<p>' . __('The options below are enabled by the Thematic Theme framework and/or a child theme.', 'thematic') .' ';
-		$help .= __('New options can be added and the default ones removed by creating a child theme. This contextual help can be customized in a child theme also.', 'thematic') . '</p>';
+		$help =  '<p>' . __('The options below are enabled by the Thematic Theme framework and/or a child theme.', 'thematic5') .' ';
+		$help .= __('New options can be added and the default ones removed by creating a child theme. This contextual help can be customized in a child theme also.', 'thematic5') . '</p>';
 		
-		$help = apply_filters ( 'thematic_theme_opt_help_txt', $help );
+		$help = apply_filters ( 'thematic5_theme_opt_help_txt', $help );
 	
 		if ( method_exists( $screen, 'add_help_tab' ) ) {
 			// WordPress 3.3
-			$screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
+			$screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic5' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
 			$screen->set_help_sidebar( $sidebar );
 			
 		} elseif ( function_exists('add_contextual_help') ) {
@@ -224,7 +224,7 @@ if (function_exists('childtheme_override_opt_page_help')) {
 			add_contextual_help( $screen, $help . $sidebar );
 		} else {
 			// WordPress 3.0
-			thematic_legacy_help();
+			thematic5_legacy_help();
 		}
 	}
 }
@@ -235,8 +235,8 @@ if (function_exists('childtheme_override_opt_page_help')) {
  * @since Thematic 0.9.8
  * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
  */
-function thematic_legacy_help() {
-	add_settings_section ('thematic_opt_help_section', '', 'thematic_do_legacy_help_section', 'thematic_opt_page');
+function thematic5_legacy_help() {
+	add_settings_section ('thematic5_opt_help_section', '', 'thematic5_do_legacy_help_section', 'thematic5_opt_page');
 }
 
 
@@ -246,8 +246,8 @@ function thematic_legacy_help() {
  * @since Thematic 0.9.8
  * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
  */
-function thematic_do_legacy_help_section() { 
-	echo ('<p>'. __( 'For more information about this theme, <a href="http://themeshaper.com">visit ThemeShaper</a>. Please visit the <a href="http://themeshaper.com/forums/">ThemeShaper Forums</a> if you have any questions about Thematic.', 'thematic' ) .'</p>') ;
+function thematic5_do_legacy_help_section() { 
+	echo ('<p>'. __( 'For more information about this theme, <a href="http://themeshaper.com">visit ThemeShaper</a>. Please visit the <a href="http://themeshaper.com/forums/">ThemeShaper Forums</a> if you have any questions about Thematic.', 'thematic5' ) .'</p>') ;
 }
 
 
@@ -258,17 +258,17 @@ function thematic_do_legacy_help_section() {
  * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
  * @todo remove conditional compatibilty when min WP version > 3.1
  */
-function thematic_do_opt_page() { ?>
+function thematic5_do_opt_page() { ?>
 
  <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2><?php printf( __( '%s Theme Options', 'thematic' ), get_current_theme() ); ?></h2>
+	<h2><?php printf( __( '%s Theme Options', 'thematic5' ), get_current_theme() ); ?></h2>
 	<?php settings_errors(); ?>
 	
 	<form action="options.php" method="post" >
 		<?php
-			settings_fields( 'thematic_opt_group' );
-			do_settings_sections( 'thematic_theme_opt' );
+			settings_fields( 'thematic5_opt_group' );
+			do_settings_sections( 'thematic5_theme_opt' );
 			if ( function_exists('submit_button') ) {
 			// WordPress 3.1
 				submit_button();
@@ -276,7 +276,7 @@ function thematic_do_opt_page() { ?>
 			// WordPress 3.0
 			?>
 			 	<p class="submit">
- 					<input name="submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'thematic') ?>" />
+ 					<input name="submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'thematic5') ?>" />
  				</p>
  			<?php
 			}
@@ -293,13 +293,13 @@ function thematic_do_opt_page() { ?>
 /**
  * Renders the "Main" settings section. This is left blank in Theamatic and outputs nothing
  *
- * Filter: thematic_theme_opt_section_main
+ * Filter: thematic5_theme_opt_section_main
  *
  * @since Thematic 0.9.8
  */
-function thematic_do_opt_section_main() {
-	$thematic_opt_section_main = '';
-	echo ( apply_filters( 'thematic_theme_opt_section_main' , $thematic_opt_section_main ) );
+function thematic5_do_opt_section_main() {
+	$thematic5_opt_section_main = '';
+	echo ( apply_filters( 'thematic5_theme_opt_section_main' , $thematic5_opt_section_main ) );
 }
 
 
@@ -308,10 +308,10 @@ function thematic_do_opt_section_main() {
  *
  * @since Thematic 0.9.8
  */
-function thematic_do_insert_opt() { 
+function thematic5_do_insert_opt() { 
 ?>
-	<input type="text" maxlength="4" size="4" value="<?php esc_attr_e( (thematic_get_theme_opt('index_insert') ) ) ;  ?>" id="thm_insert_position" name="thematic_theme_opt[index_insert]">
-	<label for="thm_insert_position"><?php _e('The Index Insert widget area will appear after this post number. Entering nothing or 0 will disable this feature.','thematic'); ?></label>
+	<input type="text" maxlength="4" size="4" value="<?php esc_attr_e( (thematic5_get_theme_opt('index_insert') ) ) ;  ?>" id="thm_insert_position" name="thematic5_theme_opt[index_insert]">
+	<label for="thm_insert_position"><?php _e('The Index Insert widget area will appear after this post number. Entering nothing or 0 will disable this feature.','thematic5'); ?></label>
 <?php 
 }
 
@@ -321,10 +321,10 @@ function thematic_do_insert_opt() {
  *
  * @since Thematic 0.9.8
  */
-function thematic_do_auth_opt() { 
+function thematic5_do_auth_opt() { 
 ?>
-	<input id="thm_authorinfo" type="checkbox"  value="1" name="thematic_theme_opt[author_info]"  <?php checked( thematic_get_theme_opt('author_info') , 1 ); ?> />
-	<label for="thm_authorinfo"><?php _e('Display a', 'thematic') ?> <a target="_blank" href="http://microformats.org/wiki/hcard">microformatted vCard</a> <?php _e("with the author's avatar, bio and email on the author page.", 'thematic') ?></label>
+	<input id="thm_authorinfo" type="checkbox"  value="1" name="thematic5_theme_opt[author_info]"  <?php checked( thematic5_get_theme_opt('author_info') , 1 ); ?> />
+	<label for="thm_authorinfo"><?php _e('Display a', 'thematic5') ?> <a target="_blank" href="http://microformats.org/wiki/hcard">microformatted vCard</a> <?php _e("with the author's avatar, bio and email on the author page.", 'thematic5') ?></label>
 <?php
 }
 
@@ -334,10 +334,10 @@ function thematic_do_auth_opt() {
  *
  * @since Thematic 0.9.8
  */
-function thematic_do_footer_opt() { 
+function thematic5_do_footer_opt() { 
 ?>
-	<textarea rows="5" cols="94" id="thm_footertext" name="thematic_theme_opt[footer_txt]"><?php thematic_get_theme_opt('footer_txt', true ); ?></textarea>
-	<br><?php _e('You can use HTML and shortcodes in your footer text. Shortcode examples', 'thematic'); ?>: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]
+	<textarea rows="5" cols="94" id="thm_footertext" name="thematic5_theme_opt[footer_txt]"><?php thematic5_get_theme_opt('footer_txt', true ); ?></textarea>
+	<br><?php _e('You can use HTML and shortcodes in your footer text. Shortcode examples', 'thematic5'); ?>: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]
 <?php
 }
 
@@ -347,10 +347,10 @@ function thematic_do_footer_opt() {
  *
  * @since Thematic 0.9.8
  */
-function thematic_do_legacy_opt() {
+function thematic5_do_legacy_opt() {
 ?>
-	<input id="thm_legacy_opt" type="checkbox" value="1" name="thematic_theme_opt[del_legacy_opt]"  <?php checked( thematic_get_theme_opt('del_legacy_opt'), 1 ); ?> />
-	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic' ), get_current_theme() ); ?></label>
+	<input id="thm_legacy_opt" type="checkbox" value="1" name="thematic5_theme_opt[del_legacy_opt]"  <?php checked( thematic5_get_theme_opt('del_legacy_opt'), 1 ); ?> />
+	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic5' ), get_current_theme() ); ?></label>
 <?php
 }
 
@@ -360,24 +360,24 @@ function thematic_do_legacy_opt() {
  * Provides error reporting for invalid input.
  *
  * Override: childtheme_override_validate_opt <br>
- * Filter: thematic_theme_opt_validation
+ * Filter: thematic5_theme_opt_validation
  * 
  * @since Thematic 0.9.8 
  */
 if (function_exists('childtheme_override_validate_opt')) {
-	function thematic_thematic_validate_opt() {
+	function thematic5_thematic5_validate_opt() {
 		childtheme_override_validate_opt();
 	}
 } else {
- 	function thematic_validate_opt($input){
- 	   $output = thematic_get_wp_opt( 'thematic_theme_opt', thematic_default_opt() );	
+ 	function thematic5_validate_opt($input){
+ 	   $output = thematic5_get_wp_opt( 'thematic5_theme_opt', thematic5_default_opt() );	
  	   
  	   // Index Insert position must be a non-negative number
  	   if ( !is_numeric( $input['index_insert'] ) || $input['index_insert'] < 0 )  {
  	   		add_settings_error(
- 	   		'thematic_theme_opt',
- 	   		'thematic_insert_opt',
- 	   		__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic' ),
+ 	   		'thematic5_theme_opt',
+ 	   		'thematic5_insert_opt',
+ 	   		__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic5' ),
  	   		'error'
  	   		);
  	   } else {
@@ -407,7 +407,7 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   	$output['del_legacy_opt'] = 0;
  	   }
  	   	
- 	   return apply_filters( 'thematic_theme_opt_validation', $output, $input );
+ 	   return apply_filters( 'thematic5_theme_opt_validation', $output, $input );
  	}
 } 
  

@@ -13,17 +13,17 @@
     get_header();
 
     // action hook for placing content above #container
-    thematic_abovecontainer();
+    thematic5_abovecontainer();
 ?>
 
 		<div id="container">
 		
 			<?php
 				// action hook for inserting content above #content
-				thematic_abovecontent();		
+				thematic5_abovecontent();		
 	    	
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 			
 				// calling the widget area 'page-top'
 	            get_sidebar('page-top');
@@ -32,23 +32,14 @@
 	            while ( have_posts() ) : the_post();
 	            
 	            // action hook for inserting content above #post
-	            thematic_abovepost();
+	            thematic5_abovepost();
 	        ?>
 	            
+				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				
 				<?php
-					echo '<div id="post-' . get_the_ID() . '" ';
-					// Checking for defined constant to enable Thematic's post classes
-					if ( ! ( THEMATIC_COMPATIBLE_POST_CLASS ) ) {
-					    post_class();
-					    echo '>';
-					} else {
-					    echo 'class="';
-					    thematic_post_class();
-					    echo '">';
-					}
-
 	            	// creating the post header
-	            	thematic_postheader();
+	            	thematic5_postheader();
 	            ?>
 	                
 					<div class="entry-content">
@@ -56,9 +47,9 @@
 	                    <?php
 	                    	the_content();
 	                    
-	                    	wp_link_pages( "\t\t\t\t\t<div class='page-link'>" . __( 'Pages: ', 'thematic' ), "</div>\n", 'number' );
+	                    	wp_link_pages( "\t\t\t\t\t<div class='page-link'>" . __( 'Pages: ', 'thematic5' ), "</div>\n", 'number' );
 	                    
-	                    	edit_post_link( __( 'Edit', 'thematic' ), '<span class="edit-link">','</span>' );
+	                    	edit_post_link( __( 'Edit', 'thematic5' ), '<span class="edit-link">','</span>' );
 	                    ?>
 	
 					</div>
@@ -67,10 +58,10 @@
 	
 			<?php
 				// calls the do_action for inserting content below #post
-	        	thematic_belowpost();
+	        	thematic5_belowpost();
 	        		        
 	        	// action hook for calling the comments_template
-       			thematic_comments_template();
+       			thematic5_comments_template();
         		
 	        	// end loop
         		endwhile;
@@ -83,13 +74,13 @@
 			
 			<?php 
 				// action hook for inserting content below #content
-				thematic_belowcontent(); 
+				thematic5_belowcontent(); 
 			?> 
 		</div><!-- #container -->
 
 <?php 
     // action hook for placing content below #container
-    thematic_belowcontainer();
+    thematic5_belowcontainer();
     
     // calling footer.php
     get_footer();

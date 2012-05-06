@@ -16,39 +16,30 @@
 	get_header();
 
 	// action hook for placing content above #container
-	thematic_abovecontainer();
+	thematic5_abovecontainer();
 ?>
 
 		<div id="container">
 
 			<?php
 				// action hook for placing content above #content
-				thematic_abovecontent();
+				thematic5_abovecontent();
 
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
 
 				// start the loop to get the page content
 				the_post();
 				
 				// action hook for placing content above #post
-				thematic_abovepost();
+				thematic5_abovepost();
 			?>
 
+				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				
 				<?php
-					echo '<div id="post-' . get_the_ID() . '" ';
-					// Checking for defined constant to enable Thematic's post classes
-					if ( ! ( THEMATIC_COMPATIBLE_POST_CLASS ) ) {
-					    post_class();
-					    echo '>';
-					} else {
-					    echo 'class="';
-					    thematic_post_class();
-					    echo '">';
-					}
-
 	            	// creating the post header
-	            	thematic_postheader();
+	            	thematic5_postheader();
 	            ?>
 
 					<div class="entry-content">
@@ -58,9 +49,9 @@
 	                    	the_content();
 
 	                    	// action hook for displaying a list of archive links
-	                    	thematic_archives();
+	                    	thematic5_archives();
 
-	                    	edit_post_link( __( 'Edit', 'thematic' ),'<span class="edit-link">','</span>' );
+	                    	edit_post_link( __( 'Edit', 'thematic5' ),'<span class="edit-link">','</span>' );
 	                    ?>
 
 					</div><!-- .entry-content -->
@@ -69,27 +60,27 @@
 
 	        <?php
 	       		// action hook for placing contentbelow #post
-	       		thematic_belowpost();
+	       		thematic5_belowpost();
 
        			// action hook for calling the comments_template
-       			thematic_comments_template();
+       			thematic5_comments_template();
 	        ?>
 
 			</div><!-- #content -->
 
 			<?php 
 				// action hook for placing content below #content
-				thematic_belowcontent();
+				thematic5_belowcontent();
 			?> 
 
 		</div><!-- #container -->
 
 <?php 
 	// action hook for placing content below #container
-	thematic_belowcontainer();
+	thematic5_belowcontainer();
 
 	// calling the standard sidebar 
-	thematic_sidebar();
+	thematic5_sidebar();
 
 	// calling footer.php
 	get_footer();

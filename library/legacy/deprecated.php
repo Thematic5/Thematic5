@@ -45,14 +45,14 @@ function is_sidebar_active( $index ){
  * 
  * Removed in favor of hooking into wp_enqueue_scripts over calling directly in header.php
  * Note that in 0.9.8 the comment reply script is still enqueued by default.
- * Use wp_dequeue_script('comment-reply') to remove the script instead of using the filter: thematic_show_commentreply.
+ * Use wp_dequeue_script('comment-reply') to remove the script instead of using the filter: thematic5_show_commentreply.
  *
  * @deprecated 0.9.8
  */
-function thematic_show_commentreply() {
+function thematic5_show_commentreply() {
 	_deprecated_function( __FUNCTION__, '0.9.8' );
     $display = TRUE;
-    $display = apply_filters('thematic_show_commentreply', $display);
+    $display = apply_filters('thematic5_show_commentreply', $display);
     if ($display)
         if ( is_singular() ) 
             wp_enqueue_script('comment-reply'); 
@@ -62,7 +62,7 @@ function thematic_show_commentreply() {
 /**
  * Get the page number for title tag
  *
- * This has been integrated into thematic_doctitle()
+ * This has been integrated into thematic5_doctitle()
  *
  * @deprecated 0.9.8
  */
@@ -78,7 +78,7 @@ if ( function_exists( 'childtheme_override_comment_class' ) )  {
 	/**
  	 * @ignore
  	 */
- 	function thematic_comment_class() {
+ 	function thematic5_comment_class() {
 		childtheme_override_comment_class();
 	}
 } else {
@@ -89,19 +89,19 @@ if ( function_exists( 'childtheme_override_comment_class' ) )  {
 	 * 
  	 * @deprecated 0.9.8
 	 */
-	function thematic_comment_class( $print = true ) {
+	function thematic5_comment_class( $print = true ) {
 		_deprecated_function( __FUNCTION__, '0.9.8', 'comment_class()' );
 
-		global $comment, $post, $thematic_comment_alt, $comment_depth, $comment_thread_alt;
+		global $comment, $post, $thematic5_comment_alt, $comment_depth, $comment_thread_alt;
 
 		// Collects the comment type (comment, trackback),
 		$c = array( $comment->comment_type );
 
 		// Counts trackbacks (t[n]) or comments (c[n])
 		if ( $comment->comment_type == 'comment' ) {
-			$c[] = "c$thematic_comment_alt";
+			$c[] = "c$thematic5_comment_alt";
 		} else {
-			$c[] = "t$thematic_comment_alt";
+			$c[] = "t$thematic5_comment_alt";
 		}
 
 		// If the comment author has an id (registered), then print the log in name
@@ -115,8 +115,8 @@ if ( function_exists( 'childtheme_override_comment_class' ) )  {
 		}
 
 		// If it's the other to the every, then add 'alt' class; collects time- and date-based classes
-		thematic_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
-		if ( ++$thematic_comment_alt % 2 )
+		thematic5_date_classes( mysql2date( 'U', $comment->comment_date ), $c, 'c-' );
+		if ( ++$thematic5_comment_alt % 2 )
 			$c[] = 'alt';
 
 		// Comment depth
@@ -138,8 +138,8 @@ if ( function_exists( 'childtheme_override_comment_class' ) )  {
  * @deprecated 0.9.8
  */
 function more_text() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_more_text()');
-	thematic_more_text();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_more_text()');
+	thematic5_more_text();
 }
 
 /**
@@ -150,8 +150,8 @@ function more_text() {
  * @deprecated 0.9.8
  */
 function list_comments_arg() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_list_comments_arg()');
-	thematic_list_comments_arg();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_list_comments_arg()');
+	thematic5_list_comments_arg();
 }
 
 /**
@@ -162,8 +162,8 @@ function list_comments_arg() {
  * @deprecated 0.9.8
  */
 function list_bookmarks_args() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_list_bookmarks_args()' );
-	thematic_list_bookmarks_args();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_list_bookmarks_args()' );
+	thematic5_list_bookmarks_args();
 }
 
 
@@ -175,8 +175,8 @@ function list_bookmarks_args() {
  * @deprecated 0.9.8
  */
 function widget_area_primary_aside() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_primary_aside()' );
-	thematic_widget_area_primary_aside();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_primary_aside()' );
+	thematic5_widget_area_primary_aside();
 }
 
 
@@ -188,8 +188,8 @@ function widget_area_primary_aside() {
  * @deprecated 0.9.8
  */
 function widget_area_secondary_aside() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_secondary_aside()' );
-    thematic_widget_area_secondary_aside();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_secondary_aside()' );
+    thematic5_widget_area_secondary_aside();
 }
 
 
@@ -201,8 +201,8 @@ function widget_area_secondary_aside() {
  * @deprecated 0.9.8
  */
 function widget_area_index_top() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_index_top()' );
-    thematic_widget_area_index_top();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_index_top()' );
+    thematic5_widget_area_index_top();
 }
 
 
@@ -214,8 +214,8 @@ function widget_area_index_top() {
  * @deprecated 0.9.8
  */
 function widget_area_index_insert() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_index_insert()' );
-	thematic_widget_area_index_insert();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_index_insert()' );
+	thematic5_widget_area_index_insert();
 }
 
 
@@ -227,8 +227,8 @@ function widget_area_index_insert() {
  * @deprecated 0.9.8
  */	
 function widget_area_index_bottom() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_index_bottom()' );
-    thematic_widget_area_index_bottom();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_index_bottom()' );
+    thematic5_widget_area_index_bottom();
 }
 
 
@@ -240,8 +240,8 @@ function widget_area_index_bottom() {
  * @deprecated 0.9.8
  */
 function widget_area_single_top() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_single_top()' );
-    thematic_widget_area_single_top();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_single_top()' );
+    thematic5_widget_area_single_top();
 }
 
 
@@ -253,8 +253,8 @@ function widget_area_single_top() {
  * @deprecated 0.9.8
  */
 function widget_area_single_insert() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_single_insert()' );
-    thematic_widget_area_single_insert();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_single_insert()' );
+    thematic5_widget_area_single_insert();
 }
 
 
@@ -266,8 +266,8 @@ function widget_area_single_insert() {
  * @deprecated 0.9.8
  */
 function widget_area_single_bottom() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_single_bottom()' );
-    thematic_widget_area_single_bottom();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_single_bottom()' );
+    thematic5_widget_area_single_bottom();
 }
 
 
@@ -279,8 +279,8 @@ function widget_area_single_bottom() {
  * @deprecated 0.9.8	 
  */
 function widget_area_page_top() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_page_top()' );
-	thematic_widget_area_page_top();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_page_top()' );
+	thematic5_widget_area_page_top();
 }
 	
 	
@@ -292,8 +292,8 @@ function widget_area_page_top() {
  * @deprecated 0.9.8	 
  */
 function widget_area_page_bottom() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_page_bottom()' );
-	thematic_widget_page_bottom();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_page_bottom()' );
+	thematic5_widget_page_bottom();
 }
 
 
@@ -305,8 +305,8 @@ function widget_area_page_bottom() {
  * @deprecated 0.9.8
  */
  function widget_area_subsidiaries() {
-	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic_widget_area_subsidiaries()' );
-	thematic_widget_area_subsidiaries();
+	_deprecated_function( __FUNCTION__, '0.9.8', 'thematic5_widget_area_subsidiaries()' );
+	thematic5_widget_area_subsidiaries();
 }
 
 ?>
