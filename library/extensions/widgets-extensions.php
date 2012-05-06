@@ -578,7 +578,6 @@ function thematic5_before_widget_area($hook) {
 	} else {
 		$content .= '<div id="' . $hook . '" class="aside" role="complementary">' ."\n";
 	}
-	//$content .= "\t\t\t" . '<ul class="xoxo">' . "\n\n\t\t\t\t";
 	return apply_filters( 'thematic5_before_widget_area', $content );
 }
 
@@ -591,7 +590,6 @@ function thematic5_before_widget_area($hook) {
  * @return string 
  */
 function thematic5_after_widget_area($hook) {
-	//$content = "\n\t\t\t\t" . '</ul>' ."\n\n\t\t";
 	if ( $hook == 'primary-aside' ) {
 		$content .= '</div><!-- #primary .aside -->' ."\n\n";
 	} elseif ( $hook == 'secondary-aside' ) {
