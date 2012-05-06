@@ -106,16 +106,6 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		if ( !defined('THEMATIC_COMPATIBLE_COMMENT_HANDLING') )
 			define('THEMATIC_COMPATIBLE_COMMENT_HANDLING', false);
 
-		// set body class handling to WP body_class()
-		// If you set this to TRUE, Thematic will use thematic5_body_class instead
-		if ( !defined('THEMATIC_COMPATIBLE_BODY_CLASS') )
-			define('THEMATIC_COMPATIBLE_BODY_CLASS', false);
-
-		// set post class handling to WP post_class()
-		// If you set this to TRUE, Thematic will use thematic5_post_class instead
-		if ( !defined('THEMATIC_COMPATIBLE_POST_CLASS') )
-			define('THEMATIC_COMPATIBLE_POST_CLASS', false);
-
 		// which comment form should be used
 		if ( !defined('THEMATIC_COMPATIBLE_COMMENT_FORM') ) {
 			if ( function_exists('comment_form') ) {
