@@ -11,9 +11,9 @@
  
 	// Create doctype
 	thematic5_create_doctype();
-	echo " ";
-	language_attributes();
-	echo ">\n";
+	
+	// Create the <html> tag with language attributes
+	thematic5_create_html();
 	
 	// Opens the head tag 
 	thematic5_head_profile();
