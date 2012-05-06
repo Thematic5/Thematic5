@@ -25,10 +25,18 @@ function thematic5_create_doctype() {
  * Filter: thematic5_create_html
  */
 function thematic5_create_html() {
-    $content = '<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" '. language_attributes() .'> <![endif]-->';
-	$content .= '<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" '. language_attributes() .'> <![endif]-->';
-	$content .= '<!--[if IE 8]>    <html class="no-js lt-ie9" '. language_attributes() .'> <![endif]-->';
-	$content .= '<!--[if gt IE 8]><!--> <html class="no-js" '. language_attributes() .'> <!--<![endif]-->';
+
+	ob_start(); ?>
+	
+    <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes() ?>> <![endif]-->
+	<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" <?php language_attributes() ?>> <![endif]-->
+	<!--[if IE 8]>    <html class="no-js lt-ie9" <?php language_attributes() ?>> <![endif]-->
+	<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
+	
+	<?php
+	
+	$content = ob_get_contents();
+	ob_end_clean();
 
     echo apply_filters( 'thematic5_create_html', $content );
 }
