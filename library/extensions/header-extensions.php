@@ -589,30 +589,29 @@ if ( function_exists('childtheme_override_access') )  {
     }
 } else {
     /**
-     * Display the #access div
+     * Display the #access nav
      * 
      * Override: childtheme_override_access
      */    
     function thematic5_access() { 
     ?>
     
-    <div id="access">
-    
-    	<div class="skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip navigation to the content', 'thematic5' ); ?>"><?php _e('Skip to content', 'thematic5'); ?></a></div><!-- .skip-link -->
+    <nav id="access" role="navigation">
+		<h1 class="assistive-text"><?php _e( 'Menu', 'thematic5' ); ?></h1>
+    	<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip navigation to the content', 'thematic5' ); ?>"><?php _e('Skip to content', 'thematic5'); ?></a></div><!-- .skip-link -->
     	
     	<?php 
-    	if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu') ) ) ) {
+    	if (  has_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu') ) ) {
     	    echo  wp_nav_menu(thematic5_nav_menu_args());
     	} else {
     	    echo  thematic5_add_menuclass(wp_page_menu(thematic5_page_menu_args()));	
     	}
     	?>
     	
-    </div><!-- #access -->
+    </nav><!-- #access -->
     <?php 
     }
 }
-
 add_action('thematic5_header','thematic5_access',9);
 
 

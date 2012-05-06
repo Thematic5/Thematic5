@@ -57,14 +57,14 @@
 	thematic5_aboveheader(); 
 ?>
    
-	<div id="header">
+	<header id="masthead" role="banner">
         
         <?php 
 			// Action hook creating the theme header
 			thematic5_header();
         ?>
         
-	</div><!-- #header-->
+	</header><!-- #masthead-->
     
     <?php
 		// Action hook for placing content below the theme header

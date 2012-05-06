@@ -411,31 +411,33 @@ if (function_exists('childtheme_override_nav_above'))  {
 	 * @link http://wordpress.org/extend/plugins/wp-pagenavi/ WP-PageNavi Plugin Page
 	 */
 	function thematic5_nav_above() {
-		if (is_single()) { 
 		?>
-				<div id="nav-above" class="navigation">
-				
-					<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
-					
-					<div class="nav-next"><?php thematic5_next_post_link() ?></div>
-					
-				</div>
-		<?php } else { ?>
-				<div id="nav-above" class="navigation">
-               		<?php if ( function_exists( 'wp_pagenavi' ) ) { ?>
-                	<?php wp_pagenavi(); ?>
-					<?php } else { ?>
-					  
-					<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'thematic5') ) ?></div>
-					
-					<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5') ) ?></div>
-					<?php } ?>
-					
-				</div>	
+		<nav id="nav-above" class="navigation" role="navigation">
+			
+			<h1 class="assistive-text"><?php _e('Post navigation','thematic5');?></h1>
+			
 		<?php
-		}
-	}
-} // end nav_above
+				if (is_single()) { 
+			?>
+					<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
+					<div class="nav-next"><?php thematic5_next_post_link() ?></div>
+
+		<?php } else { 
+				
+					if ( function_exists( 'wp_pagenavi' ) ) { 
+						wp_pagenavi(); 
+					} else { ?>
+					  
+						<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'thematic5') ) ?></div>
+						
+						<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5') ) ?></div>
+						<?php } 
+				}  ?>
+				
+		</nav>		
+	<?php
+	} 
+}// end nav_above
 
 add_action('thematic5_navigation_above', 'thematic5_nav_above', 2);
 
