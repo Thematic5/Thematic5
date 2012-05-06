@@ -11,7 +11,7 @@
  * Markup before the widget
  */
 function thematic5_before_widget() {
-	$content = '<li id="%1$s" class="widgetcontainer %2$s">';
+	$content = '<aside id="%1$s" class="widgetcontainer %2$s">';
 	return apply_filters('thematic5_before_widget', $content);
 }
 
@@ -20,7 +20,7 @@ function thematic5_before_widget() {
  * Markup after the widget
  */
 function thematic5_after_widget() {
-	$content = '</li>';
+	$content = '</aside>';
 	return apply_filters('thematic5_after_widget', $content);
 }
 
@@ -30,7 +30,7 @@ function thematic5_after_widget() {
  * Markup before the widget title
  */
 function thematic5_before_title() {
-	$content = "<h3 class=\"widgettitle\">";
+	$content = "<h1 class=\"widgettitle\">";
 	return apply_filters('thematic5_before_title', $content);
 }
 
@@ -39,7 +39,7 @@ function thematic5_before_title() {
  * Markup after the widget title
  */
 function thematic5_after_title() {
-	$content = "</h3>\n";
+	$content = "</h1>\n";
 	return apply_filters('thematic5_after_title', $content);
 }
 
