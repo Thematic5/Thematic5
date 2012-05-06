@@ -464,7 +464,7 @@ if (function_exists('childtheme_override_archive_loop'))  {
 				thematic5_abovepost(); 
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -479,7 +479,7 @@ if (function_exists('childtheme_override_archive_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -515,7 +515,7 @@ if (function_exists('childtheme_override_author_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -530,7 +530,7 @@ if (function_exists('childtheme_override_author_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -565,7 +565,7 @@ if (function_exists('childtheme_override_category_loop'))  {
 				thematic5_abovepost();
 				?>
 	
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -580,7 +580,7 @@ if (function_exists('childtheme_override_category_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -618,7 +618,7 @@ if (function_exists('childtheme_override_index_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 
 				<?php
 	            	// creating the post header
@@ -635,7 +635,7 @@ if (function_exists('childtheme_override_index_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -675,7 +675,7 @@ if (function_exists('childtheme_override_single_post'))  {
 				thematic5_abovepost();
 				?>
 			
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -692,7 +692,7 @@ if (function_exists('childtheme_override_single_post'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 		<?php
 			// action hook for insterting content below #post
 			thematic5_belowpost();
@@ -724,7 +724,7 @@ if (function_exists('childtheme_override_search_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -739,7 +739,7 @@ if (function_exists('childtheme_override_search_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -774,7 +774,7 @@ if (function_exists('childtheme_override_tag_loop'))  {
 				thematic5_abovepost(); 
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -789,7 +789,7 @@ if (function_exists('childtheme_override_tag_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
