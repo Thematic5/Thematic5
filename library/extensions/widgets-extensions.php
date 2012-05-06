@@ -31,13 +31,13 @@ function thematic5_search_form() {
 	if (is_search()) {
 	    	$search_form .= '<input id="s" name="s" type="text" value="' . esc_html ( stripslashes( $_GET['s'] ) ) .'" size="' . $search_form_length . '" tabindex="1" />';
 	} else {
-	    	$value = __( 'To search, type and hit enter', 'thematic' );
+	    	$value = __( 'To search, type and hit enter', 'thematic5' );
 	    	$value = apply_filters( 'search_field_value',$value );
 	    	$search_form .= '<input id="s" name="s" type="text" value="' . $value . '" onfocus="if (this.value == \'' . $value . '\') {this.value = \'\';}" onblur="if (this.value == \'\') {this.value = \'' . $value . '\';}" size="'. $search_form_length .'" tabindex="1" />';
 	}
 	$search_form .= "\n\n\t\t\t\t\t\t\t\t";
 	
-	$search_submit = '<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic') . '" tabindex="2" />';
+	$search_submit = '<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic5') . '" tabindex="2" />';
 	
 	$search_form .= apply_filters('thematic5_search_submit', $search_submit);
 	
@@ -69,7 +69,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Primary Aside',
 				'id' => 'primary-aside',
-                'description' => __('The primary widget area, most often used as a sidebar.', 'thematic'),
+                'description' => __('The primary widget area, most often used as a sidebar.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -84,7 +84,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Secondary Aside',
 				'id' => 'secondary-aside',
-                'description' => __('The secondary widget area, most often used as a sidebar.', 'thematic'),
+                'description' => __('The secondary widget area, most often used as a sidebar.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -99,7 +99,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => '1st Subsidiary Aside',
 				'id' => '1st-subsidiary-aside',
-                'description' => __('The 1st widget area in the footer.', 'thematic'),
+                'description' => __('The 1st widget area in the footer.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -114,7 +114,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => '2nd Subsidiary Aside',
 				'id' => '2nd-subsidiary-aside',
-                'description' => __('The 2nd widget area in the footer.', 'thematic'),
+                'description' => __('The 2nd widget area in the footer.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -129,7 +129,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => '3rd Subsidiary Aside',
 				'id' => '3rd-subsidiary-aside',
-                'description' => __('The 3rd widget area in the footer.', 'thematic'),
+                'description' => __('The 3rd widget area in the footer.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -144,7 +144,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Index Top',
 				'id' => 'index-top',
-                'description' => __('The top widget area displayed on the index page.', 'thematic'),
+                'description' => __('The top widget area displayed on the index page.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -159,7 +159,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Index Insert',
 				'id' => 'index-insert',
-                'description' => __('The widget area inserted after x posts on the index page.', 'thematic'),
+                'description' => __('The widget area inserted after x posts on the index page.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -174,7 +174,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Index Bottom',
 				'id' => 'index-bottom',
-                'description' => __('The bottom widget area displayed on the index page.', 'thematic'),
+                'description' => __('The bottom widget area displayed on the index page.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -189,7 +189,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Single Top',
 				'id' => 'single-top',
-                'description' => __('The top widget area displayed on a single post.', 'thematic'),
+                'description' => __('The top widget area displayed on a single post.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -204,7 +204,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Single Insert',
 				'id' => 'single-insert',
-                'description' => __('The widget area inserted between the post and the comments on a single post.', 'thematic'),
+                'description' => __('The widget area inserted between the post and the comments on a single post.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -219,7 +219,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Single Bottom',
 				'id' => 'single-bottom',
-                'description' => __('The bottom widget area displayed on a single post.', 'thematic'),
+                'description' => __('The bottom widget area displayed on a single post.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -234,7 +234,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Page Top',
 				'id' => 'page-top',
-                'description' => __('The top widget area displayed on a page.', 'thematic'),
+                'description' => __('The top widget area displayed on a page.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
@@ -249,7 +249,7 @@ function thematic5_widgets_array() {
 			'args' => array (
 				'name' => 'Page Bottom',
 				'id' => 'page-bottom',
-                'description' => __('The bottom widget area displayed on a page.', 'thematic'),
+                'description' => __('The bottom widget area displayed on a page.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),

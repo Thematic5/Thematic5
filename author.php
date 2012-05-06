@@ -64,7 +64,7 @@
     				<div id="author-email">
     				
     	                <a class="email" title="<?php echo antispambot( get_the_author_meta( 'user_email' ) ); ?>" href="mailto:<?php echo antispambot( get_the_author_meta( 'user_email' ) ); ?>">
-    	                	<?php _e( 'Email ', 'thematic' ) ?>
+    	                	<?php _e( 'Email ', 'thematic5' ) ?>
     	                	<span class="fn n">
     	                		<span class="given-name"><?php the_author_meta( 'first_name' ); ?></span> 
     	                		<span class="family-name"><?php the_author_meta( 'last_name' ); ?></span>

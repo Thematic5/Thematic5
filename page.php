@@ -46,9 +46,9 @@
 						<?php
 	                    	the_content();
 	                    
-	                    	wp_link_pages( "\t\t\t\t\t<div class='page-link'>" . __( 'Pages: ', 'thematic' ), "</div>\n", 'number' );
+	                    	wp_link_pages( "\t\t\t\t\t<div class='page-link'>" . __( 'Pages: ', 'thematic5' ), "</div>\n", 'number' );
 	                    
-	                    	edit_post_link( __( 'Edit', 'thematic' ), "\n\t\t\t\t\t\t" . '<span class="edit-link">' , '</span>' . "\n" );
+	                    	edit_post_link( __( 'Edit', 'thematic5' ), "\n\t\t\t\t\t\t" . '<span class="edit-link">' , '</span>' . "\n" );
 	                    ?>
 
 					</div><!-- .entry-content -->

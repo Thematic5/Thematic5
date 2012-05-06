@@ -100,21 +100,6 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 		define( 'TEMPLATEURI', $ct['URI'] );
 		define( 'TEMPLATEVERSION', $templateversion );
 
-
-		// set comments handling for pages, archives and links
-		// If you set this to TRUE, comments only show up on pages with a key/value of "comments"
-		if ( !defined('THEMATIC_COMPATIBLE_COMMENT_HANDLING') )
-			define('THEMATIC_COMPATIBLE_COMMENT_HANDLING', false);
-
-		// which comment form should be used
-		if ( !defined('THEMATIC_COMPATIBLE_COMMENT_FORM') ) {
-			if ( function_exists('comment_form') ) {
- 				define('THEMATIC_COMPATIBLE_COMMENT_FORM', false); // WordPress 3.0
-			} else {
-				define('THEMATIC_COMPATIBLE_COMMENT_FORM', true); // below WordPress 3.0
-			}
-		}
-
 		// Check for WordPress mu or WordPress 3.0
 		define( 'THEMATIC_MB', function_exists('get_blog_option') );
 
@@ -185,7 +170,7 @@ if ( function_exists('childtheme_override_theme_setup') ) {
  			add_filter('the_generator', 'thematic5_remove_generators');
  
 		// Translate, if applicable
-		load_theme_textdomain('thematic', THEMELIB . '/languages');
+		load_theme_textdomain('thematic5', THEMELIB . '/languages');
 
 		$locale = get_locale();
 		$locale_file = THEMELIB . "/languages/$locale.php";
@@ -225,7 +210,7 @@ if ( function_exists('childtheme_override_init_navmenu') )  {
 	 * Filter: thematic5_primary_menu_name
 	 */
     function thematic5_init_navmenu() {
-		register_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu'), apply_filters('thematic5_primary_menu_name', __( 'Primary Menu', 'thematic' ) ) );
+		register_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu'), apply_filters('thematic5_primary_menu_name', __( 'Primary Menu', 'thematic5' ) ) );
 	}
 }
 add_action('init', 'thematic5_init_navmenu');

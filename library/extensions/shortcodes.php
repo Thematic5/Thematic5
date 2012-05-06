@@ -37,9 +37,9 @@ add_shortcode('theme-link', 'thematic5_shortcode_framework_link');
  */
 function thematic5_shortcode_login_link() {
     if ( ! is_user_logged_in() )
-        $link = '<a href="' . site_url('/wp-login.php') . '">' . __('Login','thematic') . '</a>';
+        $link = '<a href="' . site_url('/wp-login.php') . '">' . __('Login','thematic5') . '</a>';
     else
-    $link = '<a href="' . wp_logout_url() . '">' . __('Logout','thematic') . '</a>';
+    $link = '<a href="' . wp_logout_url() . '">' . __('Logout','thematic5') . '</a>';
     return apply_filters('loginout', $link);
 }
 add_shortcode('loginout-link', 'thematic5_shortcode_login_link');		  	  

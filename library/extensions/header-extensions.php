@@ -101,19 +101,19 @@ if ( function_exists('childtheme_override_doctitle') )  {
 	      $content = single_post_title('', FALSE); 
 	    }
 	    elseif ( is_search() ) { 
-	      $content = __('Search Results for:', 'thematic'); 
+	      $content = __('Search Results for:', 'thematic5'); 
 	      $content .= ' ' . get_search_query();
 	    }
 	    elseif ( is_category() ) {
-	      $content = __('Category Archives:', 'thematic');
+	      $content = __('Category Archives:', 'thematic5');
 	      $content .= ' ' . single_cat_title('', FALSE);;
 	    }
 	    elseif ( is_tag() ) { 
-	      $content = __('Tag Archives:', 'thematic');
+	      $content = __('Tag Archives:', 'thematic5');
 	      $content .= ' ' . thematic5_tag_query();
 	    }
 	    elseif ( is_404() ) { 
-	      $content = __('Not Found', 'thematic'); 
+	      $content = __('Not Found', 'thematic5'); 
 	    }
 	    else { 
 	      $content = get_bloginfo('description', 'display');
@@ -598,7 +598,7 @@ if ( function_exists('childtheme_override_access') )  {
     
     <div id="access">
     
-    	<div class="skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip navigation to the content', 'thematic' ); ?>"><?php _e('Skip to content', 'thematic'); ?></a></div><!-- .skip-link -->
+    	<div class="skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip navigation to the content', 'thematic5' ); ?>"><?php _e('Skip to content', 'thematic5'); ?></a></div><!-- .skip-link -->
     	
     	<?php 
     	if ( ( function_exists("has_nav_menu") ) && ( has_nav_menu( apply_filters('thematic5_primary_menu_id', 'primary-menu') ) ) ) {

@@ -24,7 +24,7 @@ if (function_exists('childtheme_override_commentmeta'))  {
 	 */
 	function thematic5_commentmeta($print = TRUE) {
 		$content = '<div class="comment-meta">' . 
-					sprintf( __('Posted %1$s at %2$s <span class="meta-sep">|</span> <a href="%3$s" title="Permalink to this comment">Permalink</a>', 'thematic' ),
+					sprintf( __('Posted %1$s at %2$s <span class="meta-sep">|</span> <a href="%3$s" title="Permalink to this comment">Permalink</a>', 'thematic5' ),
 					get_comment_date(),
 					get_comment_time(),
 					'#comment-' . get_comment_ID() );
@@ -32,8 +32,8 @@ if (function_exists('childtheme_override_commentmeta'))  {
 		if ( get_edit_comment_link() ) {
 			$content .=	sprintf(' <span class="meta-sep">|</span><span class="edit-link"> <a class="comment-edit-link" href="%1$s" title="%2$s">%3$s</a></span>',
 						get_edit_comment_link(),
-						__( 'Edit comment' , 'thematic' ),
-						__( 'Edit', 'thematic' ) );
+						__( 'Edit comment' , 'thematic5' ),
+						__( 'Edit', 'thematic5' ) );
 			}
 		
 		$content .= '</div>' . "\n";

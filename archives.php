@@ -17,7 +17,7 @@
  */
 
 	// Providing deprecated file notice to be seen when WP_DEBUG is true
-	_deprecated_file( sprintf( __( 'The template %s', 'thematic' ) . ':', basename(__FILE__) ), '0.9.8', 'template-page-archives.php' );
+	_deprecated_file( sprintf( __( 'The template %s', 'thematic5' ) . ':', basename(__FILE__) ), '0.9.8', 'template-page-archives.php' );
 
 
 	// calling the header.php

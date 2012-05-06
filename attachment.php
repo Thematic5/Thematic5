@@ -50,7 +50,7 @@
 	                        <?php 
 	                        	the_content( thematic5_more_text() );
 
-	                        	wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'thematic' ) . '&after=</div>' );
+	                        	wp_link_pages( 'before=<div class="page-link">' . __( 'Pages:', 'thematic5' ) . '&after=</div>' );
 	                        ?>
 
 					</div><!-- .entry-content -->

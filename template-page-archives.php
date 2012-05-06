@@ -51,7 +51,7 @@
 	                    	// action hook for displaying a list of archive links
 	                    	thematic5_archives();
 
-	                    	edit_post_link( __( 'Edit', 'thematic' ),'<span class="edit-link">','</span>' );
+	                    	edit_post_link( __( 'Edit', 'thematic5' ),'<span class="edit-link">','</span>' );
 	                    ?>
 
 					</div><!-- .entry-content -->

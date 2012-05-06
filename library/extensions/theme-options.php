@@ -47,13 +47,13 @@ if (function_exists('childtheme_override_opt_init')) {
 		
 		add_settings_section ('thematic5_opt_section_main', '', 'thematic5_do_opt_section_main', 'thematic5_theme_opt');
 	
-		add_settings_field ('thematic5_insert_opt', __('Index Insert Position', 'thematic')	, 'thematic5_do_insert_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
-		add_settings_field ('thematic5_auth_opt',   __('Info on Author Page'	, 'thematic')	, 'thematic5_do_auth_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
-		add_settings_field ('thematic5_footer_opt', __('Text in Footer'	, 'thematic')		, 'thematic5_do_footer_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+		add_settings_field ('thematic5_insert_opt', __('Index Insert Position', 'thematic5')	, 'thematic5_do_insert_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+		add_settings_field ('thematic5_auth_opt',   __('Info on Author Page'	, 'thematic5')	, 'thematic5_do_auth_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+		add_settings_field ('thematic5_footer_opt', __('Text in Footer'	, 'thematic5')		, 'thematic5_do_footer_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		
 		// Show checkbox option for removing old options from database
 		if ( isset( $legacy_options ) && false !== $legacy_options ) {
-			add_settings_field ('thematic5_legacy_opt', __('Remove Legacy Options'	, 'thematic'), 'thematic5_do_legacy_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
+			add_settings_field ('thematic5_legacy_opt', __('Remove Legacy Options'	, 'thematic5'), 'thematic5_do_legacy_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		} 
 	
 	}
@@ -201,22 +201,22 @@ if (function_exists('childtheme_override_opt_page_help')) {
 		
 		$screen = get_current_screen();
 		
-		$sidebar  = '<p><strong>' . __( 'For more information:', 'thematic') . '</strong></p>';
+		$sidebar  = '<p><strong>' . __( 'For more information:', 'thematic5') . '</strong></p>';
 		$sidebar .= '<a href="http://thematictheme.com">ThematicTheme.com</a></p>';
-		$sidebar .= '<p><strong>' . __('For support:', 'thematic') . '</strong></p>';
+		$sidebar .= '<p><strong>' . __('For support:', 'thematic5') . '</strong></p>';
 		$sidebar .= '<a href="http://thematictheme.com/forums/"> Thematic ';
-		$sidebar .= __('forums', 'thematic' ) . '</a></p>';
+		$sidebar .= __('forums', 'thematic5' ) . '</a></p>';
 		
 		$sidebar = apply_filters ( 'thematic5_theme_opt_help_sidebar', $sidebar );
 		
-		$help =  '<p>' . __('The options below are enabled by the Thematic Theme framework and/or a child theme.', 'thematic') .' ';
-		$help .= __('New options can be added and the default ones removed by creating a child theme. This contextual help can be customized in a child theme also.', 'thematic') . '</p>';
+		$help =  '<p>' . __('The options below are enabled by the Thematic Theme framework and/or a child theme.', 'thematic5') .' ';
+		$help .= __('New options can be added and the default ones removed by creating a child theme. This contextual help can be customized in a child theme also.', 'thematic5') . '</p>';
 		
 		$help = apply_filters ( 'thematic5_theme_opt_help_txt', $help );
 	
 		if ( method_exists( $screen, 'add_help_tab' ) ) {
 			// WordPress 3.3
-			$screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
+			$screen->add_help_tab( array( 'title' => __( 'Overview', 'thematic5' ), 'id' => 'theme-opt-help', 'content' => $help, ) );
 			$screen->set_help_sidebar( $sidebar );
 			
 		} elseif ( function_exists('add_contextual_help') ) {
@@ -247,7 +247,7 @@ function thematic5_legacy_help() {
  * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
  */
 function thematic5_do_legacy_help_section() { 
-	echo ('<p>'. __( 'For more information about this theme, <a href="http://themeshaper.com">visit ThemeShaper</a>. Please visit the <a href="http://themeshaper.com/forums/">ThemeShaper Forums</a> if you have any questions about Thematic.', 'thematic' ) .'</p>') ;
+	echo ('<p>'. __( 'For more information about this theme, <a href="http://themeshaper.com">visit ThemeShaper</a>. Please visit the <a href="http://themeshaper.com/forums/">ThemeShaper Forums</a> if you have any questions about Thematic.', 'thematic5' ) .'</p>') ;
 }
 
 
@@ -262,7 +262,7 @@ function thematic5_do_opt_page() { ?>
 
  <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2><?php printf( __( '%s Theme Options', 'thematic' ), get_current_theme() ); ?></h2>
+	<h2><?php printf( __( '%s Theme Options', 'thematic5' ), get_current_theme() ); ?></h2>
 	<?php settings_errors(); ?>
 	
 	<form action="options.php" method="post" >
@@ -276,7 +276,7 @@ function thematic5_do_opt_page() { ?>
 			// WordPress 3.0
 			?>
 			 	<p class="submit">
- 					<input name="submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'thematic') ?>" />
+ 					<input name="submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes', 'thematic5') ?>" />
  				</p>
  			<?php
 			}
@@ -311,7 +311,7 @@ function thematic5_do_opt_section_main() {
 function thematic5_do_insert_opt() { 
 ?>
 	<input type="text" maxlength="4" size="4" value="<?php esc_attr_e( (thematic5_get_theme_opt('index_insert') ) ) ;  ?>" id="thm_insert_position" name="thematic5_theme_opt[index_insert]">
-	<label for="thm_insert_position"><?php _e('The Index Insert widget area will appear after this post number. Entering nothing or 0 will disable this feature.','thematic'); ?></label>
+	<label for="thm_insert_position"><?php _e('The Index Insert widget area will appear after this post number. Entering nothing or 0 will disable this feature.','thematic5'); ?></label>
 <?php 
 }
 
@@ -324,7 +324,7 @@ function thematic5_do_insert_opt() {
 function thematic5_do_auth_opt() { 
 ?>
 	<input id="thm_authorinfo" type="checkbox"  value="1" name="thematic5_theme_opt[author_info]"  <?php checked( thematic5_get_theme_opt('author_info') , 1 ); ?> />
-	<label for="thm_authorinfo"><?php _e('Display a', 'thematic') ?> <a target="_blank" href="http://microformats.org/wiki/hcard">microformatted vCard</a> <?php _e("with the author's avatar, bio and email on the author page.", 'thematic') ?></label>
+	<label for="thm_authorinfo"><?php _e('Display a', 'thematic5') ?> <a target="_blank" href="http://microformats.org/wiki/hcard">microformatted vCard</a> <?php _e("with the author's avatar, bio and email on the author page.", 'thematic5') ?></label>
 <?php
 }
 
@@ -337,7 +337,7 @@ function thematic5_do_auth_opt() {
 function thematic5_do_footer_opt() { 
 ?>
 	<textarea rows="5" cols="94" id="thm_footertext" name="thematic5_theme_opt[footer_txt]"><?php thematic5_get_theme_opt('footer_txt', true ); ?></textarea>
-	<br><?php _e('You can use HTML and shortcodes in your footer text. Shortcode examples', 'thematic'); ?>: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]
+	<br><?php _e('You can use HTML and shortcodes in your footer text. Shortcode examples', 'thematic5'); ?>: [wp-link] [theme-link] [loginout-link] [blog-title] [blog-link] [the-year]
 <?php
 }
 
@@ -350,7 +350,7 @@ function thematic5_do_footer_opt() {
 function thematic5_do_legacy_opt() {
 ?>
 	<input id="thm_legacy_opt" type="checkbox" value="1" name="thematic5_theme_opt[del_legacy_opt]"  <?php checked( thematic5_get_theme_opt('del_legacy_opt'), 1 ); ?> />
-	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic' ), get_current_theme() ); ?></label>
+	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic5' ), get_current_theme() ); ?></label>
 <?php
 }
 
@@ -377,7 +377,7 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   		add_settings_error(
  	   		'thematic5_theme_opt',
  	   		'thematic5_insert_opt',
- 	   		__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic' ),
+ 	   		__('The index insert position value must be a number equal to or greater than zero. This setting has been reverted to the previous value.', 'thematic5' ),
  	   		'error'
  	   		);
  	   } else {
