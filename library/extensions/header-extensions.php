@@ -496,12 +496,12 @@ if ( function_exists( 'childtheme_override_brandingopen' ) )  {
 		}
 	} else {
 	/**
-	 * Display the opening of the #branding div
+	 * Display the opening of the #branding hgroup
 	 * 
 	 * Override: childtheme_override_brandingopen
 	 */
     function thematic5_brandingopen() {
-    	echo "\t<div id=\"branding\">\n";
+    	echo "\t<hgroup id=\"branding\">\n";
     }
 }
 
@@ -568,12 +568,12 @@ if ( function_exists('childtheme_override_brandingclose') )  {
     }
 } else {
     /**
-     * Display the closing of the #branding div
+     * Display the closing of the #branding hgroup
      * 
      * Override: childtheme_override_brandingclose
      */    
     function thematic5_brandingclose() {
-    	echo "\t\t</div><!--  #branding -->\n";
+    	echo "\t\t</hgroup><!--  #branding -->\n";
     }
 }
 
