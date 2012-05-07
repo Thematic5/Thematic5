@@ -128,7 +128,7 @@ Features:
 * Added: thematic5_postfooter_postterms($tax) for assembling the term list for individual taxonomies
 * Added: New override childtheme_override_postfooter_postterms($tax) 
 * Added: New filter thematic5_postfooter_postterms
-* Added: New filter thematic5_open_id_content. Defaults to: <code>'<div id="content">' . "\n"</code>.
+* Added: New filter thematic5_open_id_content. Defaults to: <code>'<div id="content" role="main">' . "\n"</code>.
 * Added: $content_width defines the max image width.
 * Added: Farsi language files. Credits: Ehsan
 * Added: The action hooks <code>thematic5_above_archiveloop</code> and <code>thematic5_below_archivloop</code>. Credits: Kathy

@@ -410,32 +410,34 @@ if (function_exists('childtheme_override_nav_above'))  {
 	 * 
 	 * @link http://wordpress.org/extend/plugins/wp-pagenavi/ WP-PageNavi Plugin Page
 	 */
-	function thematic5_nav_above() {
-		if (is_single()) { 
-		?>
-				<div id="nav-above" class="navigation">
-				
-					<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
-					
-					<div class="nav-next"><?php thematic5_next_post_link() ?></div>
-					
-				</div>
-		<?php } else { ?>
-				<div id="nav-above" class="navigation">
-               		<?php if ( function_exists( 'wp_pagenavi' ) ) { ?>
-                	<?php wp_pagenavi(); ?>
-					<?php } else { ?>
-					  
-					<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'thematic5') ) ?></div>
-					
-					<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5') ) ?></div>
-					<?php } ?>
-					
-				</div>	
+	function thematic5_nav_above() { ?>
+	
+		<nav id="nav-above" class="navigation" role="navigation">
+			
+			<h1 class="assistive-text"><?php _e('Post navigation','thematic5');?></h1>
+			
 		<?php
-		}
-	}
-} // end nav_above
+				if (is_single()) { 
+			?>
+					<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
+					<div class="nav-next"><?php thematic5_next_post_link() ?></div>
+
+		<?php } else { 
+				
+					if ( function_exists( 'wp_pagenavi' ) ) { 
+						wp_pagenavi(); 
+					} else { ?>
+					  
+						<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'thematic5') ) ?></div>
+						
+						<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5') ) ?></div>
+						<?php } 
+				}  ?>
+				
+		</nav>		
+	<?php
+	} 
+}// end nav_above
 
 add_action('thematic5_navigation_above', 'thematic5_nav_above', 2);
 
@@ -462,7 +464,7 @@ if (function_exists('childtheme_override_archive_loop'))  {
 				thematic5_abovepost(); 
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -477,7 +479,7 @@ if (function_exists('childtheme_override_archive_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -513,7 +515,7 @@ if (function_exists('childtheme_override_author_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -528,7 +530,7 @@ if (function_exists('childtheme_override_author_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -563,7 +565,7 @@ if (function_exists('childtheme_override_category_loop'))  {
 				thematic5_abovepost();
 				?>
 	
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -578,7 +580,7 @@ if (function_exists('childtheme_override_category_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -616,7 +618,7 @@ if (function_exists('childtheme_override_index_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 
 				<?php
 	            	// creating the post header
@@ -633,7 +635,7 @@ if (function_exists('childtheme_override_index_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -673,7 +675,7 @@ if (function_exists('childtheme_override_single_post'))  {
 				thematic5_abovepost();
 				?>
 			
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -690,7 +692,7 @@ if (function_exists('childtheme_override_single_post'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 		<?php
 			// action hook for insterting content below #post
 			thematic5_belowpost();
@@ -722,7 +724,7 @@ if (function_exists('childtheme_override_search_loop'))  {
 				thematic5_abovepost();
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -737,7 +739,7 @@ if (function_exists('childtheme_override_search_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -772,7 +774,7 @@ if (function_exists('childtheme_override_tag_loop'))  {
 				thematic5_abovepost(); 
 				?>
 
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
+				<article id="post-<?php the_ID() ?>" <?php post_class() ?> >
 				
 				<?php
 	            	// creating the post header
@@ -787,7 +789,7 @@ if (function_exists('childtheme_override_tag_loop'))  {
 					
 					<?php thematic5_postfooter(); ?>
 					
-				</div><!-- #post -->
+				</article><!-- #post -->
 
 			<?php 
 				// action hook for insterting content below #post
@@ -848,15 +850,19 @@ if (function_exists('childtheme_override_postheader'))  {
 	 */
 	function thematic5_postheader() {
  	   
- 	   global $post;
+		global $post;
  	 
- 	   if ( is_404() || $post->post_type == 'page') {
- 	       $postheader = thematic5_postheader_posttitle();        
- 	   } else {
- 	       $postheader = thematic5_postheader_posttitle() . thematic5_postheader_postmeta();    
- 	   }
- 	   
- 	   echo apply_filters( 'thematic5_postheader', $postheader ); // Filter to override default post header
+		$postheader = '<header class="entry-header">';
+		
+		if ( is_404() || $post->post_type == 'page') {
+			$postheader .= thematic5_postheader_posttitle();        
+		} else {
+			$postheader .= thematic5_postheader_posttitle() . thematic5_postheader_postmeta();    
+		}
+		
+		$postheader .= '</header>';
+			   
+		echo apply_filters( 'thematic5_postheader', $postheader ); // Filter to override default post header
 	}
 }  // end postheader
 
@@ -911,13 +917,13 @@ if (function_exists('childtheme_override_postheader_posttitle'))  {
 	    } elseif (is_404()) {    
 	        $posttitle .= '<h1 class="entry-title">' . __('Not Found', 'thematic5') . "</h1>\n";
 	    } else {
-	        $posttitle .= '<h2 class="entry-title"><a href="';
+	        $posttitle .= '<h1 class="entry-title"><a href="';
 	        $posttitle .= apply_filters('the_permalink', get_permalink());
 	        $posttitle .= '" title="';
 	        $posttitle .= __('Permalink to ', 'thematic5') . the_title_attribute('echo=0');
 	        $posttitle .= '" rel="bookmark">';
 	        $posttitle .= get_the_title();   
-	        $posttitle .= "</a></h2>\n";
+	        $posttitle .= "</a></h1>\n";
 	    }
 	    
 	    return apply_filters('thematic5_postheader_posttitle',$posttitle); 
@@ -1336,14 +1342,14 @@ if (function_exists('childtheme_override_postfooter'))  {
 	    
 		// Check for "Page" post-type and logged in user to show edit link
 	    if ( $post_type == 'page' && current_user_can('edit_posts') ) {
-	        $postfooter = '<div class="entry-utility">' . thematic5_postfooter_posteditlink();
-	        $postfooter .= "</div><!-- .entry-utility -->\n";
+	        $postfooter = '<footer class="entry-meta">' . thematic5_postfooter_posteditlink();
+	        $postfooter .= "</div><!-- .entry-meta -->\n";
 	    // Display nothing for logged out users on a "Page" post-type 
 	    } elseif ( $post_type == 'page' ) {
 	        $postfooter = '';
 	    // For post-types other than "Pages" press on
 	    } else {
-	    	$postfooter = '<div class="entry-utility">';
+	    	$postfooter = '<footer class="entry-meta">';
 	        if ( is_single() ) {
 	        	$post_type_archive_link = ( function_exists( 'get_post_type_archive_link' )  ? get_post_type_archive_link( $post_type ) :  home_url( '/?post_type=' . $post_type ) );
 	        	if ( thematic5_is_custom_post_type() && $post_type_obj->has_archive ) {
@@ -1367,7 +1373,7 @@ if (function_exists('childtheme_override_postfooter'))  {
 	        	} 
 	        	$postfooter .= ' ' . thematic5_postfooter_posteditlink();
 	    	}   
-	    	$postfooter .= "\n\n\t\t\t\t\t</div><!-- .entry-utility -->\n";    
+	    	$postfooter .= "\n\n\t\t\t\t\t</footer><!-- .entry-meta -->\n";    
 	    }
 	    // Put it on the screen
 	    echo apply_filters( 'thematic5_postfooter', $postfooter ); // Filter to override default post footer
@@ -1647,29 +1653,33 @@ if (function_exists('childtheme_override_nav_below'))  {
 	 * 
 	 * @link http://wordpress.org/extend/plugins/wp-pagenavi/ WP-PageNavi Plugin Page
 	 */
-	function thematic5_nav_below() {
-		if (is_single()) { ?>
-
-			<div id="nav-below" class="navigation">
-				<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
-				<div class="nav-next"><?php thematic5_next_post_link() ?></div>
-			</div>
-
-<?php
-		} else { ?>
-
-			<div id="nav-below" class="navigation">
-                <?php if(function_exists('wp_pagenavi')) { ?>
-                <?php wp_pagenavi(); ?>
-                <?php } else { ?>  
-				<div class="nav-previous"><?php next_posts_link(__('<span class="meta-nav">&laquo;</span> Older posts', 'thematic5')) ?></div>
-				<div class="nav-next"><?php previous_posts_link(__('Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5')) ?></div>
-				<?php } ?>
-			</div>	
+	function thematic5_nav_below() { ?>
 	
-<?php
-		}
-	}
+		<nav id="nav-below" class="navigation" role="navigation">
+			
+			<h1 class="assistive-text"><?php _e('Post navigation','thematic5');?></h1>
+			
+		<?php
+				if (is_single()) { 
+			?>
+					<div class="nav-previous"><?php thematic5_previous_post_link() ?></div>
+					<div class="nav-next"><?php thematic5_next_post_link() ?></div>
+
+		<?php } else { 
+				
+					if ( function_exists( 'wp_pagenavi' ) ) { 
+						wp_pagenavi(); 
+					} else { ?>
+					  
+						<div class="nav-previous"><?php next_posts_link(__( '<span class="meta-nav">&laquo;</span> Older posts', 'thematic5') ) ?></div>
+						
+						<div class="nav-next"><?php previous_posts_link(__( 'Newer posts <span class="meta-nav">&raquo;</span>', 'thematic5') ) ?></div>
+						<?php } 
+				}  ?>
+				
+		</nav>		
+	<?php
+	} 
 } // end nav_below
 
 add_action('thematic5_navigation_below', 'thematic5_nav_below', 2);
