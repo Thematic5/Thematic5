@@ -13,8 +13,7 @@
  * Filter: thematic5_create_doctype
  */
 function thematic5_create_doctype() {
-    $content = '<!doctype html>' . "\n";
-    echo apply_filters( 'thematic5_create_doctype', $content );
+    echo apply_filters( 'thematic5_create_doctype', '<!doctype html>' . "\n" );
 }
 
 /**
@@ -28,10 +27,10 @@ function thematic5_create_html() {
 
 	ob_start(); ?>
 	
-    <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes() ?>> <![endif]-->
-	<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" <?php language_attributes() ?>> <![endif]-->
-	<!--[if IE 8]>    <html class="no-js lt-ie9" <?php language_attributes() ?>> <![endif]-->
-	<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" <?php language_attributes() ?>> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" <?php language_attributes() ?>> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes() ?>> <!--<![endif]-->
 	
 	<?php
 	
@@ -53,6 +52,15 @@ function thematic5_head_profile() {
     echo apply_filters('thematic5_head_profile', $content );
 }
 
+/**
+ * Register action hook: thematic5_head
+ * 
+ * Located in header.php, just before wp_head()
+ */
+function thematic5_head() {
+    do_action('thematic5_head');
+} // end thematic5_head
+		
 
 /**
  * Display the META content-type
@@ -68,7 +76,7 @@ function thematic5_create_contenttype() {
     $content .= "\n";
     echo apply_filters('thematic5_create_contenttype', $content);
 }
-
+add_action('thematic5_head','thematic5_create_contenttype', 10);
 
 if ( function_exists('childtheme_override_doctitle') )  {
 	/**
@@ -161,7 +169,7 @@ if ( function_exists('childtheme_override_doctitle') )  {
 	    echo $doctitle;
 	} // end thematic5_doctitle
 }
-
+add_action('thematic5_head','thematic5_doctitle', 20);
 
 /**
  * Switch Thematic's SEO functions on or off
@@ -212,19 +220,17 @@ function thematic5_use_autoexcerpt() {
 /**
  * Display the meta-tag description
  * 
- * This can be switched on or off using thematic5_show_description
- * 
  * Filter: thematic5_create_description
  */
 function thematic5_create_description() {
 	$content = '';
-	if ( thematic5_seo() ) {
-    	if ( is_single() || is_page() ) {
-      		if ( have_posts() ) {
-          		while ( have_posts() ) {
+	if ( thematic5_seo() ) {  
+    	if ( is_single() || is_page() ) { 
+      		if ( have_posts() ) { 
+          		while ( have_posts() ) { 
             		the_post();
-					if ( thematic5_the_excerpt() == "" ) {
-                        if ( thematic5_use_autoexcerpt() ) {
+					if ( thematic5_the_excerpt() == "" ) { 
+                        if ( thematic5_use_autoexcerpt() ) { 
 					    	$content = '<meta name="description" content="';
                     		$content .= thematic5_excerpt_rss();
                     		$content .= '" />';
@@ -249,22 +255,7 @@ function thematic5_create_description() {
         echo apply_filters ('thematic5_create_description', $content);
 	}
 } // end thematic5_create_description
-
-
-/**
- * Switch creating the meta-tag description
- * 
- * Default: ON
- * 
- * Filter: thematic5_show_description
- */
-function thematic5_show_description() {
-    $display = TRUE;
-    $display = apply_filters('thematic5_show_description', $display);
-    if ( $display ) {
-        thematic5_create_description();
-    }
-} // end thematic5_show_description
+add_action('thematic5_head','thematic5_create_description', 30);
 
 
 /**
@@ -276,12 +267,11 @@ function thematic5_mobile_viewport() {
     $content = '<meta name="viewport" content="width=device-width">' . "\n";
     echo apply_filters('thematic5_mobile_viewport', $content);
 } // end thematic5_mobile_viewport
+add_action('thematic5_head','thematic5_mobile_viewport', 40);
 
 
 /**
  * Create the robots meta-tag
- * 
- * This can be switched on or off using thematic5_show_robots
  * 
  * Filter: thematic5_create_robots
  */
@@ -301,55 +291,37 @@ function thematic5_create_robots() {
     		}
 		}
 } // end thematic5_create_robots
+add_action('thematic5_head','thematic5_create_robots', 50);
 
-
-/**
- * Switch creating the robots meta-tag
- * 
- * Default: ON
- * 
- * Filter: thematic5_show_robots
- */
-function thematic5_show_robots() {
-    $display = TRUE;
-    $display = apply_filters('thematic5_show_robots', $display);
-    if ( $display ) {
-        thematic5_create_robots();
-    }
-} // end thematic5_show_robots
 
 /**
  * Display pingback link
  * 
  * This can be switched on or off using thematic5_show_pingback. Default: ON
  * 
- * Filter: thematic5_show_pingback
  * Filter: thematic5_pingback_url
  */
 function thematic5_show_pingback() {
-    $display = TRUE;
-    $display = apply_filters('thematic5_show_pingback', $display);
-    if ($display) {
-        $content = '<link rel="pingback" href="';
-        $content .= get_bloginfo('pingback_url');
-        $content .= '" />';
-        $content .= "\n";
-        echo apply_filters('thematic5_pingback_url',$content);
-    }
+    $content = '<link rel="pingback" href="';
+    $content .= get_bloginfo('pingback_url');
+    $content .= '" />';
+    $content .= "\n";
+    echo apply_filters('thematic5_pingback_url',$content);
 }
+add_action('thematic5_head','thematic5_show_pingback', 60);
 
 /**
  * Add the default stylesheet to the head of the document.
  * 
  * Register and enqueue Thematic style.css
  * 
- * @todo check WP versions > 3.3 for addiytion of wp_enqueue_styles
+ * @todo check WP versions > 3.3 for addition of wp_enqueue_styles
  */
 function thematic5_create_stylesheet() {
 	wp_enqueue_style( 'thematic5_style', get_stylesheet_uri() );
 }
-
 add_action('wp_enqueue_scripts','thematic5_create_stylesheet');
+
 
 if ( function_exists('childtheme_override_head_scripts') )  {
     /**
