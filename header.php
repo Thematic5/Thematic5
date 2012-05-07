@@ -27,6 +27,9 @@
 	// Create the meta description
 	thematic5_show_description();
 	
+	// Optimize Mobile Viewport
+	thematic5_mobile_viewport();
+	
 	// Create the tag <meta name="robots"  
 	thematic5_show_robots();
 	
