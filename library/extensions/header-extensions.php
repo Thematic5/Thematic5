@@ -311,6 +311,25 @@ function thematic5_show_pingback() {
 add_action('thematic5_head','thematic5_show_pingback', 60);
 
 /**
+ * Display pingback link
+ * 
+ * This can be switched on or off using thematic5_show_pingback. Default: ON
+ * 
+ * Filter: thematic5_pingback_url
+ */
+function thematic5_html5js() {
+    $content = '<!--[if lt IE 9]>';
+	$content .= '<script src="'. get_template_directory_uri(). '/js/html5.js" type="text/javascript"></script>';
+	$content .= '<![endif]-->' . "\n";
+
+    echo apply_filters('thematic5_html5js',$content);
+}
+add_action('thematic5_head','thematic5_html5js', 70);
+
+
+
+
+/**
  * Add the default stylesheet to the head of the document.
  * 
  * Register and enqueue Thematic style.css
