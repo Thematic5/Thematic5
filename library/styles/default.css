@@ -325,21 +325,8 @@ ul.sf-menu li li li.sfHover ul {
 .entry-content embed {
     margin:0 0 22px 0;
 }
-.entry-utility {
-	clear:both;
-    color:#666;
-    font-size:13px;
-    line-height:18px;
+footer.entry-meta {
     margin:0 0 44px 0;
-}
-.entry-utility a {
-    color:#666;
-    font-style:italic;
-    text-decoration:none;
-}
-.entry-utility a:active,
-.entry-utility a:hover {
-    color: #FF4B33;
 }
 .page .edit-link {
 	clear:both;
