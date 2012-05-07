@@ -268,6 +268,17 @@ function thematic5_show_description() {
 
 
 /**
+ * Create the mobile viewport meta-tag
+ * 
+ * Filter: thematic5_mobile_viewport
+ */
+function thematic5_mobile_viewport() {
+    $content = '<meta name="viewport" content="width=device-width">' . "\n";
+    echo apply_filters('thematic5_mobile_viewport', $content);
+} // end thematic5_mobile_viewport
+
+
+/**
  * Create the robots meta-tag
  * 
  * This can be switched on or off using thematic5_show_robots
