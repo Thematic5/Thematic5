@@ -29,18 +29,11 @@ if (function_exists('childtheme_override_opt_init')) {
 		
 		// Retrieve current options from database	
 		$current_options = thematic5_get_wp_opt('thematic5_theme_opt');
-		$legacy_options = thematic5_convert_legacy_opt();
 		
 		// If no current settings exist
 		if ( false === $current_options )  {
-			// Check for legacy options
-			if ( false !== ( $legacy_options ) )  {
-				// Theme upgrade: Convert legacy to current format and add to database 
-				add_option( 'thematic5_theme_opt', $legacy_options );
-			} else {
-				// Fresh theme installation: Add default settings to database
-				add_option( 'thematic5_theme_opt', thematic5_default_opt() );
-			}
+			// Fresh theme installation: Add default settings to database
+			add_option( 'thematic5_theme_opt', thematic5_default_opt() );
 		}
 		
 		register_setting ('thematic5_opt_group', 'thematic5_theme_opt', 'thematic5_validate_opt');
@@ -50,11 +43,6 @@ if (function_exists('childtheme_override_opt_init')) {
 		add_settings_field ('thematic5_insert_opt', __('Index Insert Position', 'thematic5')	, 'thematic5_do_insert_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		add_settings_field ('thematic5_auth_opt',   __('Info on Author Page'	, 'thematic5')	, 'thematic5_do_auth_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
 		add_settings_field ('thematic5_footer_opt', __('Text in Footer'	, 'thematic5')		, 'thematic5_do_footer_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
-		
-		// Show checkbox option for removing old options from database
-		if ( isset( $legacy_options ) && false !== $legacy_options ) {
-			add_settings_field ('thematic5_legacy_opt', __('Remove Legacy Options'	, 'thematic5'), 'thematic5_do_legacy_opt'	, 'thematic5_theme_opt', 'thematic5_opt_section_main');
-		} 
 	
 	}
 }
@@ -107,34 +95,6 @@ function thematic5_get_theme_opt( $opt_key, $echo = false ) {
 
 
 /**
- * Retrieves legacy Thematic options from database
- * Returns theme as a sanitized array or false
- *
- * @uses thematic5_theme_convert_legacy_opt
- * 
- * @since Thematic 0.9.8
- */
-function thematic5_convert_legacy_opt() {
-    $thm_insert_position = thematic5_get_wp_opt( 'thm_insert_position' );
-    $thm_authorinfo = thematic5_get_wp_opt( 'thm_authorinfo' );
-    $thm_footertext = thematic5_get_wp_opt( 'thm_footertext' );
-    
-    // Return false if no options found
-    if ( false === $thm_insert_position && false === $thm_authorinfo && false === $thm_footertext )
-    	return false; 
-    	
-    // Return a sanitized array from legacy options if found
-    $legacy_sanitized_opt = array(
-    		'index_insert' 	=> intval( $thm_insert_position ),
-    		'author_info'  	=> ( $thm_authorinfo == "true" ) ? 1 : 0,
-    		'footer_txt' 	=> wp_kses_post( $thm_footertext ),
-    		'del_legacy_opt'=> 0
-    	);
-
-    return apply_filters( 'thematic5_theme_convert_legacy_opt', $legacy_sanitized_opt );
-}
-
-/**
  * Returns default theme options.
  *
  * Filter: thematic5_theme_default_opt
@@ -146,8 +106,7 @@ function thematic5_default_opt() {
 	$thematic5_default_opt = array(
 		'index_insert' 	=> 2,
 		'author_info'  	=> 0, // 0 = not checked 1 = checked
-		'footer_txt' 	=> 'Powered by [wp-link]. Built on the [theme-link].',
-		'del_legacy_opt'=> 0  // 0 = not checked 1 = check
+		'footer_txt' 	=> 'Powered by [wp-link]. Built on the [theme-link].'
 	);
 
 	return apply_filters( 'thematic5_theme_default_opt', $thematic5_default_opt );
@@ -222,32 +181,8 @@ if (function_exists('childtheme_override_opt_page_help')) {
 		} elseif ( function_exists('add_contextual_help') ) {
 			// WordPress 3.2
 			add_contextual_help( $screen, $help . $sidebar );
-		} else {
-			// WordPress 3.0
-			thematic5_legacy_help();
-		}
+		} 
 	}
-}
-
-/**
- * Adds a settings section to display legacy help text and theme links
- *
- * @since Thematic 0.9.8
- * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
- */
-function thematic5_legacy_help() {
-	add_settings_section ('thematic5_opt_help_section', '', 'thematic5_do_legacy_help_section', 'thematic5_opt_page');
-}
-
-
-/**
- * Renders the legacy help text and theme links
- * 
- * @since Thematic 0.9.8
- * @todo remove Legacy compatibilty WP 3.0 when min WP version increases
- */
-function thematic5_do_legacy_help_section() { 
-	echo ('<p>'. __( 'For more information about this theme, <a href="http://themeshaper.com">visit ThemeShaper</a>. Please visit the <a href="http://themeshaper.com/forums/">ThemeShaper Forums</a> if you have any questions about Thematic.', 'thematic5' ) .'</p>') ;
 }
 
 
@@ -342,18 +277,6 @@ function thematic5_do_footer_opt() {
 }
 
 
-/**
- * Renders Leagcy Options elements
- *
- * @since Thematic 0.9.8
- */
-function thematic5_do_legacy_opt() {
-?>
-	<input id="thm_legacy_opt" type="checkbox" value="1" name="thematic5_theme_opt[del_legacy_opt]"  <?php checked( thematic5_get_theme_opt('del_legacy_opt'), 1 ); ?> />
-	<label for="thm_legacy_opt"><?php printf( __( '%s Theme Options have been upgraded to an improved format. Remove the legacy options from the database.', 'thematic5' ), get_current_theme() ); ?></label>
-<?php
-}
-
 
 /**
  * Validates theme options form post data.
@@ -391,20 +314,6 @@ if (function_exists('childtheme_override_validate_opt')) {
  	   // Footer Text sanitized allowing HTML and WP shortcodes
  	   if ( isset( $input['footer_txt'] ) ) {
  	   	$output['footer_txt'] = wp_kses_post( $input['footer_txt'] ) ;	
- 	   }
- 	   
- 	   // Remove Legacy Options CheckBox value either 1(yes) or 0(no)
- 	   $output['del_legacy_opt'] = ( $input['del_legacy_opt'] == 0 ? 0 : 1 );
- 	   
- 	   if ( 1 == $output['del_legacy_opt'] ) {
- 	   	
- 	   	// Remove options if the choice is yes
- 	   	delete_option('thm_insert_position');
- 	   	delete_option('thm_authorinfo');
- 	   	delete_option('thm_footertext');
- 	   	
- 	   	// Reset checkbox value to unchecked in case a legacy set of options is ever saved to database again
- 	   	$output['del_legacy_opt'] = 0;
  	   }
  	   	
  	   return apply_filters( 'thematic5_theme_opt_validation', $output, $input );
