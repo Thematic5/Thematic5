@@ -850,15 +850,19 @@ if (function_exists('childtheme_override_postheader'))  {
 	 */
 	function thematic5_postheader() {
  	   
- 	   global $post;
+		global $post;
  	 
- 	   if ( is_404() || $post->post_type == 'page') {
- 	       $postheader = thematic5_postheader_posttitle();        
- 	   } else {
- 	       $postheader = thematic5_postheader_posttitle() . thematic5_postheader_postmeta();    
- 	   }
- 	   
- 	   echo apply_filters( 'thematic5_postheader', $postheader ); // Filter to override default post header
+		$postheader = '<header class="entry-header">';
+		
+		if ( is_404() || $post->post_type == 'page') {
+			$postheader .= thematic5_postheader_posttitle();        
+		} else {
+			$postheader .= thematic5_postheader_posttitle() . thematic5_postheader_postmeta();    
+		}
+		
+		$postheader .= '</header>';
+			   
+		echo apply_filters( 'thematic5_postheader', $postheader ); // Filter to override default post header
 	}
 }  // end postheader
 
@@ -913,13 +917,13 @@ if (function_exists('childtheme_override_postheader_posttitle'))  {
 	    } elseif (is_404()) {    
 	        $posttitle .= '<h1 class="entry-title">' . __('Not Found', 'thematic5') . "</h1>\n";
 	    } else {
-	        $posttitle .= '<h2 class="entry-title"><a href="';
+	        $posttitle .= '<h1 class="entry-title"><a href="';
 	        $posttitle .= apply_filters('the_permalink', get_permalink());
 	        $posttitle .= '" title="';
 	        $posttitle .= __('Permalink to ', 'thematic5') . the_title_attribute('echo=0');
 	        $posttitle .= '" rel="bookmark">';
 	        $posttitle .= get_the_title();   
-	        $posttitle .= "</a></h2>\n";
+	        $posttitle .= "</a></h1>\n";
 	    }
 	    
 	    return apply_filters('thematic5_postheader_posttitle',$posttitle); 
