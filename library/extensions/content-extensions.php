@@ -440,73 +440,20 @@ if (function_exists('childtheme_override_nav_above'))  {
 add_action('thematic5_navigation_above', 'thematic5_nav_above', 2);
 
 
-if (function_exists('childtheme_override_archive_loop'))  {
+if (function_exists('childtheme_override_default_loop'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic5_archive_loop() {
-		childtheme_override_archive_loop();
+	function thematic5_default_loop() {
+		childtheme_override_default_loop();
 	}
 } else {
 	/**
-	 * The Archive loop
+	 * The Default loop
 	 * 
-	 * Located in archive.php
-	 * 
-	 * Override: childtheme_override_archive_loop
+	 * Override: childtheme_override_default_loop
 	 */
-	function thematic5_archive_loop() {
-		while ( have_posts() ) : the_post(); 
-
-				// action hook for insterting content above #post
-				thematic5_abovepost(); 
-				?>
-
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
-				
-				<?php
-	            	// creating the post header
-	            	thematic5_postheader();
-	            ?>
-					
-					<div class="entry-content">
-						
-						<?php thematic5_content(); ?>
-
-					</div><!-- .entry-content -->
-					
-					<?php thematic5_postfooter(); ?>
-					
-				</div><!-- #post -->
-
-			<?php 
-				// action hook for insterting content below #post
-				thematic5_belowpost();
-		
-		endwhile;
-	}
-} // end archive_loop
-
-add_action('thematic5_archiveloop', 'thematic5_archive_loop');
-
-
-if (function_exists('childtheme_override_author_loop'))  {
-	/**
-	 * @ignore
-	 */
-	function thematic5_author_loop() {
-		childtheme_override_author_loop();
-	}
-} else {
-	/**
-	 * The Author loop
-	 * 
-	 * Located in author.php
-	 * 
-	 * Override: childtheme_override_author_loop
-	 */
-	function thematic5_author_loop() {
-		rewind_posts();
+	function thematic5_default_loop() {
 		while ( have_posts() ) : the_post(); 
 
 				// action hook for insterting content above #post
@@ -536,6 +483,52 @@ if (function_exists('childtheme_override_author_loop'))  {
 		
 		endwhile;
 	}
+} // end default_loop
+
+
+
+
+if (function_exists('childtheme_override_archive_loop'))  {
+	/**
+	 * @ignore
+	 */
+	function thematic5_archive_loop() {
+		childtheme_override_archive_loop();
+	}
+} else {
+	/**
+	 * The Archive loop
+	 * 
+	 * Located in archive.php
+	 * 
+	 * Override: childtheme_override_archive_loop
+	 */
+	function thematic5_archive_loop() {
+		thematic5_default_loop();
+	}
+} // end archive_loop
+
+add_action('thematic5_archiveloop', 'thematic5_archive_loop');
+
+
+if (function_exists('childtheme_override_author_loop'))  {
+	/**
+	 * @ignore
+	 */
+	function thematic5_author_loop() {
+		childtheme_override_author_loop();
+	}
+} else {
+	/**
+	 * The Author loop
+	 * 
+	 * Located in author.php
+	 * 
+	 * Override: childtheme_override_author_loop
+	 */
+	function thematic5_author_loop() {
+		thematic5_default_loop();
+	}
 } // end author_loop
 
 add_action('thematic5_authorloop', 'thematic5_author_loop');
@@ -557,34 +550,7 @@ if (function_exists('childtheme_override_category_loop'))  {
 	 * Override: childtheme_override_category_loop
 	 */
 	function thematic5_category_loop() {
-		while ( have_posts() ) : the_post(); 
-
-				// action hook for insterting content above #post
-				thematic5_abovepost();
-				?>
-	
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
-				
-				<?php
-	            	// creating the post header
-	            	thematic5_postheader();
-	            ?>
-     			
-					<div class="entry-content">
-						
-						<?php thematic5_content(); ?>
-	
-					</div><!-- .entry-content -->
-					
-					<?php thematic5_postfooter(); ?>
-					
-				</div><!-- #post -->
-
-			<?php 
-				// action hook for insterting content below #post
-				thematic5_belowpost();
-		
-		endwhile;
+		thematic5_default_loop();
 	}
 } // end category_loop
 
@@ -716,34 +682,7 @@ if (function_exists('childtheme_override_search_loop'))  {
 	 * Override: childtheme_override_search_loop
 	 */
 	function thematic5_search_loop() {
-		while ( have_posts() ) : the_post(); 
-
-				// action hook for insterting content above #post
-				thematic5_abovepost();
-				?>
-
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
-				
-				<?php
-	            	// creating the post header
-	            	thematic5_postheader();
-	            ?>
-     				
-					<div class="entry-content">
-					
-						<?php thematic5_content(); ?>
-
-					</div><!-- .entry-content -->
-					
-					<?php thematic5_postfooter(); ?>
-					
-				</div><!-- #post -->
-
-			<?php 
-				// action hook for insterting content below #post
-				thematic5_belowpost();
-		
-		endwhile;
+		thematic5_default_loop();
 	}
 } // end search_loop
 
@@ -766,34 +705,7 @@ if (function_exists('childtheme_override_tag_loop'))  {
 	 * Override: childtheme_override_tag_loop
 	 */
 	function thematic5_tag_loop() {
-		while ( have_posts() ) : the_post(); 
-
-				// action hook for insterting content above #post
-				thematic5_abovepost(); 
-				?>
-
-				<div id="post-<?php the_ID() ?>" <?php post_class() ?> >
-				
-				<?php
-	            	// creating the post header
-	            	thematic5_postheader();
-	            ?>
-     				
-					<div class="entry-content">
-					
-						<?php thematic5_content(); ?>
-
-					</div><!-- .entry-content -->
-					
-					<?php thematic5_postfooter(); ?>
-					
-				</div><!-- #post -->
-
-			<?php 
-				// action hook for insterting content below #post
-				thematic5_belowpost();
-		
-		endwhile;
+		thematic5_default_loop();
 	}
 } // end tag_loop
 
