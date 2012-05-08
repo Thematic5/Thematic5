@@ -33,7 +33,7 @@
             	thematic5_navigation_above();
 				
             	// calling the widget area 'index-top'
-            	get_sidebar('index-top');
+            	get_sidebar('content-top');
 				
             	// action hook for placing content above the index loop
             	thematic5_above_indexloop();
@@ -45,7 +45,7 @@
             	thematic5_below_indexloop();
 				
             	// calling the widget area 'index-bottom'
-            	get_sidebar('index-bottom');
+            	get_sidebar('content-bottom');
 				
             	// create the navigation below the content
             	thematic5_navigation_below();

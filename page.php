@@ -25,7 +25,7 @@
 				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n" );
 			
 				// calling the widget area 'page-top'
-	            get_sidebar('page-top');
+	            get_sidebar('content-top');
 	
 	            // start the loop
 	            while ( have_posts() ) : the_post();
@@ -66,7 +66,7 @@
         		endwhile;
 	        
 	        	// calling the widget area 'page-bottom'
-	        	get_sidebar( 'page-bottom' );
+	        	get_sidebar( 'content-bottom' );
 	        ?>
 	
 			</div><!-- #content -->

@@ -34,12 +34,15 @@
 
 				<?php
 		    		// action hook for placing the 404 content
-    	        	thematic5_404()
+    	        	thematic5_404();
     	        ?>
 
 				</div><!-- .post -->
 
 				<?php 
+					// calling the widget area '404-aside'
+					get_sidebar('404');
+				
 					// action hook for placing content below #post
 					thematic5_belowpost(); 
 				?>

@@ -31,7 +31,7 @@
 				thematic5_navigation_above();
 		
     	        // calling the widget area 'single-top'
-    	        get_sidebar('single-top');
+    	        get_sidebar('content-top');
 		
     	        // action hook creating the single post
     	        thematic5_singlepost();
@@ -49,7 +49,7 @@
         		endwhile;
 		
     	        // calling the widget area 'single-bottom'
-    	        get_sidebar('single-bottom');
+    	        get_sidebar('content-bottom');
 			?>
 		
 			</div><!-- #content -->
