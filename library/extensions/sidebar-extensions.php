@@ -94,35 +94,35 @@ function thematic5_belowmainasides() {
 
 
 /*	
- * Register action hook: thematic5_aboveindextop 
+ * Register action hook: thematic5_abovecontenttop 
  *
- * Located in sidebar-index-top.php
- * Just above the 'index.top' widget area
+ * Located in sidebar-content-top.php
+ * Just above the 'content-top' widget area
  */
-function thematic5_aboveindextop() {
-	do_action('thematic5_aboveindextop');
+function thematic5_abovecontenttop() {
+	do_action('thematic5_abovecontenttop');
 }
 
 
 /**
- * Register action hook: widget_area_index_top
+ * Register action hook: widget_area_content_top
  *
  * Located in sidebar.php
- * Regular hook for the 'index.top' widget area
+ * Regular hook for the 'content-top' widget area
  */
-function thematic5_widget_area_index_top() {
-    do_action('widget_area_index_top');
+function thematic5_widget_area_content_top() {
+    do_action('widget_area_content_top');
 }
 
 	
 /**
- * Register action hook: thematic5_belowindextop 
+ * Register action hook: thematic5_belowcontenttop 
  *
- * Located in sidebar-index-top.php
- * Just below the 'index.top' widget area
+ * Located in sidebar-content-top.php
+ * Just below the 'content-top' widget area
  */
-function thematic5_belowindextop() {
-    do_action('thematic5_belowindextop');
+function thematic5_belowcontenttop() {
+    do_action('thematic5_belowcontenttop');
 }
 
 
@@ -160,34 +160,35 @@ function thematic5_belowindexinsert() {
 
 
 /**
- * Register action hook: thematic5_aboveindexbottom 
+ * Register action hook: thematic5_abovecontentbottom 
  *
- * Located in sidebar-index-bottom.php
- * Just above the 'index-bottom' widget area
+ * Located in sidebar-content-bottom.php
+ * Just above the 'content-bottom' widget area
  */
-function thematic5_aboveindexbottom() {
-    do_action('thematic5_aboveindexbottom');
+function thematic5_abovecontentbottom() {
+    do_action('thematic5_abovecontentbottom');
 }
 	
 
 /**
- * Register action hook: widget_area_index_bottom 
+ * Register action hook: widget_area_content_bottom 
  *
- * Located in sidebar-index-bottom.php
- * Regular hook for the 'index-bottom' widget area
+ * Located in sidebar-content-bottom.php
+ * Regular hook for the 'content-bottom' widget area
  */	
-function thematic5_widget_area_index_bottom() {
-    do_action('widget_area_index_bottom');
+function thematic5_widget_area_content_bottom() {
+    do_action('widget_area_content_bottom');
 }
 	
 	
 /**
- * Register action hook: thematic5_belowindexbottom 
+ * Register action hook: thematic5_belowcontentbottom 
  *
- * Located in sidebar-index-bottom.php
+ * Located in sidebar-content-bottom.php
  * Just below the 'index-bottom' widget area
- */	function thematic5_belowindexbottom() {
-    do_action('thematic5_belowindexbottom');
+ */	
+function thematic5_belowcontentbottom() {
+    do_action('thematic5_belowcontentbottom');
 }
 	
 	
@@ -196,39 +197,6 @@ function thematic5_widget_area_index_bottom() {
  */
 
 
-/**
- * Register action hook: thematic5_abovesingletop 
- *
- * Located in sidebar-single-top.php
- * Just above the 'single-top' widget area
- */
-function thematic5_abovesingletop() {
-    do_action('thematic5_abovesingletop');
-}
-
-
-/**
- * Register action hook: widget_area_single_top 
- *
- * Located in sidebar-single-top.php
- * Regular hook for the 'single-top' widget area
- */
-function thematic5_widget_area_single_top() {
-    do_action('widget_area_single_top');
-}
-
-
-/**
- * Register action hook: thematic5_belowsingletop 
- *
- * Located in sidebar-single-top.php
- * Just below the 'single-top' widget area
- */
-function thematic5_belowsingletop() {
-    do_action('thematic5_belowsingletop');
-}
-	
-	
 /**
  * Register action hook: thematic5_abovesingleinsert 
  *
@@ -262,108 +230,82 @@ function thematic5_belowsingleinsert() {
 }
 
 
-/**
- * Register action hook: thematic5_abovesinglebottom 
- *
- * Located in sidebar-single-bottom.php
- * Just above the 'single-bottom' widget area
- */
-function thematic5_abovesinglebottom() {
-    do_action('thematic5_abovesinglebottom');
-}
-
-
-/**
- * Register action hook: widget_area_single_bottom 
- *
- * Located in sidebar-single-bottom.php
- * Regular hook for the 'single-bottom' widget area
- */
-function thematic5_widget_area_single_bottom() {
-    do_action('widget_area_single_bottom');
-}
-
-
-/**
- * Register action hook: thematic5_belowsinglebottom 
- *
- * Located in sidebar-single-bottom.php
- * Just below the 'single-bottom' widget area
- */
-function thematic5_belowsinglebottom() {
-    do_action('thematic5_belowsinglebottom');
-}
-
 
 /*
- * Page Aside Hooks
+ * 404 Aside Hooks
  */
 
 
 /**
- * Register action hook: thematic5_abovepagetop 
+ * Register action hook: thematic5_above404 
  *
- * Located in sidebar-page-top.php
- * Just above the 'page-top' widget area
+ * Located in sidebar-404.php
+ * Just above the '404-aside' widget area
  */
-function thematic5_abovepagetop() {
-    do_action('thematic5_abovepagetop');
+function thematic5_above404() {
+    do_action('thematic5_above404');
 }
 
 
 /**
- * Register action hook: widget_area_page_top 
+ * Register action hook: widget_area_404_aside 
  *
- * Located in sidebar-page-top.php
- * Regular hook for the 'page-top' widget area
+ * Located in sidebar-404.php
+ * Regular hook for the '404-aside' widget area
  */
-function thematic5_widget_area_page_top() {
-    do_action('widget_area_page_top');
+function thematic5_widget_area_404_aside() {
+    do_action('widget_area_404_aside');
 }
 
 
 /**
- * Register action hook: thematic5_belowpagetop 
+ * Register action hook: thematic5_below404 
  *
- * Located in sidebar-page-top.php
- * Just below the 'page-top' widget area
+ * Located in sidebar-404.php
+ * Just below the '404-aside' widget area
  */
-function thematic5_belowpagetop() {
-    do_action('thematic5_belowpagetop');
+function thematic5_below404() {
+    do_action('thematic5_below404');
 } // end thematic5_belowpagetop
 
 
-/**
- * Register action hook: thematic5_abovepagebottom 
- *
- * Located in sidebar-page-bottom.php
- * Just above the 'page-bottom' widget area
+
+
+/*
+ * Header Aside Hooks
  */
-function thematic5_abovepagebottom() {
-    do_action('thematic5_abovepagebottom');
-} // end thematic5_abovepagebottom
 
 
 /**
- * Register action hook: widget_area_page_bottom 
+ * Register action hook: thematic5_aboveheaderaside 
  *
- * Located in sidebar-page-bottom.php
- * Regular hook for the 'page-bottom' widget area
+ * Just above the header widget area
  */
-function thematic5_widget_area_page_bottom() {
-    do_action('widget_area_page_bottom');
-} // end widget_area_page_bottom
+function thematic5_aboveheaderaside() {
+    do_action('thematic5_aboveheaderaside');
+}
+
+/**
+ * Register action hook: widget_area_subsidiaries 
+ *
+ * Regular hook for the header widget area
+ */
+function thematic5_widget_area_header_aside() {
+    do_action('widget_area_header_aside');
+}
 
 
 /**
- * Register action hook: thematic5_belowpagebottom 
+ * Register action hook: thematic5_belowheaderaside 
  *
- * Located in sidebar-page-bottom.php
- * Just below the 'page-bottom' widget area
+ * Just below the header widget area
  */
-function thematic5_belowpagebottom() {
-    do_action('thematic5_belowpagebottom');
-} // end thematic5_belowpagebottom	
+function thematic5_belowheaderaside() {
+    do_action('thematic5_belowheaderaside');
+}
+
+
+
 
 
 /*

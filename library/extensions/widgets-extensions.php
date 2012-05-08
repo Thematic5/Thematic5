@@ -210,9 +210,9 @@ function thematic5_widgets_array() {
 				'before_title' => thematic5_before_title(),
 				'after_title' => thematic5_after_title(),
 				),
-			'action_hook'	=> 'thematic5_header',
+			'action_hook'	=> 'widget_area_header_aside',
 			'function'		=> 'thematic5_header_aside',
-			'priority'		=> 11,
+			'priority'		=> 10,
 			),
 		'404 Aside' => array(
 			'admin_menu_order' => 1100,
@@ -419,7 +419,7 @@ function thematic5_3rd_subsidiary_aside() {
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_index_top() {
+function thematic5_content_top() {
 	if ( is_active_sidebar( 'content-top' ) ) {
 		echo thematic5_before_widget_area( 'content-top' );
 		dynamic_sidebar('content-top');
@@ -447,7 +447,7 @@ function thematic5_index_insert() {
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_index_bottom() {
+function thematic5_content_bottom() {
 	if ( is_active_sidebar( 'content-bottom' ) ) {
 		echo thematic5_before_widget_area( 'content-bottom' );
 		dynamic_sidebar( 'content-bottom' );
@@ -477,7 +477,7 @@ function thematic5_single_insert() {
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_page_top() {
+function thematic5_header_aside() {
 	if ( is_active_sidebar( 'header-aside' ) ) {
 		echo thematic5_before_widget_area( 'header-aside' );
 		dynamic_sidebar( 'header-aside' );
@@ -491,7 +491,7 @@ function thematic5_page_top() {
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_page_bottom() {
+function thematic5_404_aside() {
 	if ( is_active_sidebar( '404-aside' ) ) {
 		echo thematic5_before_widget_area( '404-aside' );
 		dynamic_sidebar( '404-aside' );

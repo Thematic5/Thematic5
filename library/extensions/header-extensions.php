@@ -561,20 +561,20 @@ if ( function_exists('childtheme_override_blogdescription') )  {
 add_action('thematic5_header','thematic5_blogdescription',5);
 
 
-if (function_exists('childtheme_override_header_aside'))  {
+if (function_exists('childtheme_override_header_asides'))  {
 	/**
 	 * @ignore
 	 */
-	function thematic5_header_aside() {
-		childtheme_override_header_aside();
+	function thematic5_header_asides() {
+		childtheme_override_header_asides();
 	}
 } else {
 	/**
 	 * Create the widget area in header
 	 * 
-	 * Override: childtheme_override_header_aside
+	 * Override: childtheme_override_header_asides
 	 */
-	function thematic5_header_aside() {
+	function thematic5_header_asides() {
 	      	
 		// action hook for placing content above the header widget area
 		thematic5_aboveheaderaside();
