@@ -6,6 +6,4 @@ other WordPress theme.
 Good luck!
 
 --
-Ian Stewart
-ian@themeshaper.com
-http://themeshaper.com/
+The Thematic Team
