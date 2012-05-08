@@ -78,6 +78,7 @@ function thematic5_create_contenttype() {
 }
 add_action('thematic5_head','thematic5_create_contenttype', 10);
 
+
 if ( function_exists('childtheme_override_doctitle') )  {
 	/**
 	 * @ignore
@@ -89,90 +90,68 @@ if ( function_exists('childtheme_override_doctitle') )  {
 	/**
 	 * Display the content of the title tag
 	 * 
-	 * Located in header.php Credits: Tarski Theme
-	 * 
 	 * Override: childtheme_override_doctitle
 	 * Filter: thematic5_doctitle_separator
-	 * Filter: thematic5_doctitle
 	 */
 	function thematic5_doctitle() {
-		$site_name = get_bloginfo('name' , 'display');
-	    $separator = apply_filters('thematic5_doctitle_separator', '|');
-	        	
-	    if ( is_single() ) {
-	      $content = single_post_title('', FALSE);
-	    }
-	    elseif ( is_home() || is_front_page() ) { 
-	      $content = get_bloginfo('description', 'display');
-	    }
-	    elseif ( is_page() ) { 
-	      $content = single_post_title('', FALSE); 
-	    }
-	    elseif ( is_search() ) { 
-	      $content = __('Search Results for:', 'thematic5'); 
-	      $content .= ' ' . get_search_query();
-	    }
-	    elseif ( is_category() ) {
-	      $content = __('Category Archives:', 'thematic5');
-	      $content .= ' ' . single_cat_title('', FALSE);;
-	    }
-	    elseif ( is_tag() ) { 
-	      $content = __('Tag Archives:', 'thematic5');
-	      $content .= ' ' . thematic5_tag_query();
-	    }
-	    elseif ( is_404() ) { 
-	      $content = __('Not Found', 'thematic5'); 
-	    }
-	    else { 
-	      $content = get_bloginfo('description', 'display');
-	    }
+		$separator = apply_filters('thematic5_doctitle_separator', '|');
 	
-	    if ( get_query_var('paged') ) {
-	      $content .= ' ' .$separator. ' ';
-	      $content .= 'Page';
-	      $content .= ' ';
-	      $content .= get_query_var('paged');
-	    }
-	
-	    if($content) {
-	      if ( is_home() || is_front_page() ) {
-	          $elements = array(
-	            'site_name' => $site_name,
-	            'separator' => $separator,
-	            'content' => $content
-	          );
-	      }
-	      else {
-	          $elements = array(
-	            'content' => $content
-	          );
-	      }  
-	    } else {
-	      $elements = array(
-	        'site_name' => $site_name
-	      );
-	    }
-	
-	    // Filters should return an array
-	    $elements = apply_filters('thematic5_doctitle', $elements);
-		
-	    // But if they don't, it won't try to implode
-	    if( is_array($elements) ) {
-	      $doctitle = implode(' ', $elements);
-	    }
-	    else {
-	      $doctitle = $elements;
-	    }
-	    
-		/* Apply the wp_title filters so we're compatible with plugins. */
-		$doctitle = apply_filters( 'wp_title', $doctitle, $separator, '' );
-	
-	    $doctitle = "<title>" . $doctitle . "</title>" . "\n";
-	    
+	    $doctitle = "<title>" . wp_title( $separator, false, 'right' ) . "</title>" . "\n";
+
 	    echo $doctitle;
 	} // end thematic5_doctitle
 }
 add_action('thematic5_head','thematic5_doctitle', 20);
+
+
+/**
+ * Filter the document title to output contextual content
+ * 
+ * Credits to Oenology theme
+ * 
+ * Filter: thematic5_doctitle
+ */
+function thematic5_wptitle( $title, $separator ) {
+    
+	// Don't affect wp_title() calls in feeds or if we use SEO plugins.
+	if ( is_feed() || !thematic5_seo() )
+		return $title;
+        	
+	// The $paged global variable contains the page number of a listing of posts.
+	// The $page global variable contains the page number of a single post that is paged.
+	// We'll display whichever one applies, if we're not looking at the first page.
+	global $paged, $page;
+
+	if ( is_search() ) {
+		// If we're a search, let's start over:
+		$title = sprintf( 'Search results for %s', '"' . get_search_query() . '"' );
+		// Add a page number if we're on page 2 or more:
+		if ( $paged >= 2 )
+		$title .= " $separator " . sprintf( 'Page %s', $paged );
+		// Add the site name to the end:
+		$title .= " $separator " . get_bloginfo( 'name', 'display' );
+		// We're done. Let's send the new title back to wp_title():
+		return $title;
+	}
+
+	// Otherwise, let's start by adding the site name to the end:
+	$title .= get_bloginfo( 'name', 'display' );
+
+	// If we have a site description and we're on the home/front page, add the description:
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		$title .= " $separator " . $site_description;
+
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		$title .= " $separator " . sprintf( 'Page %s', max( $paged, $page ) );
+
+	$title = apply_filters( 'thematic5_doctitle', $title, $separator);
+	
+	return $title;
+}
+add_filter('wp_title','thematic5_wptitle', 10, 2);
+
 
 /**
  * Switch Thematic's SEO functions on or off
