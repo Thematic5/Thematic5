@@ -164,6 +164,9 @@ if ( function_exists('childtheme_override_doctitle') )  {
 	      $doctitle = $elements;
 	    }
 	    
+		/* Apply the wp_title filters so we're compatible with plugins. */
+		$doctitle = apply_filters( 'wp_title', $doctitle, $separator, '' );
+	
 	    $doctitle = "<title>" . $doctitle . "</title>" . "\n";
 	    
 	    echo $doctitle;
