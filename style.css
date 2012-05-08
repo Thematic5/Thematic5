@@ -21,22 +21,28 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Reset browser defaults */
-@import url('library/styles/reset.css');
+/*@import url('library/styles/reset.css');
 
 /* Apply basic typography styles */
-@import url('library/styles/typography.css');
+/*@import url('library/styles/typography.css');
 
 /* Apply a basic layout */
-@import url('library/layouts/2c-r-fixed.css');
+/*@import url('library/layouts/2c-r-fixed.css');
 
 /* Apply basic image styles */
-@import url('library/styles/images.css');
+/*@import url('library/styles/images.css');
 
 /* Apply default theme styles and colors */
-@import url('library/styles/default.css');
+/*@import url('library/styles/default.css');
 
 /* Prepare theme for plugins */
-@import url('library/styles/plugins.css');
+/*@import url('library/styles/plugins.css');
+*/
+
+@import url('library/styles/normalize.css');
+
+@import url('library/styles/typography-new.css');
+
 
 /* -------------------------------------------------------------- 
    
@@ -53,7 +59,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
    Cheers. --Ian Stewart
   
 -------------------------------------------------------------- */   
-
+/*
 .entry-content img {
     height:auto;
     margin: 0 0 18px 0;
@@ -95,6 +101,14 @@ img.aligncenter {
     margin:0;
 }
 .wp-smiley { /* Prevent the smileys from breaking line-height */
-	max-height:12px;
+/*	max-height:12px;
 	margin:0 !important;
 }
+*/
+
+
+
+
+/*temporary*/
+body { background: url(library/grids/26px_grid_bg.gif); background-position: /*0 -6px */}
+#wrapper { width: 800px; margin: 0 auto;}

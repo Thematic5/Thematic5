@@ -1,0 +1,125 @@
+
+/*
+ *   base typography styles
+ *   16px base font size with 162.5% (26px) golden-ish, line height and margin for vertical rhythm 
+-------------------------------------------------------------- */
+
+body, button, input, select, textarea {font: 1em/1.625em Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif; color: #262626} 
+
+body {-webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility;}
+
+h1, h2, h3, h4, h5, h6 {font-family:Futura, "Century Gothic", AppleGothic, sans-serif; color:#0D0D0D;text-shadow:1px 1px 1px rgba(0,0,0,.10)}
+
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px */
+h1  {
+    margin: 0 0 0.433em;
+	font-size: 3.75em; /* 60px */
+	line-height: 1.3em; /* 78px */
+} 
+h2 {
+    margin: 0 0 0.5417em;
+    font-size: 3em;  /* 48px */
+    line-height: 1.0833em; /* 52px */
+} 
+h3 {
+    margin: 0 0 0.7222em;
+    font-size: 2.25em; /* 36px */
+    line-height: 1.4444em; /* 52px */
+} 
+h4 {
+    margin: 0 0 0.0833em;
+    font-size: 1.5em; /* 24px */
+    line-height: 1.0833em; /* 26px */
+} 
+h5 {
+    margin: 0 0 1.2381em;
+    font-size: 1.3125em; /* 21px */
+    line-height: 1.2381em; /* 26px */
+} 
+h6 {
+    margin: 0 0 1.4444em;
+    font-size: 1.125em; /* 18px */
+    line-height: 1.4444em; /* 26px */
+} 
+
+a { color:#004B91; text-decoration: none; }
+a:visited { color:#743399; }
+a:hover { color:#FF4B33; }
+
+p, ul, ol, pre, table {margin: 0 0 1.625em; }
+
+ul { list-style:disc; }
+ol { list-style-type:decimal; }
+ol ol { list-style:upper-alpha; }
+ol ol ol { list-style:lower-roman; }
+ol ol ol ol { list-style:lower-alpha; }
+ul ul, ol ol, ul ol, ol ul { margin-bottom:0; }
+dl { margin:0 1.5em; }
+dt { font-weight:bold; }
+
+abbr, acronym { cursor:help; }
+ins { border-bottom:1px solid #333; text-decoration:none; }
+textarea { resize:vertical; }
+caption { text-align:center; }
+
+table {
+    border-collapse: collapse;
+    border-top: solid 3px #010101;
+}
+th, td {
+    line-height: 26px;
+    padding: 13px 8px 12px 8px;
+}
+thead th, thead td { padding-top: 10px; text-align: left;}
+
+tbody tr, tfoot tr { border-top: solid 1px #333; }
+tbody tr:nth-child(odd) th, tbody tr:nth-child(odd) td { background: #f9f9f9; }
+
+tbody tr:hover td, tbody tr:hover th {
+background-color: #f5f5f5;
+}
+
+hr { display: block; height: .25em; border: 0; background: #0D0D0D; margin: 1.625em 0 1.375em; padding: 0; }
+
+::-moz-selection { background:#fe57a1; color:#f1f1f1; text-shadow:none; }
+::selection { background:#fe57a1; color:#f1f1f1; text-shadow:none; }
+
+blockquote { margin:0 3em; font-style:italic; padding-left: 1.625em; border-left: .25em solid #0D0D0D}
+blockquote em, blockquote i, blockquote cite { font-style:normal; }
+blockquote.left { text-align:right; }
+blockquote.right { text-align:left; }
+
+/* -----------------------------------------
+   Standard Forms
+----------------------------------------- */
+
+	form { margin: 0 0 18px; }
+	form label { display: block; font-size: 13px; line-height: 18px; cursor: pointer; margin-bottom: 9px; }
+
+	input[type="text"], textarea { border: 1px solid #bbb; border-color: #bbb #bbb #ddd #ddd;}
+	input[type="text"], textarea, select { display: block; margin-bottom: 9px; }
+	label + input[type="text"], label + textarea, label + select, label + div.dropdown, select + div.dropdown { margin-top: -9px; }
+	textarea { max-width: 100%; }
+
+	/* Text input and textarea font and padding */
+	input[type="text"], textarea { font-size: 13px; padding: 4px 3px 2px; background: #fff; }
+	input[type="text"]:focus, textarea:focus { outline: none !important; }
+	input[type="text"].oversize, textarea.oversize { font-size: 18px !important; padding: 4px 5px !important; }
+	input[type="text"]:focus, textarea:focus { background: #f9f9f9; }
+
+	/* Text input and textarea, disabled */
+	input[type="text"][disabled], textarea[disabled] { background-color: #ddd; }
+
+	/* Inlined Label Style */
+	input.placeholder, textarea.placeholder { color: #888; }
+
+	/* Text input and textarea sizes */
+	input[type="text"], textarea { width: 254px; box-sizing: border-box; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; }
+
+	
+	/* Fieldsets */
+	form fieldset { padding: 9px 9px 2px 9px; border: solid 1px #ddd; margin: 18px 0; }
+
+	/* Inlined Radio & Checkbox */
+	.form-field input[type=radio], div.form-field input[type=checkbox] { display: inline; width:auto; margin-bottom:0; }
+
