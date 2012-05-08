@@ -1,6 +1,6 @@
 <?php 
 /**
- * Sidebar Index Bottom Template
+ * Sidebar Content Bottom Template
  *
  * …
  * 
@@ -9,11 +9,11 @@
  */
  
     // action hook for placing content above the 'index-bottom' widget area
-    thematic5_aboveindexbottom();
+    thematic5_abovecontentbottom();
 
     // action hook creating the 'index-bottom' widget area
-    thematic5_widget_area_index_bottom();
+    thematic5_widget_area_content_bottom();
 
     // action hook for placing content below the 'index-bottom' widget area
-    thematic5_belowindexbottom();
+    thematic5_belowcontentbottom();
 ?>
