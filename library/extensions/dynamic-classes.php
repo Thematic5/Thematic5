@@ -291,7 +291,7 @@ function thematic5_add_comment_class($classes) {
 	
 	// If it's the other to the every, then add 'alt' class
 	if ( ++$thematic5_comment_alt % 2 )
-		$classes = 'alt';
+		$classes[] = 'alt';
 
     // Do not duplicate values
     return array_unique( $classes );
