@@ -155,7 +155,7 @@ function thematic5_widgets_array() {
 			'priority'		=> 10,
 			),
 		'Index Insert' => array(
-			'admin_menu_order' => 700,
+			'admin_menu_order' => 800,
 			'args' => array (
 				'name' => 'Index Insert',
 				'id' => 'index-insert',
@@ -170,7 +170,7 @@ function thematic5_widgets_array() {
 			'priority'		=> 10,
 			),
 		'Content Bottom' => array(
-			'admin_menu_order' => 800,
+			'admin_menu_order' => 700,
 			'args' => array (
 				'name' => 'Content Bottom',
 				'id' => 'content-bottom',
@@ -184,23 +184,8 @@ function thematic5_widgets_array() {
 			'function'		=> 'thematic5_content_bottom',
 			'priority'		=> 10,
 			),
-		'Single Insert' => array(
-			'admin_menu_order' => 900,
-			'args' => array (
-				'name' => 'Single Insert',
-				'id' => 'single-insert',
-                'description' => __('The widget area inserted between the post and the comments on a single post.', 'thematic5'),
-				'before_widget' => thematic5_before_widget(),
-				'after_widget' => thematic5_after_widget(),
-				'before_title' => thematic5_before_title(),
-				'after_title' => thematic5_after_title(),
-				),
-			'action_hook'	=> 'widget_area_single_insert',
-			'function'		=> 'thematic5_single_insert',
-			'priority'		=> 10,
-			),
 		'Header Aside' => array(
-			'admin_menu_order' => 1000,
+			'admin_menu_order' => 900,
 			'args' => array (
 				'name' => 'Header',
 				'id' => 'header-aside',
@@ -215,7 +200,7 @@ function thematic5_widgets_array() {
 			'priority'		=> 10,
 			),
 		'404 Aside' => array(
-			'admin_menu_order' => 1100,
+			'admin_menu_order' => 1000,
 			'args' => array (
 				'name' => '404 Aside',
 				'id' => '404-aside',
@@ -454,22 +439,6 @@ function thematic5_content_bottom() {
 		echo thematic5_after_widget_area( 'content-bottom' );
 	}
 }
-
-
-/**
- * Displays the Single Insert
- *
- * @uses thematic5_before_widget_area
- * @uses thematic5_after_widget_area
- */
-function thematic5_single_insert() {
-	if ( is_active_sidebar( 'single-insert' ) ) {
-		echo thematic5_before_widget_area( 'single-insert' );
-		dynamic_sidebar( 'single-insert' );
-		echo thematic5_after_widget_area( 'single-insert' );
-	}
-}
-
 
 /**
  * Displays the Header Aside

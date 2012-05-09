@@ -191,44 +191,6 @@ function thematic5_belowcontentbottom() {
     do_action('thematic5_belowcontentbottom');
 }
 	
-	
-/*
- * Single Post Asides
- */
-
-
-/**
- * Register action hook: thematic5_abovesingleinsert 
- *
- * Located in sidebar-single-insert.php
- * Just above the 'single-insert' widget area
- */
-function thematic5_abovesingleinsert() {
-    do_action('thematic5_abovesingleinsert');
-}
-
-
-/**
- * Register action hook: widget_area_single_insert 
- *
- * Located in sidebar-single-insert.php
- * Regular hook for the 'single-insert' widget area
- */
-function thematic5_widget_area_single_insert() {
-    do_action('widget_area_single_insert');
-}
-
-
-/**
- * Register action hook: thematic5_belowsingleinsert 
- *
- * Located in sidebar-single-insert.php
- * Just below the 'single-insert' widget area
- */
-function thematic5_belowsingleinsert() {
-    do_action('thematic5_belowsingleinsert');
-}
-
 
 
 /*
