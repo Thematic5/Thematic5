@@ -139,23 +139,23 @@ function thematic5_widgets_array() {
 			'function'		=> 'thematic5_3rd_subsidiary_aside',
 			'priority'		=> 70,
 		),
-		'Index Top' => array(
+		'Content Top' => array(
 			'admin_menu_order' => 600,
 			'args' => array (
-				'name' => 'Index Top',
-				'id' => 'index-top',
-                'description' => __('The top widget area displayed on the index page.', 'thematic5'),
+				'name' => 'Content Top',
+				'id' => 'content-top',
+                'description' => __('The top widget area displayed above the posts.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
 				'after_title' => thematic5_after_title(),
 				),
-			'action_hook'	=> 'widget_area_index_top',
-			'function'		=> 'thematic5_index_top',
+			'action_hook'	=> 'widget_area_content_top',
+			'function'		=> 'thematic5_content_top',
 			'priority'		=> 10,
 			),
 		'Index Insert' => array(
-			'admin_menu_order' => 700,
+			'admin_menu_order' => 800,
 			'args' => array (
 				'name' => 'Index Insert',
 				'id' => 'index-insert',
@@ -169,94 +169,49 @@ function thematic5_widgets_array() {
 			'function'		=> 'thematic5_index_insert',
 			'priority'		=> 10,
 			),
-		'Index Bottom' => array(
-			'admin_menu_order' => 800,
+		'Content Bottom' => array(
+			'admin_menu_order' => 700,
 			'args' => array (
-				'name' => 'Index Bottom',
-				'id' => 'index-bottom',
-                'description' => __('The bottom widget area displayed on the index page.', 'thematic5'),
+				'name' => 'Content Bottom',
+				'id' => 'content-bottom',
+                'description' => __('The bottom widget area displayed beneath the posts.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
 				'after_title' => thematic5_after_title(),
 				),
-			'action_hook'	=> 'widget_area_index_bottom',
-			'function'		=> 'thematic5_index_bottom',
+			'action_hook'	=> 'widget_area_content_bottom',
+			'function'		=> 'thematic5_content_bottom',
 			'priority'		=> 10,
 			),
-		'Single Top' => array(
+		'Header Aside' => array(
 			'admin_menu_order' => 900,
 			'args' => array (
-				'name' => 'Single Top',
-				'id' => 'single-top',
-                'description' => __('The top widget area displayed on a single post.', 'thematic5'),
+				'name' => 'Header',
+				'id' => 'header-aside',
+                'description' => __('The widget area in the page header.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
 				'after_title' => thematic5_after_title(),
 				),
-			'action_hook'	=> 'widget_area_single_top',
-			'function'		=> 'thematic5_single_top',
+			'action_hook'	=> 'widget_area_header_aside',
+			'function'		=> 'thematic5_header_aside',
 			'priority'		=> 10,
 			),
-		'Single Insert' => array(
+		'404 Aside' => array(
 			'admin_menu_order' => 1000,
 			'args' => array (
-				'name' => 'Single Insert',
-				'id' => 'single-insert',
-                'description' => __('The widget area inserted between the post and the comments on a single post.', 'thematic5'),
+				'name' => '404 Aside',
+				'id' => '404-aside',
+                'description' => __('The widget area displayed on 404 error-pages.', 'thematic5'),
 				'before_widget' => thematic5_before_widget(),
 				'after_widget' => thematic5_after_widget(),
 				'before_title' => thematic5_before_title(),
 				'after_title' => thematic5_after_title(),
 				),
-			'action_hook'	=> 'widget_area_single_insert',
-			'function'		=> 'thematic5_single_insert',
-			'priority'		=> 10,
-			),
-		'Single Bottom' => array(
-			'admin_menu_order' => 1100,
-			'args' => array (
-				'name' => 'Single Bottom',
-				'id' => 'single-bottom',
-                'description' => __('The bottom widget area displayed on a single post.', 'thematic5'),
-				'before_widget' => thematic5_before_widget(),
-				'after_widget' => thematic5_after_widget(),
-				'before_title' => thematic5_before_title(),
-				'after_title' => thematic5_after_title(),
-				),
-			'action_hook'	=> 'widget_area_single_bottom',
-			'function'		=> 'thematic5_single_bottom',
-			'priority'		=> 10,
-			),
-		'Page Top' => array(
-			'admin_menu_order' => 1200,
-			'args' => array (
-				'name' => 'Page Top',
-				'id' => 'page-top',
-                'description' => __('The top widget area displayed on a page.', 'thematic5'),
-				'before_widget' => thematic5_before_widget(),
-				'after_widget' => thematic5_after_widget(),
-				'before_title' => thematic5_before_title(),
-				'after_title' => thematic5_after_title(),
-				),
-			'action_hook'	=> 'widget_area_page_top',
-			'function'		=> 'thematic5_page_top',
-			'priority'		=> 10,
-			),
-		'Page Bottom' => array(
-			'admin_menu_order' => 1300,
-			'args' => array (
-				'name' => 'Page Bottom',
-				'id' => 'page-bottom',
-                'description' => __('The bottom widget area displayed on a page.', 'thematic5'),
-				'before_widget' => thematic5_before_widget(),
-				'after_widget' => thematic5_after_widget(),
-				'before_title' => thematic5_before_title(),
-				'after_title' => thematic5_after_title(),
-				),
-			'action_hook'	=> 'widget_area_page_bottom',
-			'function'		=> 'thematic5_page_bottom',
+			'action_hook'	=> 'widget_area_404_aside',
+			'function'		=> 'thematic5_404_aside',
 			'priority'		=> 10,
 			),
 		);
@@ -444,16 +399,16 @@ function thematic5_3rd_subsidiary_aside() {
 }
 
 /**
- * Displays the Index Top
+ * Displays the Content Top
  *
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_index_top() {
-	if ( is_active_sidebar( 'index-top' ) ) {
-		echo thematic5_before_widget_area( 'index-top' );
-		dynamic_sidebar('index-top');
-		echo thematic5_after_widget_area( 'index-top' );
+function thematic5_content_top() {
+	if ( is_active_sidebar( 'content-top' ) ) {
+		echo thematic5_before_widget_area( 'content-top' );
+		dynamic_sidebar('content-top');
+		echo thematic5_after_widget_area( 'content-top' );
 	}
 }
 
@@ -472,86 +427,44 @@ function thematic5_index_insert() {
 }
 
 /**
- * Displays the Index Bottom
+ * Displays the Content Bottom
  *
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_index_bottom() {
-	if ( is_active_sidebar( 'index-bottom' ) ) {
-		echo thematic5_before_widget_area( 'index-bottom' );
-		dynamic_sidebar( 'index-bottom' );
-		echo thematic5_after_widget_area( 'index-bottom' );
+function thematic5_content_bottom() {
+	if ( is_active_sidebar( 'content-bottom' ) ) {
+		echo thematic5_before_widget_area( 'content-bottom' );
+		dynamic_sidebar( 'content-bottom' );
+		echo thematic5_after_widget_area( 'content-bottom' );
 	}
 }
 
 /**
- * Displays the Single Top
+ * Displays the Header Aside
  *
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_single_top() {
-	if ( is_active_sidebar( 'single-top' ) ) {
-		echo thematic5_before_widget_area( 'single-top' );
-		dynamic_sidebar( 'single-top' );
-		echo thematic5_after_widget_area( 'single-top' );
+function thematic5_header_aside() {
+	if ( is_active_sidebar( 'header-aside' ) ) {
+		echo thematic5_before_widget_area( 'header-aside' );
+		dynamic_sidebar( 'header-aside' );
+		echo thematic5_after_widget_area( 'header-aside' );
 	}
 }
 
 /**
- * Displays the Single Insert
+ * Displays the 404 Aside
  *
  * @uses thematic5_before_widget_area
  * @uses thematic5_after_widget_area
  */
-function thematic5_single_insert() {
-	if ( is_active_sidebar( 'single-insert' ) ) {
-		echo thematic5_before_widget_area( 'single-insert' );
-		dynamic_sidebar( 'single-insert' );
-		echo thematic5_after_widget_area( 'single-insert' );
-	}
-}
-
-/**
- * Displays the Single Bottom
- *
- * @uses thematic5_before_widget_area
- * @uses thematic5_after_widget_area
- */
-function thematic5_single_bottom() {
-	if ( is_active_sidebar( 'single-bottom' ) ) {
-		echo thematic5_before_widget_area( 'single-bottom' );
-		dynamic_sidebar( 'single-bottom' );
-		echo thematic5_after_widget_area( 'single-bottom' );
-	}
-}
-
-/**
- * Displays the Page Top
- *
- * @uses thematic5_before_widget_area
- * @uses thematic5_after_widget_area
- */
-function thematic5_page_top() {
-	if ( is_active_sidebar( 'page-top' ) ) {
-		echo thematic5_before_widget_area( 'page-top' );
-		dynamic_sidebar( 'page-top' );
-		echo thematic5_after_widget_area( 'page-top' );
-	}
-}
-
-/**
- * Displays the Page Bottom
- *
- * @uses thematic5_before_widget_area
- * @uses thematic5_after_widget_area
- */
-function thematic5_page_bottom() {
-	if ( is_active_sidebar( 'page-bottom' ) ) {
-		echo thematic5_before_widget_area( 'page-bottom' );
-		dynamic_sidebar( 'page-bottom' );
-		echo thematic5_after_widget_area( 'page-bottom' );
+function thematic5_404_aside() {
+	if ( is_active_sidebar( '404-aside' ) ) {
+		echo thematic5_before_widget_area( '404-aside' );
+		dynamic_sidebar( '404-aside' );
+		echo thematic5_after_widget_area( '404-aside' );
 	}
 }
 
