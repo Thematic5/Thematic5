@@ -1,141 +1,321 @@
-/* -------------------------------------------------------------- 
-   
-   Set default typography based on Blueprint
-   
-   http://code.google.com/p/blueprintcss/
-     
--------------------------------------------------------------- */   
+/* * Typography Styles
+   ================================================== */
 
-body, input, textarea {
-    color:#000;    
-    font: 12px Arial,sans-serif;
-    line-height:18px;
+/* ===[ default font ]=== */
+
+/* 16px base font size with 162.5% (26px) line height */
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 1em/1.625em Georgia,Palatino,"Palatino Linotype",Times,"Times New Roman",serif;
+    color: #262626;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
-/* Headings
--------------------------------------------------------------- */
+/* ===[ headings ]=== */
 
-h1,h2,h3,h4,h5,h6 { 
-	font-weight:normal;
-	clear:both;
+/* Composed to a scale of 12px, 14px, 16px, 18px, 21px, 24px, 36px, 48px, 60px and 72px  */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Futura, "Century Gothic", AppleGothic, sans-serif;
+    color: #0f0f0f;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.10);
+    position: relative;
+}
+h1 {
+    margin: 0 0 0.433em;
+    font-size: 3.75em; /* 60px */
+    line-height: 1.3em; /* 78px */
+    top: 10px;
+}
+h2 {
+    margin: 0 0 0.5417em;
+    font-size: 3em; /* 48px */
+    line-height: 1.0833em; /* 52px */
+}
+h3 {
+    margin: 0 0 0.7222em;
+    font-size: 2.25em; /* 36px */
+    line-height: 1.4444em; /* 52px */
+    top: 6px;
+}
+h4 {
+    margin: 0 0 1.0833em;
+    font-size: 1.5em; /* 24px */
+    line-height: 1.0833em; /* 26px */
+    top: -2px;
+}
+h5 {
+    margin: 0 0 1.2381em;
+    font-size: 1.3125em; /* 21px */
+    line-height: 1.2381em; /* 26px */
+}
+h6 {
+    margin: 0 0 1.4444em;
+    font-size: 1.125em; /* 18px */
+    line-height: 1.4444em; /* 26px */
 }
 
-/* Text elements
--------------------------------------------------------------- */
+/* ===[ vertical rhythm on elements ]=== */
 
-p {
-    margin-bottom:18px;
-}
-ul {
-	margin: 0 0 18px 2.5em;
-}
-ol {
-	margin: 0 0 18px 2.5em;
-}
-ul {
-	list-style:disc;
-}
-ol {
-	list-style-type: decimal;
-}
-ol ol {
-	list-style:upper-alpha;
-}
-ol ol ol {
-	list-style:lower-roman;
-}
-ol ol ol ol {
-	list-style:lower-alpha;
-}
-ul ul, ol ol, ul ol, ol ul {
-	margin-bottom:0;
-}
-dl	{
-    margin:0 1.5em;
-}
-dt {
-    font-weight:bold;
-}
-dd {
-	margin-bottom:18px;
-}
-strong {
-	font-weight: bold;
-}
-cite, em, i {
-	font-style: italic;
-}
+p,
+ul,
+ol,
+dl,
+pre,
+table,
+form { margin: 0 0 1.625em }
+
+/* ===[ quotes ]=== */
+
 blockquote {
-	margin: 0 3em;
+    margin: 0 3em;
+    font-style: italic;
+    padding-left: 1.625em;
+    border-left: .25em solid #c2ced6;
 }
-blockquote em, blockquote i, blockquote cite {
-	font-style:normal;
-}
-pre {
-	font:11px Monaco, monospace;
-	line-height:18px;
-	margin-bottom:18px;
-}
-code {
-	font:11px Monaco, monospace;
-}
-abbr, acronym {
-  border-bottom:1px dotted #333;
-  cursor: help;
-}
-ins {
-	text-decoration:none;
-}
-sup,
-sub {
-	height: 0;
-	line-height: 1;
-	vertical-align: baseline;
-	position: relative;
-	
-}
-sup {
-	bottom: 1ex;
-}
-sub {
-	top: .5ex;
+blockquote em,
+blockquote i,
+blockquote cite { font-style: normal }
+blockquote.left { text-align: right }
+blockquote.right { text-align: left }
+
+/* ===[ lists ]=== */
+
+ul { list-style: disc }
+ol { list-style-type: decimal }
+ol ol { list-style: upper-alpha }
+ol ol ol { list-style: lower-roman }
+ol ol ol ol { list-style: lower-alpha }
+ul ul,
+ol ol,
+ul ol,
+ol ul { margin-bottom: 0 }
+dt { font-weight: bold }
+
+/* ===[ links ]=== */
+
+a {
+    cursor: pointer;
+    color: #ff0000;
 }
 
-/* Pullquotes
--------------------------------------------------------------- */
-
-blockquote.left {
-	float: left;
-	margin-left:0;
-	margin-right:20px;
-	text-align: right;
-	width: 33%;
-}
-blockquote.right {
-	float: right;
-	margin-left:20px;
-	margin-right:0;
-	text-align: left;
-	width: 33%;
+a:visited {
+    color: #a90000;
+    text-decoration: line-through;
 }
 
-/*
-
-Adapt the following for use in your Child Themes when using
-different font-sizes and line-heights
-
-body, input, textarea {
-    font: --px Arial,sans-serif;
-    line-height:--px;
-}
-p, ul, ol, dd, pre {
-    margin-bottom:--px;
-}
-pre, code {
-	font:--px Monaco, monospace;
-	line-height:--px;
+a:hover {
+    color: #ff4040;
+    text-decoration: none;
 }
 
-All other styles can be overridden--or ignored!--in Child Theme stylesheets
+/* ===[ abbreviation ]=== */
 
-*/
+abbr[title],
+acronym,
+dfn[title] {
+    border-bottom: 1px dotted #262626;
+    cursor: help;
+}
+
+/* ===[ marks/inserted/deleted and selected text ]=== */
+
+ins,
+mark { text-decoration: none }
+mark { background: #c2ced6 }
+ins { background: #9cb0be }
+del { text-decoration: line-through }
+::-moz-selection {
+    background: #9cb0be;
+    color: #fff;
+    text-shadow: none; 
+}
+::selection {
+    background: #9cb0be;
+    color: #fff;
+    text-shadow: none;
+}
+
+/* ===[ horizontal rule ]=== */
+
+hr {
+    display: block;
+    height: .25em;
+    border: 0;
+    background: #0d0d0d;
+    margin: 1.625em 0 1.375em;
+    padding: 0;
+    position: relative;
+    top: -.375em;
+}
+
+/* ===[ tables ]=== */
+
+table {
+    position: relative;
+    top: -.375em;
+}
+th,
+td {
+    line-height: 26px;
+    padding: 13px 8px 12px 8px;
+}
+thead th,
+thead td {
+    padding-bottom: 13px;
+    text-align: left;
+}
+tbody tr,
+tfoot tr { border-top: solid 1px #d6d6d6 }
+tbody tr:first-child { border-color: #262626 }
+tbody tr:nth-child(odd) th,
+tbody tr:nth-child(odd) td { background: #f9f9f9 }
+tbody tr:hover td,
+tbody tr:hover th { background-color: #e6ebef }
+caption {
+    text-align: center;
+    font-style: italic;
+}
+
+/* ===[ Forms ]=== */
+
+/* Fieldsets ] */
+
+form fieldset {
+    padding: 1.625em 1em;
+    border: 1px solid #262626;
+    border-width: 1px 0 0;
+    margin: 1.5625em 0 1.6254em;
+}
+
+/*  Legend ] */
+
+form legend {
+    color: #0D0D0D;
+    padding: 0 .5em;
+}
+
+/*  Labels */
+
+form label {
+    cursor: pointer;
+    color: #0D0D0D;
+}
+
+input[type="checkbox"]+label,
+input[type="radio"]+label { padding: 0 1em 0 .25em }
+
+/*  Inputs */
+
+input[type="text"],
+textarea,
+select { display: block }
+
+textarea { max-width: 100% }
+
+input[type="text"],
+textarea {
+    padding: .25em;
+    background: #FFFFFF;
+    border: 1px solid #DBDBDB;
+    position: relative;
+    top: -5px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    background: #F9F9F9;
+    outline: none !important;
+}
+
+textarea { resize: vertical }
+
+/* Text input and textarea, disabled */
+
+input[type="text"][disabled],
+textarea[disabled] { background-color: #ddd }
+
+/*  Inlined Radio & Checkbox */
+
+input[type=radio],
+input[type=checkbox] {
+    display: inline;
+    width: auto;
+    margin-bottom: 0;
+}
+
+/* buttons */
+
+button {
+    display: inline-block;
+    padding: .25em .5em;
+    margin-bottom: 1em;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    background-image: -ms-linear-gradient(top, #ffffff, #D6D6D6);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#D6D6D6));
+    background-image: -webkit-linear-gradient(top, #ffffff, #D6D6D6);
+    background-image: -o-linear-gradient(top, #ffffff, #D6D6D6);
+    background-image: linear-gradient(top, #ffffff, #D6D6D6);
+    background-image: -moz-linear-gradient(top, #ffffff, #D6D6D6);
+    background-repeat: repeat-x;
+    border: 1px solid #cccccc;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-color: #D6D6D6 #D6D6D6 #bfbfbf;
+    border-bottom-color: #b3b3b3;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#ffffff', endColorstr='#D6D6D6', GradientType=0);
+    filter: progid:dximagetransform.microsoft.gradient(enabled=false);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+button:hover {
+    text-decoration: none;
+    background-color: #D6D6D6;
+    background-position: 0 -1em;
+    -webkit-transition: background-position 0.1s linear;
+    -moz-transition: background-position 0.1s linear;
+    -ms-transition: background-position 0.1s linear;
+    -o-transition: background-position 0.1s linear;
+    transition: background-position 0.1s linear;
+}
+
+button:active,
+button[disabled] { background-color: #D6D6D6 }
+
+button+button { margin-left: .5em }
+
+/* definition list form layout  */
+
+form dt {
+    clear: left;
+    float: left;
+    width: 10em;
+    margin: 0;
+    font-weight: normal;
+}
+
+form dd {
+    margin-left: 11.25em;
+    min-height: 2.25em;
+    margin-bottom: 1em;
+}

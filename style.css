@@ -21,54 +21,33 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Reset browser defaults */
-@import url('library/styles/reset.css');
+@import url('library/styles/normalize.css');
 
 /* Apply basic typography styles */
 @import url('library/styles/typography.css');
 
-/* Apply a basic layout */
-@import url('library/layouts/2c-r-fixed.css');
-
-/* Apply basic image styles */
-@import url('library/styles/images.css');
-
-/* Apply default theme styles and colors */
-@import url('library/styles/default.css');
-
-/* Prepare theme for plugins */
-@import url('library/styles/plugins.css');
 
 /* -------------------------------------------------------------- 
    
    Default styles for Images
-   
-   I've duplicated these styles here from images.css in
-   order to get Thematic through the auto-checker at the
-   official WordPress Themes directory.
-   
-   When the directory can hunt though css files linked
-   through @import the styles below will no longer be
-   neccesary and will be removed.
-   
-   Cheers. --Ian Stewart
   
 -------------------------------------------------------------- */   
 
 .entry-content img {
     height:auto;
-    margin: 0 0 18px 0;
+    margin: 0 0 1.625em 0;
     max-width:100%;
 }
 .alignleft,
 img.alignleft {
 	float: left;
-    margin-right:20px;
+    margin-right: 1.25em;
 }
 .alignright,
 img.alignright {
 	display: block;
 	float: right;
-    margin-left:20px;
+    margin-left: 1.25em;
 }
 .aligncenter,
 img.aligncenter {
@@ -79,7 +58,7 @@ img.aligncenter {
 }
 .wp-caption {
 	text-align: center;
-	margin-bottom:18px;
+	margin-bottom:1.625em;
 	max-width: 96%;
 }
 .wp-caption img {
@@ -95,7 +74,7 @@ img.aligncenter {
     margin:0;
 }
 .wp-smiley { /* Prevent the smileys from breaking line-height */
-	max-height:12px;
+	max-height:.75em;
 	margin:0 !important;
 }
 
