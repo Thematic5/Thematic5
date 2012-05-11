@@ -1254,14 +1254,14 @@ if (function_exists('childtheme_override_postfooter'))  {
 	    
 		// Check for "Page" post-type and logged in user to show edit link
 	    if ( $post_type == 'page' && current_user_can('edit_posts') ) {
-	        $postfooter = '<footer class="entry-meta">' . thematic5_postfooter_posteditlink();
-	        $postfooter .= "</div><!-- .entry-meta -->\n";
+	        $postfooter = '<footer class="entry-utility">' . thematic5_postfooter_posteditlink();
+	        $postfooter .= "</div><!-- .entry-utility -->\n";
 	    // Display nothing for logged out users on a "Page" post-type 
 	    } elseif ( $post_type == 'page' ) {
 	        $postfooter = '';
 	    // For post-types other than "Pages" press on
 	    } else {
-	    	$postfooter = '<footer class="entry-meta">';
+	    	$postfooter = '<footer class="entry-utility">';
 	        if ( is_single() ) {
 	        	$post_type_archive_link = ( function_exists( 'get_post_type_archive_link' )  ? get_post_type_archive_link( $post_type ) :  home_url( '/?post_type=' . $post_type ) );
 	        	if ( thematic5_is_custom_post_type() && $post_type_obj->has_archive ) {

@@ -404,7 +404,7 @@ function thematic5_nav_menu_args() {
 	$args = array (
 		'theme_location'	=> apply_filters('thematic5_primary_menu_id', 'primary-menu'),
 		'menu'				=> '',
-		'container'			=> 'div',
+		'container'			=> 'nav',
 		'container_class'	=> 'menu',
 		'menu_class'		=> 'sf-menu',
 		'fallback_cb'		=> 'wp_page_menu',
@@ -580,7 +580,7 @@ if ( function_exists('childtheme_override_access') )  {
     function thematic5_access() { 
     ?>
     
-    <nav id="access" role="navigation">
+    <div id="access" role="navigation">
 		<h1 class="assistive-text"><?php _e( 'Menu', 'thematic5' ); ?></h1>
     	<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip navigation to the content', 'thematic5' ); ?>"><?php _e('Skip to content', 'thematic5'); ?></a></div><!-- .skip-link -->
     	
@@ -592,7 +592,7 @@ if ( function_exists('childtheme_override_access') )  {
     	}
     	?>
     	
-    </nav><!-- #access -->
+    </div><!-- #access -->
     <?php 
     }
 }
