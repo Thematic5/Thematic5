@@ -325,21 +325,8 @@ ul.sf-menu li li li.sfHover ul {
 .entry-content embed {
     margin:0 0 22px 0;
 }
-.entry-utility {
-	clear:both;
-    color:#666;
-    font-size:13px;
-    line-height:18px;
+footer.entry-meta {
     margin:0 0 44px 0;
-}
-.entry-utility a {
-    color:#666;
-    font-style:italic;
-    text-decoration:none;
-}
-.entry-utility a:active,
-.entry-utility a:hover {
-    color: #FF4B33;
 }
 .page .edit-link {
 	clear:both;
@@ -697,12 +684,12 @@ li.content-column {
 .aside a:hover {
     color: #FF4B33;
 }
-.aside h3 {
+.aside h1 {
     font-size:15px;
     font-style:italic;
     line-height:22px;
 }
-.aside h3 a {
+.aside h1 a {
     text-decoration:none;
 }
 .aside caption {
@@ -758,10 +745,8 @@ li.content-column {
 /*
     Main Asides
 */
-.main-aside ul {
+.main-aside ul, .main-aside aside  {
     padding:0 20px;
-}
-.main-aside h3 {
 }
 .main-aside ul ul {
     padding:0;
@@ -782,7 +767,7 @@ li.content-column {
 #content .aside ul {
     padding:0 20px;
 }
-#content .aside h3 {
+#content .aside h1 {
     font-family:Georgia,serif;
     font-weight:normal;
     font-size:17px;
@@ -804,7 +789,7 @@ li.content-column {
 /* =Footer
 -------------------------------------------------------------- */
 
-#footer {
+#site-footer {
     border-top:1px solid #ccc;
     margin-top:22px;
 }

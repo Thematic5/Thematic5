@@ -26,7 +26,7 @@
 				thematic5_abovecontent();
 
 				// filter for manipulating the element that wraps the content 
-				echo apply_filters( 'thematic5_open_id_content', '<div id="content">' . "\n\n" );
+				echo apply_filters( 'thematic5_open_id_content', '<div id="content" role="main">' . "\n\n" );
 
 				// start the loop to get the page content
 				the_post();

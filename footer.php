@@ -19,13 +19,13 @@
 		// action hook for placing content above the footer
 		thematic5_abovefooter();
     ?>    
-	<div id="footer">
+	<footer id="site-footer" role="contentinfo">
         <?php
         	// action hook creating the footer 
         	thematic5_footer();
         ?>
 	
-	</div><!-- #footer -->
+	</footer><!-- #site-footer -->
 	
     <?php
 		// action hook for placing content below the footer
