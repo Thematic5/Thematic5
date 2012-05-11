@@ -83,5 +83,6 @@ img.aligncenter {
 
 
 /*temporary*/
-body { background: url(library/grids/26px_grid_bg.gif); background-position: /*0 -6px */}
-#wrapper { width: 800px; margin: 0 auto;}
+body { background: url(library/grids/26px_grid_bg.png); background-position: 0 -7px }
+#wrapper { width: 700px; margin: 0 auto;}
+
