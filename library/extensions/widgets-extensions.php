@@ -21,33 +21,52 @@
  * @see Thematic_Widget_Search
  * @link http://codex.wordpress.org/Function_Reference/get_search_form Codex: get_search_form()
  */
-function thematic5_search_form() {
-	$search_form_length = apply_filters('thematic5_search_form_length', '32');
-	$search_form  = "\n\t\t\t\t\t\t";
-	$search_form .= '<form id="searchform" method="get" action="' . home_url() .'/">';
-	$search_form .= "\n\n\t\t\t\t\t\t\t";
-	$search_form .= '<div>';
-	$search_form .= "\n\t\t\t\t\t\t\t\t";
-	if (is_search()) {
-	    	$search_form .= '<input id="s" name="s" type="text" value="' . esc_html ( stripslashes( $_GET['s'] ) ) .'" size="' . $search_form_length . '" tabindex="1" />';
-	} else {
-	    	$value = __( 'To search, type and hit enter', 'thematic5' );
-	    	$value = apply_filters( 'search_field_value',$value );
-	    	$search_form .= '<input id="s" name="s" type="text" value="' . $value . '" onfocus="if (this.value == \'' . $value . '\') {this.value = \'\';}" onblur="if (this.value == \'\') {this.value = \'' . $value . '\';}" size="'. $search_form_length .'" tabindex="1" />';
-	}
-	$search_form .= "\n\n\t\t\t\t\t\t\t\t";
-	
-	$search_submit = '<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic5') . '" tabindex="2" />';
-	
-	$search_form .= apply_filters('thematic5_search_submit', $search_submit);
-	
-	$search_form .= "\n\t\t\t\t\t\t\t";
-	$search_form .= '</div>';
-	
-	$search_form .= "\n\n\t\t\t\t\t\t";
-	$search_form .= '</form>' . "\n\n\t\t\t\t\t";
-	
-	echo apply_filters('thematic5_search_form', $search_form);
+function thematic5_search_form( $id ) {
+	switch( $id ) {
+        case '404' :
+            $search_form  = '<form id="error404-searchform" method="get" action="' . home_url() . '/">';
+			$search_form .= '	<div>';
+			$search_form .= '		<input id="error404-s" name="s" type="text" value="' . get_search_query() . '" size="40" />';
+			$search_form .= '		<input id="error404-searchsubmit" name="searchsubmit" type="submit" value="' . esc_attr__( 'Find', 'thematic5' ) . '" />';
+			$search_form .= '	</div>';
+			$search_form .= '</form>';
+			break;
+        case 'search-result':
+            $search_form .= '<form id="noresults-searchform" method="get" action="' . home_url() . '/">';
+			$search_form .= '	<div>';
+			$search_form .= '		<input id="noresults-s" name="s" type="text" value="' . get_search_query() . '" size="40" />';
+			$search_form .= '		<input id="noresults-searchsubmit" name="searchsubmit" type="submit" value="' . esc_attr__( 'Find', 'thematic5' ) . '" />';
+			$search_form .= '	</div>';
+			$search_form .= '</form>';
+			break;
+        default:
+            $search_form_length = apply_filters('thematic5_search_form_length', '32');
+			$search_form  = "\n\t\t\t\t\t\t";
+			$search_form .= '<form id="searchform" method="get" action="' . home_url() .'/">';
+			$search_form .= "\n\n\t\t\t\t\t\t\t";
+			$search_form .= '<div>';
+			$search_form .= "\n\t\t\t\t\t\t\t\t";
+			if (is_search()) {
+			    	$search_form .= '<input id="s" name="s" type="text" value="' . esc_html ( stripslashes( $_GET['s'] ) ) .'" size="' . $search_form_length . '" tabindex="1" />';
+			} else {
+			    	$value = __( 'To search, type and hit enter', 'thematic5' );
+			    	$value = apply_filters( 'search_field_value',$value );
+			    	$search_form .= '<input id="s" name="s" type="text" value="' . $value . '" onfocus="if (this.value == \'' . $value . '\') {this.value = \'\';}" onblur="if (this.value == \'\') {this.value = \'' . $value . '\';}" size="'. $search_form_length .'" tabindex="1" />';
+			}
+			$search_form .= "\n\n\t\t\t\t\t\t\t\t";
+
+			$search_submit = '<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic5') . '" tabindex="2" />';
+
+			$search_form .= apply_filters('thematic5_search_submit', $search_submit);
+
+			$search_form .= "\n\t\t\t\t\t\t\t";
+			$search_form .= '</div>';
+
+			$search_form .= "\n\n\t\t\t\t\t\t";
+			$search_form .= '</form>' . "\n\n\t\t\t\t\t";
+			break;
+    }
+	echo apply_filters( 'thematic5_search_form', $search_form, $id );
 }
 
 /**
