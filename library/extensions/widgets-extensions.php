@@ -590,6 +590,7 @@ function thematic5_before_widget_area($hook) {
  * @return string 
  */
 function thematic5_after_widget_area($hook) {
+	$content = '';
 	if ( $hook == 'primary-aside' ) {
 		$content .= '</div><!-- #primary .aside -->' ."\n\n";
 	} elseif ( $hook == 'secondary-aside' ) {
