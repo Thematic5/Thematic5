@@ -578,7 +578,7 @@ function thematic5_before_widget_area($hook) {
 	} else {
 		$content .= '<div id="' . $hook . '" class="aside" role="complementary">' ."\n";
 	}
-	return apply_filters( 'thematic5_before_widget_area', $content );
+	return apply_filters( 'thematic5_before_widget_area', $content, $hook );
 }
 
 /**
@@ -604,7 +604,7 @@ function thematic5_after_widget_area($hook) {
 	} else {
 		$content .= '</div><!-- #' . $hook . ' .aside -->' ."\n\n";
 	} 
-	return apply_filters( 'thematic5_after_widget_area', $content );
+	return apply_filters( 'thematic5_after_widget_area', $content, $hook );
 }
 
 ?>
