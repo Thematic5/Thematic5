@@ -8,47 +8,64 @@
  */
 
 
-/**
- * Displays a filterable Search Form
- *
- * This function is called from the searchform.php template. 
- * That template is called by the WP function get_search_form()
- *
- * Filter: search_field_value Controls the input element's size attribute <br>
- * Filter: thematic5_search_submit Controls the form's "submit" input element <br>
- * Filters: thematic5_search_form Controls the entire from output just before display <br>
- *
- * @see Thematic_Widget_Search
- * @link http://codex.wordpress.org/Function_Reference/get_search_form Codex: get_search_form()
- */
-function thematic5_search_form() {
-	$search_form_length = apply_filters('thematic5_search_form_length', '32');
-	$search_form  = "\n\t\t\t\t\t\t";
-	$search_form .= '<form id="searchform" method="get" action="' . home_url() .'/">';
-	$search_form .= "\n\n\t\t\t\t\t\t\t";
-	$search_form .= '<div>';
-	$search_form .= "\n\t\t\t\t\t\t\t\t";
-	if (is_search()) {
-	    	$search_form .= '<input id="s" name="s" type="text" value="' . esc_html ( stripslashes( $_GET['s'] ) ) .'" size="' . $search_form_length . '" tabindex="1" />';
-	} else {
-	    	$value = __( 'To search, type and hit enter', 'thematic5' );
-	    	$value = apply_filters( 'search_field_value',$value );
-	    	$search_form .= '<input id="s" name="s" type="text" value="' . $value . '" onfocus="if (this.value == \'' . $value . '\') {this.value = \'\';}" onblur="if (this.value == \'\') {this.value = \'' . $value . '\';}" size="'. $search_form_length .'" tabindex="1" />';
+if ( function_exists('childtheme_override_search_form') )  {
+    /**
+     * @ignore
+     */
+    function thematic5_search_form() {
+    	childtheme_override_search_form();
+    }
+} else {
+	/**
+	 * Displays a filterable Search Form
+	 *
+	 * This function is called from the searchform.php template. 
+	 * That template is called by the WP function get_search_form()
+	 *
+	 * Filter: thematic5_search_form_length Controls the input element's size attribute <br>
+	 * Filter: thematic5_search_field_value Controls the value of the default search form <br>
+	 * Filter: thematic5_search_submit Controls the default form's "submit" input element <br>
+	 * Filters: thematic5_search_form Controls the entire form output just before display <br>
+	 *
+	 * @see Thematic_Widget_Search
+	 * @link http://codex.wordpress.org/Function_Reference/get_search_form Codex: get_search_form()
+	 */
+	function thematic5_search_form( $id ) {
+		$search_form_length = apply_filters('thematic5_search_form_length', '32', $id);
+		switch( $id ) {
+	        case '404' :      
+				$search_form  = '<form id="error404-searchform" method="get" action="' . home_url() . '/">';
+				$search_form .= '	<div>';
+				$search_form .= '		<input id="error404-s" name="s" type="search" value="' . get_search_query() . '" size="' . $search_form_length . '" />';
+				$search_form .= '		<input id="error404-searchsubmit" name="searchsubmit" type="submit" value="' . esc_attr__( 'Find', 'thematic5' ) . '" />';
+				$search_form .= '	</div>';
+				$search_form .= '</form>';
+				break;
+	        case 'search-result':
+	            $search_form .= '<form id="noresults-searchform" method="get" action="' . home_url() . '/">';
+				$search_form .= '	<div>';
+				$search_form .= '		<input id="noresults-s" name="s" type="search" value="' . get_search_query() . '" size="' . $search_form_length . '" />';
+				$search_form .= '		<input id="noresults-searchsubmit" name="searchsubmit" type="submit" value="' . esc_attr__( 'Find', 'thematic5' ) . '" />';
+				$search_form .= '	</div>';
+				$search_form .= '</form>';
+				break;
+	        default:
+	            $placeholder = __( 'To search, type and hit enter', 'thematic5' );
+				$placeholder = apply_filters( 'thematic5_search_field_value',$placeholder );
+			
+				$search_form .= '<form id="searchform" method="get" action="' . home_url() .'/">';
+				$search_form .= '	<div>';
+				$search_form .= '		<input id="s" name="s" type="search" placeholder="' . $placeholder . '" value="' . $placeholder . '" onfocus="if (this.value == \'' . $placeholder . '\') {this.value = \'\';}" onblur="if (this.value == \'\') {this.value = \'' . $placeholder . '\';}" size="'. $search_form_length .'" tabindex="1" />';
+				$search_submit = '		<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic5') . '" tabindex="2" />';
+				$search_form .= apply_filters('thematic5_search_submit', $search_submit);
+				$search_form .= '	</div>';
+				$search_form .= '</form>';
+				break;
+	    }
+		echo apply_filters( 'thematic5_search_form', $search_form, $id );
 	}
-	$search_form .= "\n\n\t\t\t\t\t\t\t\t";
-	
-	$search_submit = '<input id="searchsubmit" name="searchsubmit" type="submit" value="' . __('Search', 'thematic5') . '" tabindex="2" />';
-	
-	$search_form .= apply_filters('thematic5_search_submit', $search_submit);
-	
-	$search_form .= "\n\t\t\t\t\t\t\t";
-	$search_form .= '</div>';
-	
-	$search_form .= "\n\n\t\t\t\t\t\t";
-	$search_form .= '</form>' . "\n\n\t\t\t\t\t";
-	
-	echo apply_filters('thematic5_search_form', $search_form);
 }
+
 
 /**
  * Defines the array for creating and displaying the widgetized areas
