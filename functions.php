@@ -67,38 +67,65 @@ if ( function_exists('childtheme_override_theme_setup') ) {
 
 		/**
 		 * Get Theme and Child Theme Data.
-		 * Credits: Joern Kretzschmar
 		 * 
 		 * Used to get title, version, author, URI of the parent and the child theme.
+		 * get_theme_data() is deprecated as of 3.4 in favor of wp_get_theme()
 		 */
-		$themeData = get_theme_data(  get_template_directory() . '/style.css' );
-		$thm_version = trim( $themeData['Version'] );
+		if (function_exists('wp_get_theme')){
+				// get theme data of parent theme
+		        $theme_data = wp_get_theme( 'Thematic5' );
+		        $thm_version = $theme_data->Version;
+		        $thm_name = $theme_data->Name;
+		        $thm_theme_uri = $theme_data->ThemeURI;
+		        $thm_description = $theme_data->Description;
+		        $thm_author = $theme_data->Author;
+		        $thm_author_uri = $theme_data->AuthorURI;
+		
+				$child_theme_data = wp_get_theme();
+				$child_version = trim( $child_theme_data->Version );
+				$child_name = $child_theme_data->Name;
+				$child_author = $child_theme_data->Author;
+				$child_theme_uri = $child_theme_data->ThemeURI;
+
+		} else {
+		        $theme_data = get_theme_data( get_template_directory() . '/style.css' );
+		        $thm_version = $theme_data['Version'];
+		        $thm_name = $theme_data['Name'];
+		        $thm_theme_uri = $theme_data['Theme_URI'];
+		        $thm_description = $theme_data['Description'];
+		        $thm_author = $theme_data['Author'];
+		        $thm_author_uri = $theme_data['Author_URI'];
+		
+				$ct = get_theme_data(  get_stylesheet_directory() . '/style.css' );
+				$child_version = trim( $ct['Version'] );
+				$child_name = $ct['Title'];
+				$child_author = $ct['Author'];
+				$child_theme_uri = $ct['URI'];
+				
+		}
 		
 		if (!$thm_version)
 			$thm_version = "unknown";
-
-		$ct = get_theme_data(  get_stylesheet_directory() . '/style.css' );
-		$templateversion = trim( $ct['Version'] );
 		
-		if ( !$templateversion )
-			$templateversion = "unknown";
+		if ( !$child_version )
+			$child_version = "unknown";
 
 		if ( !defined('THEMENAME') )
-			define('THEMENAME', $themeData['Title']);
+			define('THEMENAME', $thm_name);
 
 		if ( !defined('THEMEAUTHOR') )
-			define('THEMEAUTHOR', $themeData['Author']);
+			define('THEMEAUTHOR', $thm_author);
 
 		if ( !defined('THEMEURI') )
-			define('THEMEURI', $themeData['URI']);
+			define('THEMEURI', $thm_theme_uri);
 
 		if ( !defined('THEMATICVERSION') )
 			define('THEMATICVERSION', $thm_version);
 
-		define( 'TEMPLATENAME', $ct['Title'] );
-		define( 'TEMPLATEAUTHOR', $ct['Author'] );
-		define( 'TEMPLATEURI', $ct['URI'] );
-		define( 'TEMPLATEVERSION', $templateversion );
+		define( 'TEMPLATENAME', $child_name );
+		define( 'TEMPLATEAUTHOR', $child_author );
+		define( 'TEMPLATEURI', $child_theme_uri );
+		define( 'TEMPLATEVERSION', $child_version );
 
 		// Check for WordPress mu or WordPress 3.0
 		define( 'THEMATIC_MB', function_exists('get_blog_option') );
